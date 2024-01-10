@@ -1,0 +1,50 @@
+[09-Aug-2023 02:50:41 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:50:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:50:46 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:50:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:51:57 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:51:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:52:00 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:52:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:53:41 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:53:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:53:43 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:53:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:58:34 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:58:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:58:39 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:58:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:59:01 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:59:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:59:03 UTC] PHP Warning:  require(/home/y6hpnkirmxxu/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/y6hpnkirmxxu/public_html/index.php on line 34
+[09-Aug-2023 02:59:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/y6hpnkirmxxu/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/y6hpnkirmxxu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/y6hpnkirmxxu/public_html/index.php on line 34

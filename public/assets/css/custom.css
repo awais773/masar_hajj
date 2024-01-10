@@ -1,0 +1,42 @@
+.navigationbar {
+    background:#6e81dc !important;
+}
+.vertical-header{
+    color: #fff !important;
+}
+.vertical-menu > li > a{
+    color: #fff !important;
+}
+.vertical-menu > li > a > img{
+    filter: unset !important;
+}
+.vertical-menu .vertical-submenu > li > a,.vertical-menu .vertical-submenu > li > a > .mdi{
+    color: #fff !important;
+}
+.card1{
+    background: #4500805e !important;
+    color: #fff !important;
+}
+.card2{
+    background: #008000a1 !important;
+    color: #fff !important;
+}
+.card3{
+    background: #6e81dc !important;
+    color: #fff !important;
+}
+.card .card-header .row .card-title ,.card .card-body .row h3{
+    color: #fff !important;
+}
+#defaultTab{
+    background: #d3d3d375 !important;
+}
+.nav-tabs .nav-link.active{
+    border-color:#5e81dc !important;
+}
+.form-control ,.select2-container--default .select2-selection--multiple{
+    border-color:#5e81dc !important;
+}
+.companyLogo{
+    width: 100px !important;
+}
