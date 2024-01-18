@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Api\Company;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Helper\Helper;
-use Illuminate\View\View;
+use File;
+use Session;
+use Carbon\Carbon;
 use App\Models\Group;
 use App\Models\Guide;
+use App\Helper\Helper;
 use App\Models\Location;
-use Session;
-use File;
-use Auth;
-use Carbon\Carbon;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 class CompanyGroupController extends Controller
 {
     /**

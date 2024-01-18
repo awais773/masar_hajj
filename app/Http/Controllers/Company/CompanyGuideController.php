@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Company;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use File;
+use Carbon\Carbon;
+use App\Models\Guide;
 use App\Helper\Helper;
 use Illuminate\View\View;
-use App\Models\Guide;
-use Session;
-use File;
-use Auth;
-use Carbon\Carbon;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 class CompanyGuideController extends Controller
 {
     /**

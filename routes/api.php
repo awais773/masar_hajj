@@ -27,18 +27,21 @@ use App\Http\Controllers\Api\Admin\UserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-], function ($router) {
-
+Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
     Route::post('register', [AuthController::class,'register'])->name('api.register');
     Route::post('login', [AuthController::class,'login'])->name('api.login');
     Route::middleware('jwt.auth')->post('logout', 'AuthController@logout')->name('api.logout');
     Route::middleware('auth')->post('refresh', 'AuthController@refresh')->name('api.refresh');
     Route::middleware('jwt.auth')->post('me', 'AuthController@me')->name('api.me');
 
+    Route::post('loginUser', [AuthController::class,'loginUser']);
+    Route::post('loginGuide', [AuthController::class,'loginGuide']);
+    Route::post('userLocationEdit/{id}', [AuthController::class,'userLocationEdit']);
+    Route::post('addLocation', [AuthController::class,'addLocation']);
+    Route::get('hajjProcedure/{id}', [AuthController::class,'hajjProcedure']);
+
 });
+
 /*------------------------------------------
 --------------------------------------------
 All company Routes List
@@ -118,7 +121,7 @@ Route::middleware(['auth:api', 'admin-access'])->group(function () {
   Route::get('admin/registrationRequest/update/{id}/{status}', [AdminRegistrationRequestController::class, 'update'])->name('admin.registrationRequest.update');
 
    // dua
-   Route::get('admin/dua', [AdminDuaController::class, 'index'])->name('admin.dua');
+   Route::get('admin/dua/{id}', [AdminDuaController::class, 'index']);
    Route::post('admin/dua/store', [AdminDuaController::class, 'store'])->name('admin.dua.store');
    Route::get('admin/dua/delete/{id}', [AdminDuaController::class, 'delete'])->name('admin.dua.delete');
    Route::get('admin/dua/edit/{id}', [AdminDuaController::class, 'edit'])->name('admin.dua.edit');
