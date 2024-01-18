@@ -14,6 +14,9 @@ use App\Http\Controllers\Api\Company\CompanyGuideController;
 use App\Http\Controllers\Api\Company\CompanyUserController;
 use App\Http\Controllers\Api\Company\CompanyResidenceController;
 use App\Http\Controllers\Api\Company\CompanyGroupController;
+use App\Http\Controllers\Api\Admin\SurveyController;
+use App\Http\Controllers\Api\Admin\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,6 +33,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
     Route::middleware('jwt.auth')->post('logout', 'AuthController@logout')->name('api.logout');
     Route::middleware('auth')->post('refresh', 'AuthController@refresh')->name('api.refresh');
     Route::middleware('jwt.auth')->post('me', 'AuthController@me')->name('api.me');
+
     Route::post('loginUser', [AuthController::class,'loginUser']);
     Route::post('loginGuide', [AuthController::class,'loginGuide']);
     Route::post('userLocationEdit/{id}', [AuthController::class,'userLocationEdit']);
@@ -78,14 +82,14 @@ Route::middleware(['auth:api', 'company-access'])->group(function () {
          Route::get('company/minas', [CompanyGroupController::class, 'minas'])->name('company.minas');
          Route::get('company/arafats', [CompanyGroupController::class, 'arafats'])->name('company.arafats');
 });
-  
+
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth:api', 'admin-access'])->group(function () {
-  
+
     Route::get('/admin/dashboard', [AdminHomeController::class, 'dashboard'])->name('admin.home');
     // Route::get('admin/map/view', [AdminHomeController::class, 'adminMap'])->name('admin.map');
     //company
@@ -130,3 +134,17 @@ Route::middleware(['auth:api', 'admin-access'])->group(function () {
     Route::get('admin/survey/delete/{id}', [AdminSurveyControlller::class, 'delete'])->name('admin.survey.delete');
     Route::get('admin/survey/edit/{id}', [AdminSurveyControlller::class, 'edit'])->name('admin.survey.edit');
     Route::post('admin/survey/update/{id}', [AdminSurveyControlller::class, 'update'])->name('admin.survey.update');
+
+// New Api
+Route::get('admin/survey/{id}', [SurveyController::class, 'survey']);
+
+// Route::put('admin/company/{id}', [SurveyController::class, 'company_user']);
+
+Route::post('admin/company/user/{id}', [SurveyController::class, 'user_update_password']);
+Route::post('admin/guide/user/{id}', [SurveyController::class, 'guide_update_password']);
+
+Route::get('guide/{id}', [SurveyController::class, 'guide_get']);
+Route::get('company/{id}', [SurveyController::class, 'company_get']);
+Route::post('guide/update/image/{id}', [SurveyController::class, 'guide_update_image']);
+Route::post('user/update/image/{id}', [SurveyController::class, 'user_update_image']);
+
