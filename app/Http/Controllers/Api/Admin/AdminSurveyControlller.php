@@ -30,7 +30,6 @@ class AdminSurveyControlller extends Controller
      */
     public function index()
     {
-      
         $surveys=Survey::get();
         return response()->json(['data' => $surveys, 'status' => 'success',]);
     }

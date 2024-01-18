@@ -16,22 +16,42 @@ class AdminDuaController extends Controller
      *
      * @return void
     */
-    public function __construct()
-    {
-        $this->middleware('auth"api');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth"api');
+    // }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request, $id)
     {
-      
-        $duas=Dua::get();
-        return response()->json(['data' => $duas, 'status' => 'success',]);
+        $duas = Dua::where('company_id', $id)->get();
+        $language = $request->lang ?? 'en'; // Default to English if language is not specified
+    
+        foreach ($duas as $dua) {
+            $dua->title = $this->getLocalizedField($dua->title, $language);
+            $dua->description = $this->getLocalizedField($dua->description, $language);
+        }
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Data successfully',
+            'data' => $duas,
+        ]);
     }
+    
+
+    private function getLocalizedField($field, $language) {
+      $decodedField = json_decode($field, true);
+  
+      // Use the specified language, or default to English
+      $localizedValue = $decodedField[$language] ?? $decodedField['en'] ?? null;
+  
+      return $localizedValue;
+  }
       
     public function store(Request $request){
       try {

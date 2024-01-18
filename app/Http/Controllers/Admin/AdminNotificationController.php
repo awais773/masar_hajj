@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use File;
+use App\Models\Guide;
 use App\Helper\Helper;
 use Illuminate\View\View;
-use App\Models\Guide;
 use App\Models\CompanyUser;
-use Session;
-use File;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 class AdminNotificationController extends Controller
 {
     /**
