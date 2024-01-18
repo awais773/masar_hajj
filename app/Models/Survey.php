@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Survey extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
     public $timestamps = false;
     use SoftDeletes;
     public function company() {
