@@ -138,13 +138,12 @@ Route::middleware(['auth:api', 'admin-access'])->group(function () {
 // New Api
 Route::get('admin/survey/{id}', [SurveyController::class, 'survey']);
 
-// Route::put('admin/company/{id}', [SurveyController::class, 'company_user']);
-
 Route::post('admin/company/user/{id}', [SurveyController::class, 'user_update_password']);
 Route::post('admin/guide/user/{id}', [SurveyController::class, 'guide_update_password']);
-
-Route::get('guide/{id}', [SurveyController::class, 'guide_get']);
-Route::get('company/{id}', [SurveyController::class, 'company_get']);
+Route::get('guide/user/{id}', [SurveyController::class, 'guide_get']);
+Route::get('company/user/{id}', [SurveyController::class, 'company_get']);
 Route::post('guide/update/image/{id}', [SurveyController::class, 'guide_update_image']);
 Route::post('user/update/image/{id}', [SurveyController::class, 'user_update_image']);
+
+Route::get('customer/location/{id}', [AuthController::class, 'custom_location']);
 
