@@ -258,6 +258,9 @@ class AuthController extends Controller
       }
 
 
+
+
+
       public function hajjProcedure(Request $request, $id)
       {
           $duas = HajjProcedure::where('company_id', $id)->get();
