@@ -12,9 +12,10 @@ class CustomerLocation extends Model
     protected  $guarded = [];
     public $timestamps = false;
 
-    
-    public function group() {
 
-        return $this->hasOne(Group::class,'company_id','company_id');
+    public function group()
+    {
+
+        return $this->hasOne(Group::class, 'company_id', 'company_id');
     }
 }
