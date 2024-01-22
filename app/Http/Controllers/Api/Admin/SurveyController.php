@@ -106,7 +106,7 @@ class SurveyController extends Controller
     }
 
     //  Guide Update Image
-    public function guide_update_image(Request $request, $id,)
+    public function guide_update_image(Request $request, $id)
     {
         try {
             $guides = Guide::find($id);
@@ -120,9 +120,9 @@ class SurveyController extends Controller
                 $guides->picture = $video_url;
             }
             $guides->save();
-            return response()->json(['message' => 'Password updated successfully !', 'success' => true, 'data' => $guides,]);
+            return response()->json(['message' => 'Image updated successfully !', 'success' => true, 'data' => $guides,]);
         } catch (\Throwable $th) {
-            return response()->json(['message' => ' Password ID is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
+            return response()->json(['message' => ' Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
 
     }
@@ -131,11 +131,20 @@ class SurveyController extends Controller
     {
         try {
             $company_users = CompanyUser::find($id);
-            $company_users->picture = $request->picture;
+            if ($file = $request->file('picture')) {
+                $video_name = md5(rand(1000, 10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $video_full_name = $video_name . '.' . $ext;
+                $upload_path = 'userImage/';
+                $video_url = $upload_path . $video_full_name;
+                $file->move($upload_path, $video_url);
+                $company_users->picture = $video_url;
+            }
             $company_users->save();
-            return response()->json(['message' => 'Password updated successfully !', 'success' => true, 'data' => $company_users,]);
+            return response()->json(['message' => 'Image updated successfully !', 'success' => true, 'data' => $company_users,]);
         } catch (\Throwable $th) {
-            return response()->json(['message' => ' Password ID is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
+            return response()->json(['message' => 'Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
+    
 }

@@ -100,20 +100,20 @@ class AdminSurveyControlller extends Controller
       return response()->json(['title' => $title,'surveys'=>$surveys,'countdata'=>$countdata,'labeldata'=>$labeldata,'status' => 'success']);
   }
     //   survey code
-    public function survey(Request $request, $id)
-    {
+    // public function survey(Request $request, $id)
+    // {
 
-        $company_id = $request->input('company_id');
-        $survey = Survey::where('company_id', $company_id)
-            ->get();
+    //     $company_id = $request->input('company_id');
+    //     $survey = Survey::where('company_id', $company_id)
+    //         ->get();
 
-        if ($survey) {
-            return response()->json(['data' => $survey, 'success' => true]);
+    //     if ($survey) {
+    //         return response()->json(['data' => $survey, 'success' => true]);
 
-        } else {
-            return response()->json(['data' => $survey, 'success' => false]);
-        }
-    }
+    //     } else {
+    //         return response()->json(['data' => $survey, 'success' => false]);
+    //     }
+    // }
 
 
 }
