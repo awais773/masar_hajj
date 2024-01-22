@@ -146,4 +146,5 @@ class SurveyController extends Controller
             return response()->json(['message' => 'Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
+    
 }

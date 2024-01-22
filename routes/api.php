@@ -146,4 +146,6 @@ Route::post('guide/update/image/{id}', [SurveyController::class, 'guide_update_i
 Route::post('user/update/image/{id}', [SurveyController::class, 'user_update_image']);
 
 Route::get('customer/location/{id}', [AuthController::class, 'custom_location']);
+// Today Api
+Route::get('company/user/guide/{id}', [SurveyController::class, 'guide_get']);
 
