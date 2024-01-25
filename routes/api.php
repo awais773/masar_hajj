@@ -37,6 +37,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
     Route::post('loginUser', [AuthController::class,'loginUser']);
     Route::post('loginGuide', [AuthController::class,'loginGuide']);
     Route::post('userLocationEdit/{id}', [AuthController::class,'userLocationEdit']);
+    Route::post('GuideLocationEdit/{id}', [AuthController::class,'GuideLocationEdit']);
     Route::post('addLocation', [AuthController::class,'addLocation']);
     Route::get('hajjProcedure/{id}', [AuthController::class,'hajjProcedure']);
 

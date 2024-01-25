@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Validator;
+use Ramsey\Uuid\Guid\Guid;
 
 class AuthController extends Controller
 {
@@ -25,7 +26,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register', 'loginUser', 'loginGuide', 'userLocationEdit', 'addLocation', 'hajjProcedure', 'custom_location']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'loginUser', 'loginGuide', 'userLocationEdit', 'addLocation', 'hajjProcedure', 'custom_location','GuideLocationEdit']]);
     }
     /**
      * Get a JWT via given credentials.
@@ -244,6 +245,29 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'User is updated successfully',
+            'data' => $obj,
+        ]);
+    }
+
+    public function GuideLocationEdit(Request $request, $id)
+    {
+        $obj = Guide::find($id);
+        if ($obj) {
+            if (!empty($request->input('latitude'))) {
+                $obj->latitude  = $request->input('latitude');
+            }
+            if (!empty($request->input('longitude'))) {
+                $obj->longitude = $request->input('longitude');
+            }
+            $obj->save();
+
+            $language = $request->lang ?? 'en'; // Default to English if language is not specified
+            $obj->firstname = $this->getLocalizedField($obj->firstname, $language);
+            $obj->lastname = $this->getLocalizedField($obj->lastname, $language);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Guide is updated successfully',
             'data' => $obj,
         ]);
     }
