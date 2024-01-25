@@ -146,6 +146,13 @@ Route::post('user/update/image/{id}', [SurveyController::class, 'user_update_ima
 
 Route::get('customer/location/{id}', [AuthController::class, 'custom_location']);
 // Today Api
+Route::get('user/guide/{id}', [SurveyController::class, 'guide_id_user']);
+Route::post('group/member', [SurveyController::class, 'group_member']);
+// Survey Submit
+
+// Route::post('survey/submit', [SurveyController::class, 'survey_submit']);
+Route::get('user/guide/company/{id}', [SurveyController::class, 'guide_user']);
+Route::delete('customer/location/delete/{id}', [SurveyController::class, 'custom_location_del']);
 Route::get('company/user/guide/{id}', [SurveyController::class, 'guide_get']);
 Route::post('surveysubmit', [SurveyController::class, 'surveysubmit']);
 

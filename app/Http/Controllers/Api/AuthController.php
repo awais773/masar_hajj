@@ -274,22 +274,27 @@ class AuthController extends Controller
     }
 
 
+
+
+
+
       public function hajjProcedure(Request $request, $id)
       {
           $duas = HajjProcedure::where('company_id', $id)->get();
           $language = $request->lang ?? 'en'; // Default to English if language is not specified
-      
+
           foreach ($duas as $dua) {
               $dua->title = $this->getLocalizedField($dua->title, $language);
               $dua->content = $this->getLocalizedField($dua->content, $language);
           }
-      
+
           return response()->json([
               'success' => true,
               'message' => 'Data successfully',
               'data' => $duas,
           ]);
       }
+
 
 
       public function  custom_location(Request $request, $id)

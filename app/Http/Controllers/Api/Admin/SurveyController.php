@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use Session;
 use App\Models\User;
 use App\Models\Guide;
+use App\Models\Group;
 use App\Helper\Helper;
 use App\Models\Survey;
 use Illuminate\View\View;
@@ -57,20 +58,20 @@ class SurveyController extends Controller
     }
 
 
-// Company User PAssword
+    // Company User PAssword
     public function  user_update_password(Request $request, $id)
     {
         try {
             $company_users = CompanyUser::find($id);
             $company_users->password = $request->password;
             $company_users->save();
-            return response()->json(['message' => 'Password updated successfully !', 'success'=>true, 'data' => $company_users,]);
+            return response()->json(['message' => 'Password updated successfully !', 'success' => true, 'data' => $company_users,]);
         } catch (\Throwable $th) {
-            return response()->json(['message' => ' Password ID is not found','success'=>false, 'status' => 'error', 'code' => 501]);
+            return response()->json(['message' => ' Password ID is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
 
-//  Guide User Password
+    //  Guide User Password
     public function guide_update_password(Request $request, $id)
     {
         try {
@@ -88,7 +89,7 @@ class SurveyController extends Controller
     public function guide_get(Request $request, $id)
     {
         try {
-            $guides = Guide::where('id',$id)->first();
+            $guides = Guide::where('id', $id)->first();
             return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $guides,]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'Object is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
@@ -125,7 +126,6 @@ class SurveyController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => ' Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
-
     }
     //  Company Update Image
     public function user_update_image(Request $request, $id)
@@ -147,6 +147,110 @@ class SurveyController extends Controller
             return response()->json(['message' => 'Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
+
+    //Company User Group ID
+    public function guide_id_user(Request $request, $groupId)
+    {
+        try {
+            //  For array index value
+            $company_users = CompanyUser::whereJsonContains('group_id', $groupId[0])->get();
+            $language = $request->lang ?? 'en'; // Default to English if language is not specified
+            foreach ($company_users as $company_user) {
+                $company_user->firstname = $this->getLocalizedField($company_user->firstname, $language);
+                $company_user->lastname = $this->getLocalizedField($company_user->lastname, $language);
+            }
+
+            return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $company_users,]);
+        } catch (\Throwable $th) {
+            return response()->json(['message' => 'Object is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
+        }
+    }
+    //Group Member
+    public function group_member(Request $request)
+    {
+        try {
+
+
+            $group_id = request('group_id');
+            $user_id = request('user_id');
+            $company_users = CompanyUser::whereJsonContains('group_id', $group_id[0])->where('id', '!=', $user_id)->get();
+            $language = $request->lang ?? 'en'; // Default to English if language is not specified
+            foreach ($company_users as $company_user) {
+                $company_user->firstname = $this->getLocalizedField($company_user->firstname, $language);
+                $company_user->lastname = $this->getLocalizedField($company_user->lastname, $language);
+            }
+
+
+            $guideid = Group::find($group_id)->guide_id;
+            $guide = Guide::find($guideid);
+            $guide->firstname = $this->getLocalizedField($guide->firstname, $language);
+            $guide->lastname = $this->getLocalizedField($guide->lastname, $language);
+
+            return response()->json([
+                'message' => 'Data found successfully !', 'success' => true, 'data' => $company_users,
+                'guide' => $guide
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
+        }
+    }
+    //Survey Submit
+    // public function survey_submit(Request $request, $id)
+    // {
+    //     try {
+    //         $survey_submit
+    //             = Survey::where('user_id', $id)->first();
+
+
+    //         return response()->json([
+    //             'message' => 'Data found successfully !', 'success' => true, 'data' =>
+    //             $survey_submit
+
+    //         ]);
+    //     } catch (\Throwable $th) {
+    //         return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
+    //     }
+    // }
+
+    //  Guide User According Company id
+    public function guide_user(Request $request, $id)
+    {
+        try {
+            $guides = Guide::where('company_id',$id)->first();
+
+            return response()->json(['message' => 'Comapny Id found successfully !', 'success' => true, 'data' => $guides,]);
+        } catch (\Throwable $th) {
+            return response()->json(['message' => ' Company ID is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
+        }
+    }
+
+//    Customer Location Delete Api
+    public function custom_location_del($id)
+    {
+        $customlocations = CustomerLocation::find($id);
+
+        if (!$customlocations) {
+            return response()->json(['message' => 'Customer not found', 'success' => false, 'status' => 'error', 'code' => 404]);
+        }
+
+        $data = $customlocations->delete();
+
+        if ($data) {
+            return response()->json([
+                'message' => 'Customer Delete Successfully',
+                'success' => true,
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Operation Failed !',
+                'success' => false,
+                'status' => 'error',
+                'code' => 501,
+                'error' => 'Deletion failed'
+            ]);
+        }
+    }
+
 
 
    
@@ -205,4 +309,5 @@ public function surveySubmit(Request $request)
 }
     
     
+
 }
