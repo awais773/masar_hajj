@@ -215,7 +215,7 @@ class SurveyController extends Controller
     public function guide_user(Request $request, $id)
     {
         try {
-            $guides = Guide::where('company_id',$id)->first();
+            $guides = Guide::where('company_id', $id)->first();
 
             return response()->json(['message' => 'Comapny Id found successfully !', 'success' => true, 'data' => $guides,]);
         } catch (\Throwable $th) {
@@ -223,7 +223,7 @@ class SurveyController extends Controller
         }
     }
 
-//    Customer Location Delete Api
+    //    Customer Location Delete Api
     public function custom_location_del($id)
     {
         $customlocations = CustomerLocation::find($id);
@@ -239,7 +239,8 @@ class SurveyController extends Controller
                 'message' => 'Customer Delete Successfully',
                 'success' => true,
             ]);
-        } else {
+        }
+        else {
             return response()->json([
                 'message' => 'Operation Failed !',
                 'success' => false,
@@ -251,62 +252,74 @@ class SurveyController extends Controller
     }
 
 
+    public function surveySubmit(Request $request)
+    {
+        $isAPI = ($request->segment(1) == 'api');
 
-   
-public function surveySubmit(Request $request)
-{
-    $isAPI = ($request->segment(1) == 'api');
+        if ($isAPI) {
+            $rules = [
+                'lang' => 'required',
+                'survey_id_choice' => 'required',
+                'user_id' => 'required',
+            ];
 
-    if ($isAPI) {
-        $rules = [
-            'lang' => 'required',
-            'survey_id_choice' => 'required',
-            'user_id' => 'required',
-        ];
+            $validator = Validator::make($request->all(), $rules);
 
-        $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return response()->json([
+                    'errors' => $validator->messages(),
+                ], 401);
+            }
 
-        if ($validator->fails()) {
+            $user_id = $request->input('user_id');
+            $lang = $request->input('lang');
+            $survey_id_choice = $request->input('survey_id_choice');
+
+            // Delete the previous survey answers submitted by user id
+            DB::table('survey_submit')->where('user_id', $user_id)->delete();
+
+            $sy_cho = explode(',', $survey_id_choice);
+
+            foreach ($sy_cho as $cat) {
+                $cat = trim($cat);
+                $st2 = explode(":", $cat);
+                $survey_id = $st2[0];
+                $choice = $st2[1];
+
+                DB::table('survey_submit')->insert([
+                    'survey_id' => $survey_id,
+                    'choice' => $choice,
+                    'user_id' => $user_id,
+                    'lang' => $lang,
+                ]);
+            }
+
             return response()->json([
-                'errors' => $validator->messages(),
-            ], 401);
-        }
-
-        $user_id = $request->input('user_id');
-        $lang = $request->input('lang');
-        $survey_id_choice = $request->input('survey_id_choice');
-
-        // Delete the previous survey answers submitted by user id
-        DB::table('survey_submit')->where('user_id', $user_id)->delete();
-
-        $sy_cho = explode(',', $survey_id_choice);
-
-        foreach ($sy_cho as $cat) {
-            $cat = trim($cat);
-            $st2 = explode(":", $cat);
-            $survey_id = $st2[0];
-            $choice = $st2[1];
-
-            DB::table('survey_submit')->insert([
-                'survey_id' => $survey_id,
-                'choice' => $choice,
-                'user_id' => $user_id,
-                'lang' => $lang,
+                'message' => 'success',
+                'SurveySubmit' => $sy_cho,
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'error',
+                'msg' => 'nothing found',
             ]);
         }
-
-        return response()->json([
-            'message' => 'success',
-            'SurveySubmit' => $sy_cho,
-        ], 200);
-    } else {
-        return response()->json([
-            'message' => 'error',
-            'msg' => 'nothing found',
-        ]);
     }
-}
-    
-    
+
+    // Search Api
+
+    function search_user(Request $request ,$id)
+    {
+        $name = $request->input('search');
+
+        $users = CompanyUser::select('username','phone', 'latitude', 'longitude')->where("username", "like", "%" . $name . "%")->where("company_id", $id)
+        ->get();
+
+        if ($users->isEmpty()) {
+            return response()->json(['message' => 'No users found',  'success' => false, 'data' => $users,], 404);
+        } else {
+            return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $users,], 200);
+        }
+    }
 
 }
