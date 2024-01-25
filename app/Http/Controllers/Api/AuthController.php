@@ -273,7 +273,7 @@ class AuthController extends Controller
     }
 
 
-<<<<<<< HEAD
+
 
 
 
@@ -281,37 +281,20 @@ class AuthController extends Controller
       {
           $duas = HajjProcedure::where('company_id', $id)->get();
           $language = $request->lang ?? 'en'; // Default to English if language is not specified
-      
+
           foreach ($duas as $dua) {
               $dua->title = $this->getLocalizedField($dua->title, $language);
               $dua->content = $this->getLocalizedField($dua->content, $language);
           }
-      
+
           return response()->json([
               'success' => true,
               'message' => 'Data successfully',
               'data' => $duas,
           ]);
       }
-}
-=======
-    public function hajjProcedure(Request $request, $id)
-    {
-        $duas = HajjProcedure::where('company_id', $id)->get();
-        $language = $request->lang ?? 'en'; // Default to English if language is not specified
+//  Fetching code 
 
-        foreach ($duas as $dua) {
-            $dua->title = $this->getLocalizedField($dua->title, $language);
-            $dua->content = $this->getLocalizedField($dua->content, $language);
-        }
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Data successfully',
-            'data' => $duas,
-        ]);
-    }
-    //   Fetching data
     public function  custom_location(Request $request, $id)
     {
         try {
@@ -319,11 +302,10 @@ class AuthController extends Controller
             $language = $request->lang ?? 'en'; // Default to English if language is not specified
             $customlocations->customlocation = $this->getLocalizedField($customlocations->customlocation, $language);
             return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $customlocations]);
-        }
-         catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
-
 }
->>>>>>> 42afb62a394573f0430da9ab2216b3fc64788415
+
+
