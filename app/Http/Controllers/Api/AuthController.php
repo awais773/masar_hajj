@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use JWTAuth;
 use App\Models\User;
+use App\Models\Group;
+use App\Models\Guide;
+use App\Helper\Helper;
 use App\Models\CompanyUser;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Guide;
-use GrahamCampbell\ResultType\Success;
-use Illuminate\Support\Facades\Auth;
-use App\Helper\Helper;
-use App\Models\CustomerLocation;
 use App\Models\HajjProcedure;
+use App\Models\CustomerLocation;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -119,7 +120,8 @@ class AuthController extends Controller
         $user = Guide::where('username', $request->username)
             ->where('password', $request->password)
             ->first();
-
+         $group_id = $user->id;
+         $group = Group::where('id', $group_id)->select('id')->first();
         if (!$user) {
             return response()->json([
                 'success' => false,
@@ -138,7 +140,8 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Login successful',
-            'user' => $user
+            'user' => $user,
+            'group' => $group
         ], 200);
     }
 

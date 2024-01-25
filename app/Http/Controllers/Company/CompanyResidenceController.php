@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Company;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Helper\Helper;
-use Illuminate\View\View;
-use App\Models\Location;
-use Session;
 use File;
-use Auth;
+use Session;
 use Carbon\Carbon;
+use App\Helper\Helper;
+use App\Models\Location;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 class CompanyResidenceController extends Controller
 {
     /**
@@ -31,7 +31,7 @@ class CompanyResidenceController extends Controller
     public function index(): View
     {
       
-        $locations=Location::get();
+        $locations=Location::where('company_id',Auth::id())->get();
         return view('company.residence.index',compact('locations'));
     }
 

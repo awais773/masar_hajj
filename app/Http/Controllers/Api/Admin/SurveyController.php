@@ -170,8 +170,6 @@ class SurveyController extends Controller
     public function group_member(Request $request)
     {
         try {
-
-
             $group_id = request('group_id');
             $user_id = request('user_id');
             $company_users = CompanyUser::whereJsonContains('group_id', $group_id[0])->where('id', '!=', $user_id)->get();
