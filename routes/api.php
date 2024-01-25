@@ -154,4 +154,6 @@ Route::post('group/member', [SurveyController::class, 'group_member']);
 // Route::post('survey/submit', [SurveyController::class, 'survey_submit']);
 Route::get('user/guide/company/{id}', [SurveyController::class, 'guide_user']);
 Route::delete('customer/location/delete/{id}', [SurveyController::class, 'custom_location_del']);
+//  search Api
+Route::get('search/{username}', [SurveyController::class, 'search_user']);
 

@@ -251,5 +251,10 @@ class SurveyController extends Controller
         }
     }
 
+    // Search Api
+    function search_user($name){
+        return CompanyUser::where("username","like","%".$name."%")->get();
+
+    }
 
 }
