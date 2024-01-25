@@ -153,11 +153,9 @@ Route::post('group/member', [SurveyController::class, 'group_member']);
 // Route::post('survey/submit', [SurveyController::class, 'survey_submit']);
 Route::get('user/guide/company/{id}', [SurveyController::class, 'guide_user']);
 Route::delete('customer/location/delete/{id}', [SurveyController::class, 'custom_location_del']);
-<<<<<<< HEAD
 //  search Api
-Route::get('search/{username}', [SurveyController::class, 'search_user']);
-=======
+Route::get('search/user/{id}', [SurveyController::class, 'search_user']);
+
 Route::get('company/user/guide/{id}', [SurveyController::class, 'guide_get']);
 Route::post('surveysubmit', [SurveyController::class, 'surveysubmit']);
->>>>>>> 86dd06ed361d92a068d29be72e2e33587b329289
 
