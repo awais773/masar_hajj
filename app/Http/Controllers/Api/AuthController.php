@@ -249,9 +249,10 @@ class AuthController extends Controller
     public function addLocation(Request $request)
     {
         try {
-            $locationname = Helper::encode_localizedInput('locationname', $request->all());
+            // $locationname = Helper::encode_localizedInput('locationname', $request->all());
             $surveyNew = new CustomerLocation();
-            $surveyNew->locationname = $locationname;
+            // $surveyNew->locationname = $locationname;
+            $surveyNew->locationname    = $request->locationname;
             $surveyNew->longitude    = $request->longitude;
             $surveyNew->latitude    = $request->latitude;
             $surveyNew->company_user_id    = $request->company_user_id;
@@ -273,10 +274,6 @@ class AuthController extends Controller
     }
 
 
-<<<<<<< HEAD
-
-
-
       public function hajjProcedure(Request $request, $id)
       {
           $duas = HajjProcedure::where('company_id', $id)->get();
@@ -293,37 +290,21 @@ class AuthController extends Controller
               'data' => $duas,
           ]);
       }
+
+
+      public function  custom_location(Request $request, $id)
+      {
+          try {
+              $customlocations = CustomerLocation::where('id', $id)->first();
+              $language = $request->lang ?? 'en'; // Default to English if language is not specified
+              $customlocations->customlocation = $this->getLocalizedField($customlocations->customlocation, $language);
+              return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $customlocations]);
+          }
+           catch (\Throwable $th) {
+              return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
+          }
+      }
 }
-=======
-    public function hajjProcedure(Request $request, $id)
-    {
-        $duas = HajjProcedure::where('company_id', $id)->get();
-        $language = $request->lang ?? 'en'; // Default to English if language is not specified
 
-        foreach ($duas as $dua) {
-            $dua->title = $this->getLocalizedField($dua->title, $language);
-            $dua->content = $this->getLocalizedField($dua->content, $language);
-        }
+  
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Data successfully',
-            'data' => $duas,
-        ]);
-    }
-    //   Fetching data
-    public function  custom_location(Request $request, $id)
-    {
-        try {
-            $customlocations = CustomerLocation::where('id', $id)->first();
-            $language = $request->lang ?? 'en'; // Default to English if language is not specified
-            $customlocations->customlocation = $this->getLocalizedField($customlocations->customlocation, $language);
-            return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $customlocations]);
-        }
-         catch (\Throwable $th) {
-            return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
-        }
-    }
-
-}
->>>>>>> 42afb62a394573f0430da9ab2216b3fc64788415
