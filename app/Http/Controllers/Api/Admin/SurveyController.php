@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use Session;
+use App\Models\Dua;
 use App\Models\User;
 use App\Models\Group;
 use App\Models\Guide;
@@ -24,23 +25,15 @@ class SurveyController extends Controller
 
     public function survey(Request $request, $id)
     {
-
-
-        $surveys = Survey::where('company_id', $id)->get();
+        $surveys = Survey::where('company_id', $id)->paginate(10);
 
         $language = $request->lang ?? 'en'; // Default to English if language is not specified
         foreach ($surveys as $survey) {
             $survey->question = $this->getLocalizedField($survey->question, $language);
             $survey->choices = $this->getLocalizedField($survey->choices, $language);
         }
-
-
         if ($surveys->count() > 0) {
-            return response()->json([
-                'success' => true,
-                'message' => 'Successfully fetched surveys',
-                'data' => $surveys,
-            ]);
+            return response()->json($surveys,200);
         } else {
             // return response()->json(['data' => $survey, 'success' => false]);
             return response()->json(['message' => 'Operation Failed !', 'status' => 'error', 'code' => 501]);
@@ -320,6 +313,19 @@ class SurveyController extends Controller
         } else {
             return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $users,], 200);
         }
+    }
+
+
+    public function duaGet(Request $request, $id)
+    {
+        $duas = Dua::where('company_id', $id)->paginate(10);
+        $language = $request->lang ?? 'en'; // Default to English if language is not specified
+        foreach ($duas as $dua) {
+            $dua->title = $this->getLocalizedField($dua->title, $language);
+            $dua->description = $this->getLocalizedField($dua->description, $language);
+        }
+    
+        return response()->json( $duas, 200);
     }
 
 }

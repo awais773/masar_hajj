@@ -28,19 +28,14 @@ class AdminDuaController extends Controller
      */
     public function index(Request $request, $id)
     {
-        $duas = Dua::where('company_id', $id)->get();
+        $duas = Dua::where('company_id', $id)->paginate(10);
         $language = $request->lang ?? 'en'; // Default to English if language is not specified
-    
         foreach ($duas as $dua) {
             $dua->title = $this->getLocalizedField($dua->title, $language);
             $dua->description = $this->getLocalizedField($dua->description, $language);
         }
     
-        return response()->json([
-            'success' => true,
-            'message' => 'Data successfully',
-            'data' => $duas,
-        ]);
+        return response()->json();
     }
     
 

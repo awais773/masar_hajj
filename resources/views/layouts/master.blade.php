@@ -316,7 +316,7 @@
             <!-- Start Footerbar -->
             <div class="footerbar">
                 <footer class="footer">
-                    <p class="mb-0">© 2023 Masarhajj - All Rights Reserved.</p>
+                    <p class="mb-0">© 2024 Masarhajj - All Rights Reserved.</p>
                 </footer>
             </div>
             <!-- End Footerbar -->

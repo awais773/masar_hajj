@@ -80,7 +80,6 @@
                                         ?>
 
                                         @include('comman.get-group-users')
-                                        
                                     </div> 
                                     <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
                                 </form>

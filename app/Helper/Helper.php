@@ -1,15 +1,15 @@
 <?php
 namespace App\Helper;
-use App\Models\Language;
-use App\Models\Notification;
-use App\Models\CompanyUser;
+use App;
+use Session;
 use App\Models\User;
 use App\Models\Group;
-use App;
-use Auth;
-use Session;
-use Illuminate\Support\Collection;
+use App\Models\Language;
+use App\Models\CompanyUser;
 use Illuminate\Support\Arr;
+use App\Models\Notification;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 class Helper
 {
     public static function getLanguages(){

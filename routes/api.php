@@ -159,4 +159,5 @@ Route::get('search/user/{id}', [SurveyController::class, 'search_user']);
 
 Route::get('company/user/guide/{id}', [SurveyController::class, 'guide_get']);
 Route::post('surveysubmit', [SurveyController::class, 'surveysubmit']);
+Route::get('duaGet', [SurveyController::class, 'duaGet']);
 

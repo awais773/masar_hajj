@@ -307,7 +307,7 @@ class AuthController extends Controller
 
       public function hajjProcedure(Request $request, $id)
       {
-          $duas = HajjProcedure::where('company_id', $id)->get();
+          $duas = HajjProcedure::where('company_id', $id)->paginate(10);
           $language = $request->lang ?? 'en'; // Default to English if language is not specified
 
           foreach ($duas as $dua) {
@@ -315,11 +315,7 @@ class AuthController extends Controller
               $dua->content = $this->getLocalizedField($dua->content, $language);
           }
 
-          return response()->json([
-              'success' => true,
-              'message' => 'Data successfully',
-              'data' => $duas,
-          ]);
+          return response()->json($duas,200);
       }
 
 
