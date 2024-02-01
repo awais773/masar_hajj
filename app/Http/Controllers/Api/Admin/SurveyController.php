@@ -288,13 +288,13 @@ class SurveyController extends Controller
             }
 
             return response()->json([
-                'message' => 'success',
+                'success' => true,
                 'SurveySubmit' => $sy_cho,
             ], 200);
         } else {
             return response()->json([
-                'message' => 'error',
-                'msg' => 'nothing found',
+                'message' => 'nothing found',
+                'success' => false,
             ]);
         }
     }
@@ -307,7 +307,6 @@ class SurveyController extends Controller
 
         $users = CompanyUser::select('username','phone', 'latitude', 'longitude')->where("username", "like", "%" . $name . "%")->where("company_id", $id)
         ->get();
-
         if ($users->isEmpty()) {
             return response()->json(['message' => 'No users found',  'success' => false, 'data' => $users,], 404);
         } else {

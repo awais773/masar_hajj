@@ -283,6 +283,7 @@ class AuthController extends Controller
             $surveyNew->longitude    = $request->longitude;
             $surveyNew->latitude    = $request->latitude;
             $surveyNew->company_user_id    = $request->company_user_id;
+            $surveyNew->type = $request->type;
 
             if ($file = $request->file('picture')) {
                 $video_name = md5(rand(1000, 10000));
@@ -323,9 +324,9 @@ class AuthController extends Controller
       public function  custom_location(Request $request, $id)
       {
           try {
-              $customlocations = CustomerLocation::where('id', $id)->first();
-              $language = $request->lang ?? 'en'; // Default to English if language is not specified
-              $customlocations->customlocation = $this->getLocalizedField($customlocations->customlocation, $language);
+              $customlocations = CustomerLocation::where('company_user_id', $id)->where('type', $request->type)->get();
+            //   $language = $request->lang ?? 'en'; // Default to English if language is not specified
+            //   $customlocations->customlocation = $this->getLocalizedField($customlocations->customlocation, $language);
               return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $customlocations]);
           }
            catch (\Throwable $th) {
