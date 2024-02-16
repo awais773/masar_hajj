@@ -314,6 +314,8 @@ class AuthController extends Controller
           foreach ($duas as $dua) {
               $dua->title = $this->getLocalizedField($dua->title, $language);
               $dua->content = $this->getLocalizedField($dua->content, $language);
+              $dua->image = $dua->icon;
+              unset($dua->icon);
           }
 
           return response()->json($duas,200);

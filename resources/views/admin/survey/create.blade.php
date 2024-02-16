@@ -54,7 +54,7 @@
                                     </div>
                                    
                                     <div class="form-group">
-                                    <label>{{ trans('admin.notification_groups');}}</label>
+                                    <label>{{ trans('admin.notification_groups');}} <span style="color: red;">*</span> </label>
                                     <?php $selectedGroupsString = '';
                                         $crtlName='selectedgroups[]';
                                         $crtlId='selectedgroups';

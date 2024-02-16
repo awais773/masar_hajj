@@ -25,7 +25,7 @@ class SurveyController extends Controller
 
     public function survey(Request $request, $id)
     {
-        $surveys = Survey::where('company_id', $id)->paginate(10);
+        $surveys = Survey::where('company_id', $id)->get();
 
         $language = $request->lang ?? 'en'; // Default to English if language is not specified
         foreach ($surveys as $survey) {
@@ -33,10 +33,11 @@ class SurveyController extends Controller
             $survey->choices = $this->getLocalizedField($survey->choices, $language);
         }
         if ($surveys->count() > 0) {
-            return response()->json($surveys,200);
+            return response()->json(['message' => 'data successfully !', 'success' => true, 'data' => $surveys]);
         } else {
+            
             // return response()->json(['data' => $survey, 'success' => false]);
-            return response()->json(['message' => 'Operation Failed !', 'status' => 'error', 'code' => 501]);
+            return response()->json(['message' => 'Operation Failed !', 'success' => false, 'code' => 501]);
         }
     }
 

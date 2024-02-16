@@ -31,7 +31,7 @@ class CompanyResidenceController extends Controller
     public function index(): View
     {
       
-        $locations=Location::where('company_id',Auth::id())->get();
+        $locations=Location::where('company_id',Auth::id())->paginate(3);
         return view('company.residence.index',compact('locations'));
     }
 

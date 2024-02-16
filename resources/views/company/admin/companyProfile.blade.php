@@ -37,15 +37,15 @@
                                         <?php
                                             $localizedUserName = Helper::get_localizedDefault(Auth::user()->name);
                                         ?>
-                                        <input type="text" class="form-control" value="{{ $localizedUserName }}" name="username" required>
+                                        <input type="text" class="form-control" value="{{ $localizedUserName }}" name="username" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label>{{ trans('admin.guide_email');}}</label>
-                                        <input type="email" class="form-control" value="{{ Auth::user()->email }}"  name="email" required>
+                                        <input type="email" class="form-control" value="{{ Auth::user()->email }}"  name="email" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="email" class="form-control" value="{{ Auth::user()->country_name }}"  name="email" required>
+                                        <input type="email" class="form-control" value="{{ Auth::user()->country_name }}"  name="email" disabled>
                                     </div>
 
                                     {{-- <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button> --}}

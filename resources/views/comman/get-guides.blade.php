@@ -12,7 +12,7 @@ $isMuliple = (!empty($isMuliple) && $isMuliple != null && $isMuliple) ? $isMulip
 $guides = \App\Models\Guide::select('id', 'firstname', 'lastname')->get();
 ?>  
 
-<select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" @if($isMuliple) multiple="multiple" @endif>
+<select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" @if($isMuliple) multiple="multiple" @endif  >
     <optgroup label="Giude">
     <?php echo (($isMuliple) ? 'multiple=""' : '') ?>  >
             <?php

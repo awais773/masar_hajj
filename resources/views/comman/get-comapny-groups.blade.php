@@ -13,7 +13,7 @@ $groups_by_company_array = Helper::group_array_by($groups, "company_name");
 $keys = array_keys($groups_by_company_array); 
 @endphp
 
-<select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" @if($isMuliple) multiple="multiple" @endif>
+<select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" @if($isMuliple) multiple="multiple" @endif  >
     <optgroup label="Group">
     <?php
     for ($i = 0; $i < count($keys); $i++) {

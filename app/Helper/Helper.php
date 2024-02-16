@@ -106,9 +106,21 @@ class Helper
         $from_type = "user";
         Helper::addNotification($from_id, $from_type, $to_id, $to_type, $title, $message);
     }
+    // public static function get_users_in_groups($groups, $all = false) {
+    //     $users = CompanyUser::whereIn('group_id', $groups)->get();
+    //     return $users;
+    // }
+
     public static function get_users_in_groups($groups, $all = false) {
-        $users = CompanyUser::whereIn('group_id', $groups)->get();
-        return $users;
+        // Check if $groups is not null before using it
+        if ($groups !== null && is_array($groups) && count($groups) > 0) {
+            $users = CompanyUser::whereIn('group_id', $groups)->get();
+            return $users;
+        } else {
+            // Handle the case where $groups is null or empty
+            // You can return an empty array or handle it based on your application's logic
+            return [];
+        }
     }
 
     public static function get_companies($all = false, $limitedToCompany = -2) {

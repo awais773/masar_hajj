@@ -66,7 +66,7 @@ class CompanyGuideController extends Controller
         return redirect()->route('admin.guide');
       } catch (\Throwable $th) {
         
-        Session::put('error', 'Operation Failed !');
+        // Session::put('error', 'Operation Failed !');
         return redirect()->back();
       }
     }

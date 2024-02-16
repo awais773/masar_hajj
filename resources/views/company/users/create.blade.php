@@ -37,12 +37,12 @@
                                     @csrf
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.user_username')}}</label>
+                                            <label>{{ trans('admin.user_username')}} <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="username" name="username" required>
                                         </div>
 
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.user_email')}}</label>
+                                            <label>{{ trans('admin.user_email')}} <span style="color: red;">*</span></label>
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" required>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -53,11 +53,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.user_password')}}</label>
+                                            <label>{{ trans('admin.user_password')}} <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="password" name="password" required>
                                         </div>
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.user_phone')}}</label>
+                                            <label>{{ trans('admin.user_phone')}} <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="phone" name="phone" required>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
-                                        <label>{{ trans('admin.notification_groups');}}</label>
+                                        <label>{{ trans('admin.notification_groups');}} <span style="color: red;">*</span></label>
                                         <?php $selectedGroupsString = '';
                                             $crtlName='selectedgroups[]';
                                             $crtlId='selectedgroups';
@@ -94,30 +94,30 @@
                                             @include('comman.get-company-group-byid')
                                         </div>
                                         <div class="form-group col-6">
-                                        <label>{{ trans('admin.passport_num')}}</label>
+                                        <label>{{ trans('admin.passport_num')}}  <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="passport_num" name="passport_num" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.passport_date');}}</label>
+                                            <label>{{ trans('admin.passport_date');}}  <span style="color: red;">*</span></label>
                                             <input type="date" class="form-control" id="passport_date" name="passport_date" required>
                                         </div>
 
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.visa_num');}}</label>
+                                            <label>{{ trans('admin.visa_num');}}  <span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" id="visa_num" name="visa_num" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.visa_date');}}</label>
+                                            <label>{{ trans('admin.visa_date');}}  <span style="color: red;">*</span></label>
                                             <input type="date" class="form-control" id="visa_date" name="visa_date" required>
                                         </div>
 
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.visa_period');}}</label>
-                                            <input type="text" class="form-control" id="visa_period" name="visa_period" required>
+                                            <input type="text" class="form-control" id="visa_period" name="visa_period">
                                         </div>
                                     </div>
                                     <div class="form-check form-check-inline pb-3">

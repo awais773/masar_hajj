@@ -42,6 +42,9 @@
                                                 <th>{{ trans('admin.user_name');}}</th>
                                                 <th>{{ trans('admin.user_email');}}</th>
                                                 <th>{{ trans('admin.user_phone');}}</th>
+                                                <th>{{ trans('admin.user_passport_num');}}</th>
+                                                <th>{{ trans('admin.passport_date');}}</th>
+                                                <th>{{ trans('admin.visa_num');}}</th>
                                                 <th>{{ trans('admin.user_group');}}</th> 
                                                 <th>{{ trans('admin.user_action');}}</th> 
                                             </tr>
@@ -57,6 +60,9 @@
                                                 <td>{{ Helper::get_localizedDefault($companyUser->firstname).' '.Helper::get_localizedDefault($companyUser->lastname)}}</td>
                                                 <td>{{ $companyUser->email}}</td>
                                                 <td>{{ $companyUser->phone}}</td>
+                                                <td>{{ $companyUser->passport_num}}</td>
+                                                <td>{{ $companyUser->passport_date}}</td>
+                                                <td>{{ $companyUser->visa_num}}</td>
                                                 @php
                                                
                                                 if($companyUser->group_id){

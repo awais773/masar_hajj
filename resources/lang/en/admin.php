@@ -93,6 +93,10 @@ return array(
     'user_firstname' => 'First Name',
     'user_lastname' => 'Last Name',
     'user_group' => 'Group',
+    'user_passport_num' => 'Passport Number',
+    'passport_date' => 'Passport Date',
+    'visa_num' => 'visa Number',
+    'visa_date' => 'Visa Date',
 
     'user_active' => 'Active',
     'user_action' => 'actions',

@@ -7,7 +7,7 @@
             <div class="col-md-8 col-lg-8">
                 <div class="breadcrumb-list">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">{{ trans('admin.Dashboard'); }}</li>
+                        <li class="breadcrumb-item active" aria-current="page" style="padding-left: 500px" >{{ trans('admin.Dashboard'); }}</li>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,8 @@
                     <!-- Start col -->
                     <div class="col-md-12 col-lg-6 col-xl-4">
                         <div class="card m-b-30 card1">
-                            <div class="card-header">                                
+                            <div class="card-header"  style="text-align: right;
+                            padding-left: 50px">                                
                                 <div class="row align-items-center">
                                     <div class="col-7">
                                         <h5 class="card-title mb-0">{{ trans('admin.groups'); }}</h5>
@@ -43,7 +44,8 @@
                     <!-- Start col -->
                     <div class="col-md-12 col-lg-6 col-xl-4">
                         <div class="card m-b-30 card2">
-                            <div class="card-header">                                
+                            <div class="card-header"  style="text-align: right;
+                            padding-left: 81px ">                                
                                 <div class="row align-items-center">
                                     <div class="col-6">
                                         <h5 class="card-title mb-0">{{ trans('admin.guides'); }}</h5>
@@ -69,7 +71,8 @@
                     <!-- Start col -->
                     <div class="col-md-12 col-lg-6 col-xl-4">
                         <div class="card m-b-30 card3">
-                            <div class="card-header">                                
+                            <div class="card-header" style="text-align: right;
+                            padding-left: 100px ">                                
                                 <div class="row align-items-center">
                                     <div class="col-5">
                                         <h5 class="card-title mb-0">{{ trans('admin.users'); }}</h5>

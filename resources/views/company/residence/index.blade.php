@@ -84,6 +84,9 @@
 
                                         </tbody>
                                     </table>
+                                    @if($locations->total() > 0)
+                                    {{ $locations->links() }}
+                                @endif    
                                 </div>
                             </div>
                         </div>

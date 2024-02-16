@@ -46,7 +46,8 @@
                                     </div>
                                    
                                     <div class="form-guide">
-                                    <label>{{ trans('admin.notification_guides');}}</label>
+                                    <label>{{ trans('admin.notification_guides');}}
+                                    </label>
                                     <?php $selectedUsersString = '';
                                     $crtlName='selectedguides[]';
                                     $crtlId='selectedguides';
@@ -60,7 +61,8 @@
                                 </div> 
 
                                     <div class="form-group">
-                                    <label>{{ trans('admin.notification_groups');}}</label>
+                                    <label>{{ trans('admin.notification_groups');}}
+                                    </label>
                                     <?php $selectedGroupsString = '';
                                         $crtlName='selectedgroups[]';
                                         $crtlId='selectedgroups';

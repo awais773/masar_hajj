@@ -13,7 +13,7 @@ $groups = \App\Models\Group::with('users')->get();
 
 ?>  
 
-<select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" multiple="multiple">
+<select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" multiple="multiple" >
     @foreach($groups as $group)
         <optgroup label="{{Helper::get_localizedDefault($group->name)}}">
             @foreach ($group->users as $user)

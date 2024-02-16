@@ -59,7 +59,7 @@ class AdminSurveyControlller extends Controller
         $surveyNew->group_id=json_encode($request->selectedgroups);
         $surveyNew->save();
         Session::put('success', 'Survey created successfully !');
-        return redirect()->route('admin.survey');
+        return redirect()->route('company.survey');
       } catch (\Throwable $th) {
         Session::put('error', 'Operation Failed !');
         return redirect()->back();

@@ -189,7 +189,8 @@ return [
 
     ])->toArray(),
 
-    'googlemap_key' => 'AIzaSyCZ-UCtNfnLcijcQUNF4IPZI-KxoINt3nI', 
+    // 'googlemap_key' => 'AIzaSyCZ-UCtNfnLcijcQUNF4IPZI-KxoINt3nI', 
+    'googlemap_key' => 'AIzaSyCNPbBqnDpOhg08JFjbq3p7ywLTqEWG5UI', 
      
     /* DEVICE PUSH NOTIFICATION DETAILS */
     'customer_certy_url' => 'http://192.168.0.89/uber_schedule/api/public/apps/ios_push/iph_cert/Client_certy.pem',

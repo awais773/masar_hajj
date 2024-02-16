@@ -77,6 +77,9 @@
         labels: {!! $labeldata !!},
         series: {{$countdata}}
       }, {
+        axisY: {
+        onlyInteger: true
+    },
         distributeSeries: true,
         plugins: [
           Chartist.plugins.tooltip()
