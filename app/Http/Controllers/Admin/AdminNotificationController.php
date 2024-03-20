@@ -29,8 +29,20 @@ class AdminNotificationController extends Controller
      */
     public function index(): View
     {
+
+        
         return view('admin.notification.index');
     }
+
+    public function CompanyNotification(): View
+    {
+
+        
+        return view('admin.notification.Notificationindex');
+    }
+    
+
+
 
     // public function store(Request $request){
     //     try {
@@ -146,6 +158,7 @@ class AdminNotificationController extends Controller
         $selectedguides = $request->selectedguides;
         $selectedgroups = $request->selectedgroups;
         $selectedusers = $request->selectedusers;
+        $selectedcompanys = $request->selectedcompany;
         $combined_groups_and_users = [];
         $selectedguides = $request->selectedguides ?? [];
         for ($gu = 0; $gu < sizeof($selectedguides); ++$gu) {

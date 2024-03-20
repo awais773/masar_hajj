@@ -7,7 +7,17 @@ $isMuliple=(!empty($isMuliple) && $isMuliple != null && $isMuliple) ? $isMuliple
 //filter by $guideId
 $guideId=(!empty($guideId) && $guideId != null && $guideId) ? $guideId : 0;
 
-$groups =\App\Models\Group::get();
+$user = auth()->user(); // Retrieve the authenticated user
+$user_id = null;
+
+if ($user && $user->type === 0) { // Check if the user exists and has type 0
+    $user_id = $user->id; // Get the user ID
+}
+if ($user_id) {
+    $groups =\App\Models\Group::where('company_id', $user_id)->get();
+} else {
+    $groups =\App\Models\Group::get();
+}
 
 $groups_by_company_array = Helper::group_array_by($groups, "company_name");
 $keys = array_keys($groups_by_company_array); 

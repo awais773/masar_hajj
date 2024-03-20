@@ -31,7 +31,7 @@ class CompanyGuideController extends Controller
     public function index()
     {
       
-        $guides=Guide::where('company_id',Auth::id())->get();
+        $guides=Guide::where('company_id',Auth::id())->latest() ->get();
         return response()->json(['data' => $guides, 'status' => 'success','code'=>200]);
 
     }

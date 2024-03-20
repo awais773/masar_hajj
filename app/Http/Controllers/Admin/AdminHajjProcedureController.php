@@ -30,7 +30,7 @@ class AdminHajjProcedureController extends Controller
      */
     public function index(): View
     {
-      
+
         $hajjprocedures=HajjProcedure::where('company_id',Auth::id())->get();
         return view('admin.hajjProcedure.index',compact('hajjprocedures'));
     }

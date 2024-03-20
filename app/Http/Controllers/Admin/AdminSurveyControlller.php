@@ -32,7 +32,7 @@ class AdminSurveyControlller extends Controller
     public function index(): View
     {
       
-        $surveys=Survey::with('company')->where('company_id',Auth::id())->get();
+        $surveys=Survey::with('company')->where('company_id',Auth::id())->latest('id')->get();
        
         return view('admin.survey.index',compact('surveys'));
     }

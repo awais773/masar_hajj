@@ -157,6 +157,9 @@ Route::post('common/update_groups_users_loc', [CommanController::class, 'groups_
 Route::get('common/groups/partialddl', [CommanController::class, 'GetGroupsForDDL'])->name('GetGroupsForDDL');
 Route::get('arabic', [WebsiteController::class, 'arabic'])->name('arabic');
 
+//notification
+Route::get('company/notification', [AdminNotificationController::class, 'CompanyNotification'])->name('company.notification');
+Route::post('admin/notification/store', [AdminNotificationController::class, 'store'])->name('admin.notification.store');
 
   
 Auth::routes();

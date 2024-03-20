@@ -365,8 +365,13 @@
 
                         {{-- <input class="form-control" placeholder="Phone*" type="tel" name="compphone"
                             id="compphone" required="required" style="width: 186%;"> --}}
-                        <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"
+                        {{-- <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"
+                            type="tel" name="compphone" id="compphone" required="required"> --}}
+                            <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"
                             type="tel" name="compphone" id="compphone" required="required">
+
+                            <input type="hidden" name="country_code" id="country_code">
+
 
                         <select class="dropdown-container" name="pricing_plan" id="pricing_plan" required="required"
                             style="margin-top: 10px;">
@@ -378,7 +383,7 @@
                         </select>
 
                         <textarea class="form-control" placeholder="Please let us Know how we can help:" rows="6" name="compmessage"
-                            id="compmessage" required="required" style="margin-top: 10px;"></textarea>
+                            id="compmessage" style="margin-top: 10px;"></textarea>
                         <input class="form-control" type="submit" value="Register Now">
                     </form>
                 </div>
@@ -476,11 +481,24 @@
         new WOW().init();
     </script>
     <script src="{{ asset('frontend/js/script.js') }}"></script>
-    <script>
-        var input = document.querySelector("#compphone");
-        window.intlTelInput(input, {
-            separateDialCode: true
-        });
+   <script>
+  $(document).ready(function() {
+    var input = document.querySelector("#compphone");
+    var iti = window.intlTelInput(input, {
+        initialCountry: 'sa', // Set the default country code to Saudi Arabia
+        separateDialCode: true,
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js',
+    });
+
+    // Listen for "countrychange" event to update selected country code and hidden input value
+    iti.promise.then(function() {
+        var countryData = iti.getSelectedCountryData();
+        var countryCode = countryData.dialCode;
+        $('#country_code').val('+' + countryCode);
+    });
+});
+
+
     </script>
     @include('layouts.notification')
 </body>

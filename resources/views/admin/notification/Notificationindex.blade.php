@@ -44,7 +44,6 @@
                                     <label>{{ trans('admin.notification_message');}}</label>
                                         @include('comman.tab')
                                     </div>
-                                   
                                     <div class="form-guide">
                                     <label>{{ trans('admin.notification_guides');}}
                                     </label>
@@ -83,21 +82,6 @@
 
                                         @include('comman.get-group-users')
                                     </div> 
-                                    <div class="form-companies">
-                                        <label>{{ trans('admin.notification_companies');}}
-                                        </label>
-                                        <?php $selectedUsersString = '';
-                                        $crtlName='selectedcompany[]';
-                                        $crtlId='selectedcompany';
-                                        $placeHolder= trans('admin.notification_selectCompanies'); 
-                                        $isMuliple = true;
-                                        ?>
-                            
-                                        <div>
-                                        @include('comman.get-company')
-                                        </div>
-                                    </div> 
-                                    <br>
 
                                     <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
                                 </form>

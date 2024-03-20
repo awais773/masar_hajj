@@ -156,6 +156,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{route('company.user')}}">
+                                <img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.users'); }}</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.hajjprocedure.index')}}">
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.Information'); }}</span>
                             </a>
@@ -170,18 +175,12 @@
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.survey'); }}</span>
                             </a>
                         </li>
-
                         <li>
-                            <a href="{{route('company.user')}}">
-                                <img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.users'); }}</span>
+                            <a href="{{route('company.notification')}}">
+                                <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.Notification'); }}</span>
                             </a>
                         </li>
-
-                        <li>
-                            <a href="{{route('company.admin')}}">
-                                <img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.admins'); }}</span>
-                            </a>
-                        </li>
+                        
                     
 
                        @endif                                               

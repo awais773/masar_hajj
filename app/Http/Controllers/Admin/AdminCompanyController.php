@@ -30,7 +30,7 @@ class AdminCompanyController extends Controller
      */
     public function index(): View
     {
-        $companies=User::with(['companyusers','companyadmins'])->where('type',0)->get();
+        $companies=User::with(['companyusers','companyadmins'])->where('type',0)->latest()->get();
         
         return view('admin.company.index',compact('companies'));
     }

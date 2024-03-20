@@ -8,10 +8,19 @@ $isMuliple = (!empty($isMuliple) && $isMuliple != null && $isMuliple) ? $isMulip
 ?>   
 
 <?php
+$user = auth()->user(); // Retrieve the authenticated user
+$user_id = null;
 
-$groups = \App\Models\Group::with('users')->get();
+if ($user && $user->type === 0) { // Check if the user exists and has type 0
+    $user_id = $user->id; // Get the user ID
+}
+if ($user_id) {
+    $groups = \App\Models\Group::where('company_id', $user_id)->get();
+} else {
+    $groups = \App\Models\Group::with('users')->get();
+}
+?>
 
-?>  
 
 <select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" multiple="multiple" >
     @foreach($groups as $group)

@@ -30,7 +30,7 @@ class AdminDuaController extends Controller
     public function index(): View
     {
       
-        $duas=Dua::with('company')->where('company_id',Auth::id())->get();
+        $duas=Dua::with('company')->where('company_id',Auth::id())->latest()->get();
         return view('admin.dua.index',compact('duas'));
     }
 

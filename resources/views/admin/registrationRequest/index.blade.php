@@ -90,29 +90,50 @@
              
 <script type="text/javascript">
 
-$(function() { 
+$('table').on('click', '.btnDeleteApproved', function(e) {
+    e.preventDefault();
+    var url = $(this).data("url");
+    if (confirm("Are you sure you want to approve this company?")) {
+        $.ajax({
+            url: url,
+            type: "GET", // or "POST" depending on your route definition
+            data: { status: "approved" }, // data to be sent to the server
+            success: function(response) {
+                // handle success response
+                console.log(response);
+                // reload the page or update UI as needed
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                // handle error response
+                console.error(error);
+            }
+        });
+    }
+});
 
-    //Enable sidebar toggle
-    $(".btnDelete").click(function(e) {
-        e.preventDefault();
+// Listen for click events on the parent element (replace 'table' with the appropriate selector)
+$('table').on('click', '.btnDelete', function(e) {
+    e.preventDefault();
+    var url = $(this).data("url");
+    if (confirm("Are you sure you want to reject this company?")) {
+        $.ajax({
+            url: url,
+            type: "GET", // or "POST" depending on your route definition
+            data: { status: "rejected" }, // data to be sent to the server
+            success: function(response) {
+                // handle success response
+                console.log(response);
+                // reload the page or update UI as needed
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                // handle error response
+                console.error(error);
+            }
+        });
+    }
+});
 
-        //If window is small enough, enable sidebar push menu
-         if (confirm("Are you sure you want to reject this company"))
-         {
-         window.location= $(this).attr("data-url");      
-        }
-         
-    });
-     $(".btnDeleteApproved").click(function(e) {
-        e.preventDefault();
-
-        //If window is small enough, enable sidebar push menu
-         if (confirm("Are you sure you want to Approved this company"))
-         {
-         window.location= $(this).attr("data-url");      
-        }
-         
-    });
- });
 </script>
 @endsection

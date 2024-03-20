@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Models\CustomerLocation;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,21 +26,94 @@ class SurveyController extends Controller
 
     public function survey(Request $request, $id)
     {
+        // Get the user ID from the request
+        $user_id = $request->input('user_id');
+    
+        // Get all surveys for the specified company
         $surveys = Survey::where('company_id', $id)->get();
-
-        $language = $request->lang ?? 'en'; // Default to English if language is not specified
+    
+        // Get the language from the request or default to English
+        $language = $request->lang ?? 'en';
+    
+        // Get the user's submitted answers for surveys
+        $user_submissions = DB::table('survey_submit')
+            ->where('user_id', $user_id)
+            ->whereIn('survey_id', $surveys->pluck('id'))
+            ->get();
+    
+        // Iterate through surveys to attach submitted answers
         foreach ($surveys as $survey) {
             $survey->question = $this->getLocalizedField($survey->question, $language);
             $survey->choices = $this->getLocalizedField($survey->choices, $language);
+    
+            // Find the user's submission for this survey, if any
+            $submission = $user_submissions->firstWhere('survey_id', $survey->id);
+    
+            // If a submission is found, attach it to the survey
+            if ($submission) {
+                $survey->submitted = true;
+                $survey->user_choice = $submission->choice;
+            } else {
+                $survey->submitted = false;
+                $survey->user_choice = null;
+            }
         }
-        if ($surveys->count() > 0) {
-            return response()->json(['message' => 'data successfully !', 'success' => true, 'data' => $surveys]);
-        } else {
-            
-            // return response()->json(['data' => $survey, 'success' => false]);
-            return response()->json(['message' => 'Operation Failed !', 'success' => false, 'code' => 501]);
-        }
+    
+        // Return the response
+        return response()->json([
+            'message' => 'Surveys successfully retrieved!',
+            'success' => true,
+            'data' => $surveys,
+        ]);
     }
+    
+    
+
+//     public function survey(Request $request, $id)
+// {
+//     // Get the user ID from the request
+//     $user_id = $request->input('user_id');
+
+//     // Get the surveys for the specified company
+//     $surveys = Survey::where('company_id', $id)->get();
+
+//     // Get the language from the request or default to English
+//     $language = $request->lang ?? 'en';
+
+//     // Get the IDs of surveys already submitted by the user
+//     $submitted_survey_ids = DB::table('survey_submit')
+//         ->where('user_id', $user_id)
+//         ->pluck('survey_id')
+//         ->toArray();
+
+//     // Filter out the surveys that the user has already submitted
+//     $filtered_surveys = $surveys->reject(function ($survey) use ($submitted_survey_ids) {
+//         return in_array($survey->id, $submitted_survey_ids);
+//     });
+
+//     // Localize fields for the remaining surveys
+//     foreach ($filtered_surveys as $survey) {
+//         $survey->question = $this->getLocalizedField($survey->question, $language);
+//         $survey->choices = $this->getLocalizedField($survey->choices, $language);
+//     }
+
+//     // Extract only the values of the associative array
+//     $filtered_surveys_values = $filtered_surveys->values();
+
+//     // If there are surveys left after filtering, return them
+//     if ($filtered_surveys_values->count() > 0) {
+//         return response()->json([
+//             'message' => 'Surveys successfully retrieved!',
+//             'success' => true,
+//             'data' => $filtered_surveys_values,
+//         ]);
+//     } else {
+//         return response()->json([
+//             'message' => 'No surveys available for the user.',
+//             'success' => false,
+//         ]);
+//     }
+// }
 
 
     private function getLocalizedField($field, $language)
@@ -326,6 +400,24 @@ class SurveyController extends Controller
         }
     
         return response()->json( $duas, 200);
+    }
+
+
+    public function NotificationGet (Request $request, $id)
+    { 
+        $surveys = Notification::where('to_id', $id)->latest('date_created')->get();
+        $language = $request->lang ?? 'en';
+        foreach ($surveys as $survey) {
+            $survey->title = $this->getLocalizedField($survey->title, $language);
+            $survey->message = $this->getLocalizedField($survey->message, $language);
+        }
+    
+        // Return the response
+        return response()->json([
+            'message' => 'Notifications successfully retrieved!',
+            'success' => true,
+            'data' => $surveys,
+        ]);
     }
 
 }

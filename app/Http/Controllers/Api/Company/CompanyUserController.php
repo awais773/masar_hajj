@@ -31,8 +31,8 @@ class CompanyUserController extends Controller
     public function index()
     {
       
-        $companyUsers=CompanyUser::where('company_id',Auth::id())->get();
-        return response()->json(['companyUsers' => $companyUsers,'status' => 'success',]);
+      $companyUsers=CompanyUser::where('company_id',Auth::id())->latest()->get();
+      return response()->json(['companyUsers' => $companyUsers,'status' => 'success',]);
     }
 
 

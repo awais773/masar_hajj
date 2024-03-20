@@ -94,9 +94,9 @@ return array(
     'user_lastname' => 'Last Name',
     'user_group' => 'Group',
     'user_passport_num' => 'Passport Number',
-    'passport_date' => 'Passport Date',
+    'passport_date' => 'Passport Expire',
     'visa_num' => 'visa Number',
-    'visa_date' => 'Visa Date',
+    'visa_date' => 'Visa Expire Date',
 
     'user_active' => 'Active',
     'user_action' => 'actions',
@@ -127,10 +127,12 @@ return array(
     'notification_guides' => 'Guide(s)',
     'notification_groups' => 'Group(s)',
     'notification_users' => 'User(s)',
+    'notification_companies' => 'Company(s)',
 
     'notification_selectguides' => 'Select Guide(s)',
     'notification_selectgroups' => 'Select Group(s)',
     'notification_selectusers' => 'Select User(s)',
+    'notification_selectCompanies' => 'Select Company(s)',
 
     'notification_action' => 'actions',
     'notification_edit' => 'Edit Notification',
@@ -180,9 +182,9 @@ return array(
     'Find_Location' => 'Find Location',
 
     'passport_num'   => 'Passport Number',
-    'passport_date'  => 'Passport Date',
+    'passport_date' => 'Passport Expire',
     'visa_num'       => 'Visa Number',
-    'visa_date'      => 'Visa Date',
+    'visa_date' => 'Visa Expire Date',
     'visa_period'    => 'Visa Period',
     "dua"=>"Dua",
     "new_dua"=>"Add New Dua",
