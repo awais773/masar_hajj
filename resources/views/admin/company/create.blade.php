@@ -55,7 +55,7 @@
                                    
                                     <div class="form-group">
                                     <label>{{ trans('admin.guide_password');}}</label>
-                                        <input type="text" class="form-control" name="password" id="password" placeholder="Password" required>
+                                        <input type="text" class="form-control" name="password" id="password" placeholder="Password" minlength="8" required>
                                     </div>
                                     <div class="form-group">
                                     <label>{{ trans('admin.country_name');}}</label>

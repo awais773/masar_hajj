@@ -160,6 +160,8 @@ Route::get('arabic', [WebsiteController::class, 'arabic'])->name('arabic');
 //notification
 Route::get('company/notification', [AdminNotificationController::class, 'CompanyNotification'])->name('company.notification');
 Route::post('admin/notification/store', [AdminNotificationController::class, 'store'])->name('admin.notification.store');
+Route::get('company/showNotification', [AdminNotificationController::class, 'showNotification'])->name('company.showNotification');
+
 
   
 Auth::routes();

@@ -161,5 +161,8 @@ Route::get('company/user/guide/{id}', [SurveyController::class, 'guide_get']);
 Route::post('surveysubmit', [SurveyController::class, 'surveysubmit']);
 Route::get('duaGet', [SurveyController::class, 'duaGet']);
 Route::get('NotificationGet/{id}', [SurveyController::class, 'NotificationGet']);
+Route::get('UnviewedNotification/{id}', [SurveyController::class, 'UnviewedNotification']);
 
-
+// delete
+Route::delete('hajji/delete/{id}', [CompanyUserController::class, 'delete']);
+Route::delete('guide/delete/{id}', [CompanyGuideController::class, 'delete']);

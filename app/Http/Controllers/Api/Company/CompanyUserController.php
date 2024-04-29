@@ -68,15 +68,21 @@ class CompanyUserController extends Controller
       }
     }
 
-    public function delete(Request $request,$id){
-        if(CompanyUser::find($id)){
-          CompanyUser::find($id)->delete();
-          return response()->json(['message' => 'User deleted successfully !','status' => 'success',]);
-        }else{
-          return response()->json(['message' => 'Operation Failed !', 'status' => 'error','code'=>501]);
 
-        }
-    }
+
+    public function delete(Request $request,$id){
+      if(CompanyUser::find($id)){
+        CompanyUser::find($id)->delete();
+        return response()->json(['
+        message' => 'Hajji deleted successfully !', 
+        'success' => true,
+        'code'=>200]);
+      }else{
+        return response()->json(['message' => 'Operation Failed !', 
+        'success' => false,
+        'code'=>501]);
+      }
+  }
 
     public function edit(Request $request,$id)
     {

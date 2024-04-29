@@ -54,7 +54,7 @@
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.user_password')}} <span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" id="password" name="password" required>
+                                            <input type="text" class="form-control" id="password" name="password" minlength="8" required>
                                         </div>
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.user_phone')}} <span style="color: red;">*</span></label>
@@ -100,19 +100,19 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.passport_date');}}  <span style="color: red;">*</span></label>
-                                            <input type="date" class="form-control" id="passport_date" name="passport_date" required>
+                                            <label>{{ trans('admin.passport_date');}} </label>
+                                            <input type="date" class="form-control" id="passport_date" name="passport_date">
                                         </div>
 
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.visa_num');}}  <span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" id="visa_num" name="visa_num" required>
+                                            <label>{{ trans('admin.visa_num');}}</label>
+                                            <input type="text" class="form-control" id="visa_num" name="visa_num" >
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label>{{ trans('admin.visa_date');}}  <span style="color: red;">*</span></label>
-                                            <input type="date" class="form-control" id="visa_date" name="visa_date" required>
+                                            <label>{{ trans('admin.visa_date');}} </label>
+                                            <input type="date" class="form-control" id="visa_date" name="visa_date">
                                         </div>
 
                                         <div class="form-group col-6">

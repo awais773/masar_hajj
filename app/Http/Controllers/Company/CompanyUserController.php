@@ -61,7 +61,7 @@ class CompanyUserController extends Controller
         $user->username=$request->username;
         $user->password=$request->password;
         $user->company_id=Auth::id();
-        $user->group_id=json_encode($request->selectedgroups);
+        $user->group_id = $request->has('selectedgroups') ? json_encode($request->selectedgroups) : null; // Check if selectedgroups exists
         $user->phone=$request->phone;
         $user->passport_num=$request->passport_num;
         $user->passport_date=$request->passport_date;

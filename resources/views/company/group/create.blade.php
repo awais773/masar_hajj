@@ -38,14 +38,15 @@
                                         $stringValues = '';
                                     ?>
                                     <div class="form-group">
-                                    <label>{{ trans('admin.group_name');}}</label>
+                                    <label>{{ trans('admin.group_name');}}</label> <span style="color: red;">*</span>
                                         @include('comman.tab')
+
                                     </div>
 
                                     <input type="hidden" name="company_id" value="{{Auth::id()}}">
                                     
                                     <div class="form-group">
-                                        <label>{{ trans('admin.group_guide');}}</label>
+                                        <label>{{ trans('admin.group_guide');}}</label> <span style="color: red;">*</span>
                                         <select class="form-control input-lg chosen" data-placeholder="Choose" tabindex="1" id="guide_id" name="guide_id">
                                             <option value="">None</option> 
                                                 @foreach ($guides as $guide)

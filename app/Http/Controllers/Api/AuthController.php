@@ -7,15 +7,16 @@ use App\Models\User;
 use App\Models\Group;
 use App\Models\Guide;
 use App\Helper\Helper;
+use Ramsey\Uuid\Guid\Guid;
 use App\Models\CompanyUser;
 use Illuminate\Http\Request;
 use App\Models\HajjProcedure;
 use App\Models\CustomerLocation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Validator;
-use Ramsey\Uuid\Guid\Guid;
 
 class AuthController extends Controller
 {

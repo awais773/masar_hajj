@@ -135,7 +135,7 @@
                        @elseif(Auth::check() && Auth::user()->type==0)
                        <li>
                             <a href="{{route('company.home')}}">
-                              <img src="{{asset('assets/images/svg-icon/dashboard.svg')}}" class="img-fluid" alt="dashboard"><span>{{ trans('admin.Dashboard'); }}</span>
+                              <img src="{{asset('assets/images/svg-icon/dashboard.svg')}}" class="img-fluid" alt="dashboard"><span style="direction: rtl" >{{ trans('admin.Dashboard'); }}</span>
                             </a>
                          
                         </li>
@@ -258,14 +258,23 @@
                         </div>
                         <div class="infobar">
                             <ul class="list-inline mb-0">
-                                <!-- <li class="list-inline-item">
+                                @if(Auth::check() && Auth::user()->type==0)
+                                @php
+                                $notifications = \App\Models\Notification::where('to_id', Auth::id())
+                                                                          ->where('viewed', 0) // Filter by viewed = 0
+                                                                          ->latest('date_created')
+                                                                          ->get();
+                                $totalNotifications = $notifications->count();
+                            @endphp
+                                <li class="list-inline-item">
                                     <div class="notifybar">
-                                        <a href="javascript:void(0)" id="infobar-notifications-open" class="infobar-icon">
+                                        <a href="{{route('company.showNotification') }}"class="infobar-icon">
                                             <img src="{{asset('assets/images/svg-icon/notifications.svg')}}" class="img-fluid" alt="notifications">
-                                            <span class="live-icon"></span>
+                                                <span>{{ $totalNotifications }}</span> <!-- Display total number of notifications -->
                                         </a>
                                     </div>
-                                </li> -->
+                                </li>
+                                @endif
                                 <!-- <li class="list-inline-item">
                                     <div class="settingbar">
                                         <a href="javascript:void(0)" id="infobar-settings-open" class="infobar-icon">
@@ -398,6 +407,7 @@
     <!-- <script src="{{asset('assets/js/custom/custom-chart-chartistjs.js')}}"></script> -->
     <script src="{{asset('assets/js/custom/custom-form-select.js')}}"></script>
      
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
     <script src="{{asset('assets/js/core.js')}}"></script>
     <script src="{{asset('assets/js/custom/custom-form-editor.js')}}"></script> 
@@ -451,7 +461,6 @@
            });
             
         });
-      
     </script>
     @include('layouts.notification')
     <!-- End js -->

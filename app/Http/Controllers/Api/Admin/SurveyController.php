@@ -410,8 +410,10 @@ class SurveyController extends Controller
         foreach ($surveys as $survey) {
             $survey->title = $this->getLocalizedField($survey->title, $language);
             $survey->message = $this->getLocalizedField($survey->message, $language);
+            $survey->viewed = 1;
+            $survey->save();
         }
-    
+
         // Return the response
         return response()->json([
             'message' => 'Notifications successfully retrieved!',
@@ -419,5 +421,22 @@ class SurveyController extends Controller
             'data' => $surveys,
         ]);
     }
+
+
+
+
+    public function UnviewedNotification(Request $request, $id)
+{ 
+    // Count the number of notifications where 'viewed' is 0
+    $unviewedCount = Notification::where('to_id', $id)->where('viewed', 0)->count();
+
+    // Return the response
+    return response()->json([
+        'message' => 'Unviewed notification count successfully retrieved!',
+        'success' => true,
+        'data' => ['unviewed_count' => $unviewedCount],
+    ]);
+}
+
 
 }

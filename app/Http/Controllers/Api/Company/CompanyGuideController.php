@@ -63,9 +63,14 @@ class CompanyGuideController extends Controller
     public function delete(Request $request,$id){
         if(Guide::find($id)){
           Guide::find($id)->delete();
-          return response()->json(['message' => 'Guide deleted successfully !', 'status' => 'success','code'=>200]);
+          return response()->json(['
+          message' => 'Guide deleted successfully !', 
+          'success' => true,
+          'code'=>200]);
         }else{
-          return response()->json(['message' => 'Operation Failed !', 'status' => 'error','code'=>501]);
+          return response()->json(['message' => 'Operation Failed !', 
+          'success' => false,
+          'code'=>501]);
         }
     }
 
