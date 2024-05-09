@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use File;
-use App\Models\User;
-use App\Models\Guide;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Helper\Helper;
 use Illuminate\View\View;
-use App\Models\CompanyUser;
 use App\Models\Notification;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Guide;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-
+use App\Models\CompanyUser;
+use Session;
+use File;
 class AdminNotificationController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
-     */
+    */
     public function __construct()
     {
         $this->middleware('auth:web');
@@ -33,47 +31,29 @@ class AdminNotificationController extends Controller
      */
     public function index(): View
     {
-
-
         return view('admin.notification.index');
     }
-
-    public function showNotification()
+    
+     public function showNotification()
     {
         $notifications = Notification::where('to_id', Auth::id())->latest('date_created')->get();
-        foreach ($notifications as $notification) {
+         foreach ($notifications as $notification) {
             if (!$notification->viewed) {
                 $notification->viewed = true;
                 $notification->save();
             }
         }
-     return view('admin.company.notificationShow', compact('notifications'));
+        return view('admin.company.notificationShow', compact('notifications'));
     }
-
     
-    // public function countNotification()
-    // {
-    //     $notifications = Notification::where('to_id', Auth::id())
-    //                             ->where('viewed', 0) // Filter by viewed = 0
-    //                             ->latest('date_created')
-    //                             ->get();
-
-    // $totalNotifications = $notifications->count(); // Total number of notifications
-
-    //  return view('layouts.notificationMessage', compact('totalNotifications'));
-    // }
     
-
-
-    public function CompanyNotification(): View
+    
+     public function CompanyNotification(): View
     {
 
-
+        
         return view('admin.notification.Notificationindex');
     }
-
-
-
 
     // public function store(Request $request){
     //     try {
@@ -130,7 +110,7 @@ class AdminNotificationController extends Controller
 
     //         for ($u = 0; $u < sizeof($selectedusers); ++$u) {
     //             $user_id = $selectedusers[$u];
-
+                
     //             $user22 = CompanyUser::find($user_id);
     //             $FcmToken = $user22->device_token;
     //             $url = 'https://fcm.googleapis.com/fcm/send';
@@ -140,7 +120,7 @@ class AdminNotificationController extends Controller
     //                 "notification" => [
     //                     "title" => $title_en,
     //                     "body" => $message_en,
-
+                        
     //                 ]
     //             ];
     //             $encodedData = json_encode($data);
@@ -179,12 +159,10 @@ class AdminNotificationController extends Controller
     //     }
     //   }
 
-
-    public function store(Request $request)
-    {
-
-        $title = Helper::encode_localizedInput('title', $request->all());
-        $message = Helper::encode_localizedInput('message', $request->all());
+       public function store(Request $request){
+        
+        $title = Helper::encode_localizedInput('title',$request->all());
+        $message = Helper::encode_localizedInput('message',$request->all());
         $title_en = Helper::get_localizedDefault($title, 'en');
         $message_en = Helper::get_localizedDefault($message, 'en');
         $selectedguides = $request->selectedguides;
@@ -217,13 +195,13 @@ class AdminNotificationController extends Controller
             curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch2, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch2, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-            curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);        
             curl_setopt($ch2, CURLOPT_POSTFIELDS, $encodedData2);
             $result2 = curl_exec($ch2);
             if ($result2 === FALSE) {
                 die('Curl failed: ' . curl_error($ch2));
-            }
-            curl_close($ch2);
+            }        
+            curl_close($ch2);      
             Helper::addNotificationFromAdmin($guide_id, 'guide', $title, $message);
         }
         //Group(s)
@@ -240,7 +218,7 @@ class AdminNotificationController extends Controller
 
         for ($u = 0; $u < sizeof($selectedusers); ++$u) {
             $user_id = $selectedusers[$u];
-
+            
             $user22 = CompanyUser::find($user_id);
             $FcmToken = $user22->device_token;
             $url = 'https://fcm.googleapis.com/fcm/send';
@@ -250,7 +228,7 @@ class AdminNotificationController extends Controller
                 "notification" => [
                     "title" => $title_en,
                     "body" => $message_en,
-
+                    
                 ]
             ];
             $encodedData = json_encode($data);
@@ -265,24 +243,24 @@ class AdminNotificationController extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);        
             curl_setopt($ch, CURLOPT_POSTFIELDS, $encodedData);
             $result = curl_exec($ch);
             if ($result === FALSE) {
                 die('Curl failed: ' . curl_error($ch));
-            }
+            }        
             curl_close($ch);
-            if (!in_array($user_id, $combined_groups_and_users)) {
-                $combined_groups_and_users[] = $user_id;
-            }
+                if (!in_array($user_id, $combined_groups_and_users)) {
+                    $combined_groups_and_users[] = $user_id;
+                }
         }
         $selectedusers = $request->selectedusers ?? [];
         for ($u = 0; $u < sizeof($selectedusers); ++$u) {
             $userId = $combined_groups_and_users[$u];
             Helper::addNotificationFromAdmin($userId, 'user', $title, $message);
         }
-
-        if ($selectedcompanies = $request->selectedcompany) {
+        
+          if ($selectedcompanies = $request->selectedcompany) {
             foreach ($selectedcompanies as $companyId) {    
                 $notification = new Notification();
                 $notification->title = $title;
@@ -294,9 +272,9 @@ class AdminNotificationController extends Controller
                 $notification->save();
             }
         }
-        
 
-        Session::put('success', 'Notification sent successfully !');
-        return redirect()->route('admin.notification');
-    }
+      Session::put('success', 'Notification sent successfully !');
+      return redirect()->route('admin.notification');
+    
+  }
 }

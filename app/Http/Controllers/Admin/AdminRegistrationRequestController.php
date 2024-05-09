@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Session;
-use Carbon\Carbon;
-use App\Helper\Helper;
-use Illuminate\View\View;
-use League\ISO3166\ISO3166;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RegistrationRequest;
-use App\Http\Controllers\Controller;
+use Illuminate\View\View;
+use App\Helper\Helper;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Session;
+use Carbon\Carbon;
 class AdminRegistrationRequestController extends Controller
 {
   
@@ -51,7 +49,7 @@ class AdminRegistrationRequestController extends Controller
           'compname'=>'required|unique:registration_requests,comp_name',
           'compphone'=>'required|unique:registration_requests,comp_phone',
           "compemail"=>'required|unique:registration_requests,comp_email',
-          // "compmessage"=>'required',
+        //   "compmessage"=>'required',
         ]);
         if($validator->fails()) {
            return redirect()->back()->withErrors($validator)->withInput();
@@ -60,20 +58,17 @@ class AdminRegistrationRequestController extends Controller
         $registrationRequest = new RegistrationRequest();
         $registrationRequest->comp_name=$request->compname;
         $registrationRequest->comp_phone = $phoneWithCode;
+        // $registrationRequest->comp_phone=$request->compphone;
         $registrationRequest->comp_email=$request->compemail;
         $registrationRequest->pricing_plan=$request->pricing_plan;
         $registrationRequest->comp_description=$request->compmessage;
-        $registrationRequest->country=$request->country;
         $registrationRequest->request_status=0;
         $registrationRequest->registration_date=Carbon::now();
         $registrationRequest->lang=Session::get('locale')?Session::get('locale'):'en';
-        // $iso3166 = new ISO3166();
-        // $countryData = $iso3166->alpha2($request->input('country_code'));
-        // $registrationRequest->country = $countryData['name'];
         $registrationRequest->save();
         Session::put('success', 'Registration request created successfully !');
         return redirect()->back();
-      } catch (\Throwable $th) {      
+      } catch (\Throwable $th) {
         Session::put('error', 'Operation Failed !');
         return redirect()->back();
       }

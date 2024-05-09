@@ -50,7 +50,7 @@
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.user_password')}}</label>
-                                            <input type="text" class="form-control" id="password" name="password" required>
+                                            <input type="text" class="form-control" id="password" name="password" minlength="8" required>
                                         </div>
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.user_phone')}}</label>

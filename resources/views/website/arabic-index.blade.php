@@ -62,6 +62,9 @@
                             <li>
                                 <a data-value="app" href="#app">خطة التسعير</a>
                             </li>
+                             <li>
+                                <a href="{{ url('https://masarhajj.com/login') }}">تسجيل الدخول</a>
+                            </li>
                             <li>
                                 <a href="{{ url('/') }}">English</a>
                             </li>
@@ -77,7 +80,8 @@
 
                             {{-- <p>يتيح تطبيق مسار حج فرص تواصلك مع سائقى الباص و المشرف والمعتمر او الحاج لمعرفة مكانماى
                                 وقت واى مكان .</p> --}}
-                            <p>ما هو نظام المسار للحج والعمرة؟ مسار الحج هو تطبيق للهاتف المحمول يدير شركة الحج ويربط
+                            <p style="font-size: 18px;">ما هو نظام المسار للحج والعمرة؟ مسار الحج هو تطبيق للهاتف
+                                المحمول يدير شركة الحج ويربط
                                 الحاج إذا لزم الأمر بالموقع المباشر ونظام النقل، مما يسمح لهم بتحديد موقعهم في أي وقت
                                 خلال طريقهم. يساعد نظام مسار شركات الحج والعمرة على تتبع وتتبع حركة الحافلات المخصصة
                                 للحجاج والحجاج منذ لحظة مغادرة الحافلات حتى وصولها إلى وجهتها بسلام، وكذلك الوصول إلى أي
@@ -102,7 +106,7 @@
                     <div class="feature col-md-3 col-sm-6 wow fadeInRight">
                         <i aria-hidden="true" class="fa fa-map-marker hvr-grow"></i>
                         <h4>الموقع</h4>
-                        <p>معرفة الموقع الفعلى لحافلات والاشخاص
+                        <p style="font-size: 18px; text-align: justify;">معرفة الموقع الفعلى لحافلات والاشخاص
                             يوفر تحديد الموقع الجغرافي محتوى تدريبيًا مخصصًا عبر الإنترنت لجمهورك، بغض النظر عن مكان
                             وجودهم في العالم..</p>
                     </div>
@@ -110,7 +114,7 @@
                     <div class="feature col-md-3 col-sm-6 wow fadeInRight">
                         <i aria-hidden="true" class="fa fa-mobile hvr-grow"></i>
                         <h4>تنبيه</h4>
-                        <p>
+                        <p style="font-size: 18px; text-align: justify;">
 
                             يجعل ادارة شركة الحج على اطلاع ويرسل اليهم تنبيهات عن التأخير مما يساعد ادارة الشركة على
                             التحكم فى المواقف وسهولة الوصول.يمكن استخدام مكون التنبيه لتوفير معلومات مهمة وربما حساسة
@@ -121,7 +125,8 @@
                     <div class="feature col-md-3 col-sm-6 wow fadeInRight">
                         <i aria-hidden="true" class="fa fa-comments hvr-grow"></i>
                         <h4>رسائل</h4>
-                        <p>مع مسار حج ، يمكن لادارة الشركة ارسال رسائل و تنبيهات مباشرة للمعتمرين والحجاج لديهم .
+                        <p style="font-size: 18px; text-align: justify;">مع مسار حج ، يمكن لادارة الشركة ارسال رسائل و تنبيهات مباشرة
+                            للمعتمرين والحجاج لديهم .
                             الرسالة هي وحدة اتصال منفصلة يقصدها المصدر للاستهلاك من قبل بعض المستلمين أو مجموعة من
                             المستلمين.
 
@@ -131,7 +136,8 @@
                     <div class="feature col-md-3 col-sm-6 wow fadeInRight">
                         <i aria-hidden="true" class="fa fa-refresh hvr-grow"></i>
                         <h4>تغيير الطريق/الغياب</h4>
-                        <p>مع مسارحج ، يمكن للمعتمرين والحجاج لدى الشركة طلب تأخير الحافلة او تغيير مسارها والتواصل مع
+                        <p style="font-size: 18px; text-align: justify;">مع مسارحج ، يمكن للمعتمرين والحجاج لدى الشركة طلب تأخير الحافلة او
+                            تغيير مسارها والتواصل مع
                             الشركة في اي وقت يريد.
                             تُستخدم هذه الرموز لجمع بيانات حول كيفية تفاعل المستخدمين مع صفحة الويب الخاصة بك ويتم
                             إلحاقها عادةً بعنوان URL.</p>
@@ -149,24 +155,28 @@
                         {{-- <img src="{{ asset('assets/images/arbi.png') }}"> --}}
                         <h2>المعلومات الحالية
                             عن مسار حج</h2>
-                      <p>يتيح مسار حج إمكانية إدارته والتواصل مع جميع حجاج الحملة. ويوفر سهولة الوصول إلى
+                        <p style="font-size: 18px;">يتيح مسار حج إمكانية إدارته والتواصل مع جميع حجاج الحملة. ويوفر
+                            سهولة الوصول إلى
                             المكان المطلوب الوصول اليه</p>
-                            <h3>لجعل الدعاء</h3>
-                            <p>إن الدعاء هو جانب حاسم من العبادة الإسلامية، وتوفير وسيلة مباشرة للتواصل مع الله.</p>
-                            <h3>لرؤية الزيارات</h3>
-                            <p>تعتبر مشاهدة مناسك ومعالم الحج المقدسة، والمعروفة باسم "الزيارات"، تجربة عميقة للحجاج.</p>
+                        <h3>لجعل الدعاء</h3>
+                        <p style="font-size: 18px;">إن الدعاء هو جانب حاسم من العبادة الإسلامية، وتوفير وسيلة مباشرة
+                            للتواصل مع الله.</p>
+                        <h3>لرؤية الزيارات</h3>
+                        <p style="font-size: 18px;">تعتبر مشاهدة مناسك ومعالم الحج المقدسة، والمعروفة باسم "الزيارات"،
+                            تجربة عميقة للحجاج.</p>
                     </div>
 
                     <div class="work col-md-6">
                         <h2>كيفية العمل</h2>
-                        <p>اتصال كامل وفعلى بين المشرف والحجاج او المعتمرين والحافلة لمعرفة مكانها الحالى .
+                        <p style="font-size: 18px; text-align: justify;">اتصال كامل وفعلى بين المشرف والحجاج او المعتمرين والحافلة لمعرفة
+                            مكانها الحالى .
                             .يوفر تحديد الموقع الجغرافي محتوى تدريبيًا مخصصًا عبر الإنترنت لجمهورك، بغض النظر
                             أين هم في العالم.
                         </p>
 
                         <div class="col-md-6 col-sm-6">
                             <i aria-hidden="true" class="fa fa-globe"></i>
-                            <p>موقع مخصص لتحديد حافلات المعتمرين مع مميزات متعددة.
+                            <p style="font-size: 18px;">موقع مخصص لتحديد حافلات المعتمرين مع مميزات متعددة.
                                 يوفر تحديد الموقع الجغرافي محتوى تدريبيًا مخصصًا عبر الإنترنت لجمهورك، بغض النظر
                                 أين هم في العالم.
                             </p>
@@ -174,7 +184,7 @@
 
                         <div class="col-md-6 col-sm-6">
                             <i aria-hidden="true" class="fa fa-television"></i>
-                            <p>تقديم حل ادارى متكامل بقدرات مختلفة وسهولة فى التغيير .
+                            <p style="font-size: 18px;">تقديم حل ادارى متكامل بقدرات مختلفة وسهولة فى التغيير .
                                 الهدف الأساسي لبرنامج المكتب الخلفي الخاص بك هو تحسين العمليات وأتمتتها عبر كل من هذه
                                 الوظائف.
 
@@ -190,7 +200,7 @@
         <div class="container">
             <div class="row text-center">
                 <h2>تحميل التطبيق</h2>
-                <p> من اجل عرض توضيحى للتطبيق . <a href="#">من هنا</a></p>
+                <p style="font-size: 16px;"> من اجل عرض توضيحى للتطبيق . <a href="#">من هنا</a></p>
                 <a class="btn btn-primary wow fadeInRight" href="#"><i aria-hidden="true"
                         class="fa fa-apple"></i> App Store</a> <a class="btn btn-primary wow fadeInLeft"
                     href="#"><i aria-hidden="true" class="fa fa-android"></i> Play Store</a><br>
@@ -202,9 +212,13 @@
         <div class="container">
             <div class="row text-center">
                 <h2>صور التطبيق</h2>
-                <p>. هنا بعض المقتطفات عن تطبيق مسار ، الحج هو الركن الخامس من أركان الإسلام الخمسة. وهذا الالتزام يعتمد على الوضع المالي والجسدي للمسلم. إذا كنت مستقرًا ماليًا، فيجب عليك أداء الحج والعمرة في أسرع وقت ممكن. ومن اجل عرض توضيحي للتطبيق <a href="#contact">كن على تواصل معانا
+                <p style="font-size: 18px;">. هنا بعض المقتطفات عن تطبيق مسار ، الحج هو الركن الخامس من أركان الإسلام
+                    الخمسة. وهذا الالتزام يعتمد
+                    على الوضع المالي والجسدي للمسلم. إذا كنت مستقرًا ماليًا، فيجب عليك أداء الحج والعمرة في أسرع وقت
+                    ممكن. ومن اجل عرض توضيحي للتطبيق <a href="#contact">كن على تواصل معانا
                     </a></p>
-                <p>هنا يمكنك العثور على بعض لقطات الشاشة لتطبيق مسار الحج. من فضلك اطلب عرضًا توضيحيًا يعمل بكامل طاقته،
+                <p style="font-size: 18px;">هنا يمكنك العثور على بعض لقطات الشاشة لتطبيق مسار الحج. من فضلك اطلب عرضًا
+                    توضيحيًا يعمل بكامل طاقته،
                     بما في ذلك نظام إدارة الويب الخاص بنا، باستخدام نموذج الاتصال الخاص بنا.</p>
             </div>
             {{-- <div class="gallary">
@@ -231,31 +245,25 @@
         </div>
 
         {{-- new app code  --}}
-
-        <section id="app"
+ <section id="app"
             style="max-width: 1100px; margin: 0 auto; display:flex; flex-wrap: wrap; justify-content: center; gap:15px;">
             {{-- <div class="box" style="max-width: 350px; margin: 0 auto;"> --}}
-            <div class="box" style="max-width: 300px; margin: 0 auto;  height: auto; ">
+            <div class="box" style="max-width: 250px; margin: 0 auto;  height: auto; ">
 
                 <div
                     style="background-color: #03A99D; color: #fff; padding-top:10px; padding-right: 15px; padding-left:15px; max-width: 300px; clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%); padding-bottom:20px;">
-                    <h4 style="text-align: center; color:#FFB804;">نمو</h4>
+                    <h4 style="text-align: center; color:#FFB804;">االقتصادي</h4>
                     <h5 style="text-align: center; font-weight:25px;">ريال سعودي&nbsp;<span
                             style="font-size: 30px; font-weight:bold; color:#FFB804;">44</span>/لكل/شهر</h5>
-                    <p style="color: #fff; text-align:center; font-size:11px;">قم بتنمية أعمالك من خلال تخصيصها
-                        خدمة &
-                        <br>مدير حساب مخصص للدعم
+                    <p style="color: #fff; text-align:center; font-size:11px;">يشمل االقتصاديإنتاج وتبادل السلع
+                        والخدمات داخل المجتمع
                     </p>
                 </div>
 
-                <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">متوسط ​​الإيرادات الشهرية
-                    تصل إلى
-                    25000 دولار
-                    <br>بيان التحكم
-                    /التقديمات SAF-T<br>إقرارات ضريبة القيمة المضافة<br><br>دعم المكالمات<br>دعم البريد الإلكتروني
-                </p>
+                <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">ممتاز لالستخدام المحدود
+                    ال ترغب بإنفاق الكثير؟ االشتراك »االقتصادي« سستمكن من المشاركة حتى 15 شخص مع مساحة بالخادم.
 
-                <div class="button" style="text-align: center; padding-top:93px;">
+                <div class="buttons" style="text-align: center; padding-top:40px;padding-bottom:15px;">
                     <a href="#form-input">
                         <button
                             style="background-color: #03A99D; border-radius:28px;
@@ -272,25 +280,21 @@
             </div>
 
 
-            <div class="box" style="max-width: 300px; margin: 0 auto; height: auto;">
+            <div class="box" style="max-width: 250px; margin: 0 auto; height: auto;">
                 <div
                     style="background-color: #03A99D; color: #fff; padding-top:10px; padding-right: 15px; padding-left:15px;clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);  padding-bottom:20px;">
 
-                    <h4 style="text-align: center; color:#FFB804;">احترافي</h4>
+                    <h4 style="text-align: center; color:#FFB804;">االعتيادي</h4>
                     <h5 style="text-align: center; font-weight:25px;">ريال سعودي&nbsp;<span
                             style="font-size: 30px; font-weight:bold; color:#FFB804">77</span>/لكل/شهر</h5>
-                    <p style="color: #fff; text-align:center; font-size:11px;">رعاية شخصية للأعمال التجارية المتنامية.
-                        أفضل ل
-                        <br> الشركات الصغيرة والمتوسطة
-                        الشركات القائمة.
+                    <p style="color: #fff; text-align:center; font-size:11px;">معيار أو مقياس يتم من خلاله تقييم أو
+                        الحكم على الجودة أو الدقة أو الإنجاز.
                     </p>
                 </div>
 
-                <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">متوسط ​​الإيرادات
-                    الشهرية: غير محدود<br>بيان التحكم
-                    / التقديمات SAF-T<br>إقرارات ضريبة القيمة المضافة<br>تسجيل مجاني لضريبة القيمة المضافة<br>تسجيل
-                    مجاني في EORI<br>التقديمات السنوية<br>
-                    مدير حساب مخصص<br>مكالمة تأهيل مجانية</p>
+                <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">ممتاز لالستخدام المتوسط
+                    ,مع االشتراك »االعتيادي« ستتمكن من المشاركة حتى 50 شخص مع سعة بالخادم.
+                </p>
 
                 <div class="button-container" style="text-align: center; padding-top:55px;padding-bottom:15px;">
                     <a href="#form-input">
@@ -307,26 +311,51 @@
                 </div>
             </div>
 
-            <div class="box" style="max-width: 300px; margin: 0 auto; height: auto;">
+            <div class="box" style="max-width: 250px; margin: 0 auto; height: auto;">
                 <div
                     style="background-color: #03A99D; color: #fff; padding-top: 10px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px; clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);">
-                    <h4 style="text-align: center; color:#FFB804;">مَشرُوع</h4>
+                    <h4 style="text-align: center; color:#FFB804;">بلص</h4>
                     <h5 style="text-align: center; font-weight: 25px;">ريال سعودي&nbsp;<span
                             style="font-size: 30px; font-weight: bold; color: #FFB804;">224</span>/لكل/شهر</h5>
-                    <p style="color: #fff; text-align: center; font-size: 11px;">الحل الكامل للتأسيس
-                        الشركات مع<br> الأيدي لتوجيهات اتفاق السلام الشامل المؤهل</p>
+                    <p style="color: #fff; text-align: center; font-size: 11px;">بالإضافة إلى؛ علاوة على ذلك؛ تستخدم
+                        للدلالة على زيادة أو تعزيز.
+                    </p>
                 </div>
-                <p style="text-align: center; font-size: 12px; margin-top: 10px; padding: 10px;">المتوسط ​​الشهري
-                    الإيرادات: غير محدودة<br>بيان التحكم
-                    / التقديمات SAF-T
-                    <br>إقرارات ضريبة القيمة المضافة<br>قوائم مبيعات المفوضية الأوروبية<br>تسجيل مجاني لضريبة القيمة
-                    المضافة<br>إيوري مجاني
-                    تسجيل<br>
-                    تسجيل مجاني لـOSS<br>تقارير OSS<br>العوائد التصحيحية
-                    <br><span style="font-weight: bold;">دعم مخصص للمحاسبين القانونيين</span><br>التقديمات السنوية
+                <p style="text-align: center; font-size: 12px; margin-top: 10px; padding: 10px;">
+                    اذا كنت تريد مضاعفة المشتركين حتى 100 شخص والحصول على سعة تخزين عالية.
                 </p>
 
-                <div class="button" style="text-align: center; padding-top:15px;">
+                <div class="button" style="text-align: center; padding-top:73px; padding-bottom:15px;">
+                    <a href="#form-input">
+                        <button
+                            style="background-color: #03A99D; border-radius:28px;
+                 color: #FFB804;
+                 padding: 10px 60px;
+                 text-decoration: none;
+                 display: inline-block;
+                 border:2px solid #03A99D;">
+
+                            اتصل بنا
+                        </button>
+                    </a>
+                </div>
+            </div>
+            {{-- 4th div  --}}
+            <div class="box" style="max-width: 250px; margin: 0 auto; height: auto;">
+                <div
+                    style="background-color: #03A99D; color: #fff; padding-top: 10px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px; clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);">
+                    <h4 style="text-align: center; color:#FFB804;">بزنس برو اليت</h4>
+                    <h5 style="text-align: center; font-weight: 25px;">ريال سعودي&nbsp;<span
+                            style="font-size: 30px; font-weight: bold; color: #FFB804;">300</span>/لكل/شهر</h5>
+                    <p style="color: #fff; text-align: center; font-size: 11px;">إصدار مبسط من حزمة الأعمال الاحترافية
+                        التي تقدم ميزات أساسية بتكلفة مخفضة<br>
+                    </p>
+                </div>
+                <p style="text-align: center; font-size: 12px; margin-top: 10px; padding: 10px;">بزنس برو اليت للشركات
+                    المتوسطة والكبيرة بميزات أساسية وتكلفة منخفضة تتمكن من مشاركة 200 شخص.
+                </p>
+
+                <div class="button" style="text-align: center; padding-top:37px;padding-bottom:45px;">
                     <a href="#form-input">
                         <button
                             style="background-color: #03A99D; border-radius:28px;
@@ -349,19 +378,23 @@
                 <div class="row">
                     <div class="request col-md-6  wow fadeInRight">
                         <h2>طلب التسجيل</h2>
-                        <p>يمكنك التحكم بش حصري على الحافلات الخاصة بك بمساعدة تطبيق مدير النقل. يقلل تطبيق مدير النقل
+                        <p style="font-size: 16px;">يمكنك التحكم بش حصري على الحافلات الخاصة بك بمساعدة تطبيق مدير
+                            النقل. يقلل تطبيق مدير النقل
                             من
                             إمكانية وقوع الحوادث حتى الصغير منها في خدمة نقل الحافلات .</p>
                     </div>
                     <div class=" col-md-6 wow fadeInLeft">
                         <form id="form-input">
-                            <input class="form-control" placeholder="الاسم*" type="text" required> <input
-                                class="form-control" placeholder="البريد الالكترونى*" type="email" required> <input
-                                class="form-control" placeholder="الهاتف*" type="tel" required>
+                            <input style="font-size: 16px;" class="form-control" placeholder="الاسم*" type="text"
+                                required>
+                            <input style="font-size: 16px;" class="form-control" placeholder="البريد الالكترونى*"
+                                type="email" required>
+                            <input style="font-size: 16px; direction:rtl;" class="form-control" placeholder="الهاتف*"
+                                type="tel" required>
 
 
-                            <select class="dropdown" name="pricing_plan" id="pricing_plan" required="required"
-                                style="margin-top: 10px;">
+                            <select style="font-size: 16px;" class="dropdown" name="pricing_plan" id="pricing_plan"
+                                required="required" style="margin-top: 10px;">
                                 <!-- Add your pricing plan options here -->
                                 <option value="" selected disabled hidden>خطة التسعير*</option>
                                 <option value="Growth">نمو/44</option>
@@ -378,7 +411,8 @@
                             <!-- ادارة الشركة -->
                             <!-- </option> -->
                             <!-- </select> -->
-                            <textarea class="form-control" placeholder="يرجى اشعارنا كيف يمكننا مساعدتك:" rows="6"></textarea> <input class="form-control" type="submit" value="تقدم الان">
+                            <textarea style="font-size: 16px;" class="form-control" placeholder="يرجى اشعارنا كيف يمكننا مساعدتك:"
+                                rows="6"></textarea> <input class="form-control" type="submit" value="تقدم الان">
                         </form>
                     </div>
                 </div>
@@ -388,14 +422,16 @@
             <div class="container">
                 <div class="row text-center wow fadeInUp">
                     <h2>كن على تواصل</h2>
-                    <p class="cont">اذا اردت معلومات اخرى رجاء لا تتردد فى التواصل معانا!</p>
+                    <p style="font-size: 16px;" class="cont">اذا اردت معلومات اخرى رجاء لا تتردد فى التواصل معانا!
+                    </p>
                     <form action="#" id="contact">
-                        <input class="form-control" required="required" name="name" id="name"
-                            placeholder="الاسم" type="text">
-                        <input class="form-control" required="required" name="email" id="email"
-                            placeholder="البريد الالكترونى" type="email">
-                        <textarea class="form-control" required="required" name="message" id="message" placeholder=" رسالتك"
-                            rows="6"></textarea> <input class="form-control btn btn-primary" type="submit"
+                        <input style="font-size: 16px;" class="form-control" required="required" name="name"
+                            id="name" placeholder="الاسم" type="text">
+                        <input style="font-size: 16px;" class="form-control" required="required" name="email"
+                            id="email" placeholder="البريد الالكترونى" type="email">
+                        <textarea style="font-size: 16px;" class="form-control" required="required" name="message" id="message"
+                            placeholder=" رسالتك" rows="6"></textarea>
+                        <input style="font-size: 16px;" class="form-control btn btn-primary" type="submit"
                             value="ارسل">
                     </form>
                 </div>
@@ -555,4 +591,56 @@
             /* Adjust the value according to your design */
         }
     }
+
+    /* .......................  */
+    @media only screen and (max-width: 600px) {
+        .box {
+            max-width: 100%;
+            /* Adjust the max-width to fit smaller screens */
+        }
+
+        .button {
+            padding-top: 0px !important;
+            /* Adjust the padding for the button */
+        }
+        .buttons {
+            padding-top: 147px !important;
+            /* Adjust the padding for the button */
+        }
+    }
+    /* .......................  */
+    @media only screen and (max-width: 600px) {
+        .box {
+            max-width: 100%;
+            /* Adjust the max-width to fit smaller screens */
+        }
+
+        .button {
+            padding-top: 0px !important;
+            /* Adjust the padding for the button */
+        }
+
+        .buttons {
+            padding-top: 147px !important;
+            /* Adjust the padding for the button */
+        }
+    }
+
+    /* Media query for screens with maximum width of 767px (typical mobile screens) */
+    @media screen and (max-width: 767px) {
+        #app {
+            flex-direction: column;
+            /* Change flex direction to column */
+            align-items: center;
+            /* Center align items */
+        }
+
+        .box {
+            width: 100%;
+            /* Make each box take up full width */
+            max-width: 100%;
+            /* Ensure boxes don't exceed the width of the viewport */
+        }
+    }
+  
 </style>

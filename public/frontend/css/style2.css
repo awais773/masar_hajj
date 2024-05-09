@@ -4,7 +4,7 @@ color: white;
     margin-top: 20px;
 }
 .contact-list li p{
-color: white;
+color: white;f
     font-size: 15px;
         text-align: left;
     padding-left: 54px;
@@ -241,6 +241,7 @@ header {
 	*/
 	    margin-top: -20px;
     position: absolute;
+    width:100px;
 }
 
 .overlay .navbar-default .navbar-nav>li>a  {
@@ -723,9 +724,9 @@ footer .address p.double {
     {
         padding-bottom: 30px;
     }
-    #screenshot {
-        padding-bottom: 85px
-    }
+    /*#screenshot {*/
+    /*    padding-bottom: 85px*/
+    /*}*/
 
     footer .address .add3 i {
         margin-left: 8px;
@@ -799,9 +800,9 @@ footer .address p.double {
     margin-left: 0px;
     }
 
-    #screenshot {
-        padding-bottom: 120px
-    }
+    /*#screenshot {*/
+    /*    padding-bottom: 120px*/
+    /*}*/
 
     footer .address  p {
         margin-top: 15px
@@ -883,9 +884,9 @@ footer .address p.double {
     #screenshot .gallary {
         margin-top: 85px;
     }
-    #screenshot {
-        padding-bottom: 142px
-    }
+    /*#screenshot {*/
+    /*    padding-bottom: 142px*/
+    /*}*/
 
     #register form {
         width: 80%;
@@ -966,9 +967,9 @@ footer .address p.double {
         margin-top: 50px;
         margin-left: 106px;
     }
-    #screenshot {
-        padding-bottom: 150px
-    }
+    /*#screenshot {*/
+    /*    padding-bottom: 150px*/
+    /*}*/
 
     #register form {
         width: 80%;
@@ -1053,9 +1054,9 @@ footer .address p.double {
         margin-top: 50px;
         margin-left: 106px;
     }
-    #screenshot {
-        padding-bottom: 150px
-    }
+    /*#screenshot {*/
+    /*    padding-bottom: 150px*/
+    /*}*/
 
     #register form {
         width: 80%;
@@ -1213,4 +1214,12 @@ footer .address p.double {
     top: 45%;
 
 }
+
+.app-logo {
+    width: 100px;
+    height: 90px;
+    object-fit: cover;
+    mix-blend-mode: multiply;
 }
+}
+

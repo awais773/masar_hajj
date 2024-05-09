@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use File;
-use App\Models\Group;
-use App\Helper\Helper;
-use App\Models\Survey;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+use App\Helper\Helper;
+use Illuminate\View\View;
+use App\Models\Survey;
+use Illuminate\Support\Facades\DB;
+use App\Models\Group;
+use Session;
+use File;
+use Auth;
 class AdminSurveyControlller extends Controller
 {
     /**
@@ -101,25 +101,28 @@ class AdminSurveyControlller extends Controller
         return redirect()->back();
       }
     }
-    public function survayDetail($id){
-      $surveys = Survey::find($id);
-      $title = ucwords(trans('admin.survey'));
-      $chartdata =DB::table('survey_submit')
-              ->selectRaw('count(choice) as total,choice')
-              ->groupBy('choice')
-              ->where('survey_id',$id)
-              ->get();
-      $tempArrayLabel=[];
-      $tempArrayCount=[];
-      foreach($chartdata as $chart){
-          $tempArrayLabel[]=$chart->choice;
-          $tempArrayCount[]=$chart->total;
-      }
-      $labeldata=json_encode($tempArrayLabel);
-      $countdata=json_encode($tempArrayCount);
-     
-      return view('admin.survey.detail',compact('title','surveys','countdata','labeldata'));
-  }
+public function survayDetail($id){
+    $surveys = Survey::find($id);
+    $title = ucwords(trans('admin.survey'));
+    $chartdata = DB::table('survey_submit')
+        ->selectRaw('count(choice) as total, choice')
+        ->groupBy('choice')
+        ->where('survey_id', $id)
+        ->get();
+    
+    $tempArrayLabel = [];
+    $tempArrayCount = [];
+    
+    foreach($chartdata as $chart){
+        $tempArrayLabel[] = $chart->choice;
+        $tempArrayCount[] = $chart->total;
+    }
+    
+    $labeldata = json_encode($tempArrayLabel);
+    $countdata = json_encode($tempArrayCount);
+    
+    return view('admin.survey.detail', compact('title', 'surveys', 'countdata', 'labeldata'));
+}
 }
 
 

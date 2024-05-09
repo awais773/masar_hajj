@@ -41,9 +41,10 @@
                             data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span
                                 class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
 
-                        <a class="navbar-brand" href="{{ url('/') }}" >
-                            <img src="{{ asset('frontend/image/masarhajj.jpg') }}" alt="MasarHajj Logo" width="150"
-                                height="95" >
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img class="app-logo" src="{{ asset('frontend/image/masarhajj.jpg') }}"
+                                alt="MasarHajj Logo" width="150"
+                                height="95">
                         </a>
 
                     </div><!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,8 +69,11 @@
                                 <a data-value="contact" href="#contact">Contact</a>
                             </li>
                             {{-- new code  --}}
-                            <li>
+                             <li>
                                 <a data-value="app" href="#app">Pricing Plan</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('https://masarhajj.com/login') }}">Login</a>
                             </li>
                             <li>
                                 <a href="{{ url('arabic') }}">عربى</a>
@@ -82,27 +86,27 @@
 
         </div>
     </header>
-       <div class="info" style="margin-bottom: 20px;padding-bottom:20px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="txt col-md-6 wow fadeInLeft">
-                            <h2>Real-time information on Masar Hajj</h2>
-                            <p>What is the path system for Hajj and Umrah? Masar hajj is a mobile application that
-                                manage hajj company and connects hajj person if need halp to direct location and
-                                transportation system, allowing them to locate them,at any time during their route.
-                                Masar system helps Hajj and Umrah companies to track and trace the movement of buses
-                                designated for pilgrims and Hajj from the moment the buses leave until they reach their
-                                destination safely, as well as access to any pilgrim or Hajj in case he is lost, and it
-                                also allows the pilgrim or pilgrim to reach the place of the bus or the camp or hotel
-                                also there are many features to help.</p><a class="btn btn-primary"
-                                href="#download">Download App</a>
-                        </div>
-                        <div class="devicess col-md-6 wow fadeInRight" style="height:290px;"><img class="device1"
-                                src="{{ asset('frontend/image/sliders/device5.png') }}"> <img class="device2"
-                                src="{{ asset('frontend/image/sliders/device4.png') }}"></div>
-                    </div>
+    <div class="info" style="margin-bottom: 20px;padding-bottom:20px;">
+        <div class="container">
+            <div class="row">
+                <div class="txt col-md-6 wow fadeInLeft">
+                    <h2>Real-time information on Masar Hajj</h2>
+                    <p>What is the path system for Hajj and Umrah? Masar hajj is a mobile application that
+                        manage hajj company and connects hajj person if need halp to direct location and
+                        transportation system, allowing them to locate them,at any time during their route.
+                        Masar system helps Hajj and Umrah companies to track and trace the movement of buses
+                        designated for pilgrims and Hajj from the moment the buses leave until they reach their
+                        destination safely, as well as access to any pilgrim or Hajj in case he is lost, and it
+                        also allows the pilgrim or pilgrim to reach the place of the bus or the camp or hotel
+                        also there are many features to help.</p><a class="btn btn-primary" href="#download">Download
+                        App</a>
                 </div>
+                <div class="devicess col-md-6 wow fadeInRight" style="height:290px;"><img class="device1"
+                        src="{{ asset('frontend/image/sliders/device5.png') }}"> <img class="device2"
+                        src="{{ asset('frontend/image/sliders/device4.png') }}"></div>
             </div>
+        </div>
+    </div>
 
     <section id="featured">
         <div class="features">
@@ -121,11 +125,10 @@
                     <div class="feature col-md-3 col-sm-6 wow fadeInLeft">
                         <i aria-hidden="true" class="fa fa-mobile hvr-grow"></i>
                         <h4>Alerts</h4>
-                        <p>Keep Hajj Members directly informed and notified easily of delays, whilst allowing to control
-                            emergency situations efficiently.
-                            The Alert component can be used to provide important and potentially time-sensitive
-                            information.
-
+                        <p>
+                            Keep Hajj Members directly informed and notified easily of delays, whilst allowing to
+                            control emergency situations efficiently. The Alert component can be used to provide
+                            important and potentially time-sensitive information.
                         </p>
                     </div>
 
@@ -133,18 +136,15 @@
                         <i aria-hidden="true" class="fa fa-comments hvr-grow"></i>
                         <h4>Messages</h4>
                         <p>With Masar Hajj,Manager can send messages and push notifications directly to the Hajj member
-                            app.
-                            A message is a discrete unit of communication intended by the source for consumption by some
-                            recipient or group of recipients.
+                            app. A message is a discrete unit of communication intended by the source for consumption by
+                            some recipient or group of recipients.
                         </p>
                     </div>
 
                     <div class="feature col-md-3 col-sm-6 wow fadeInLeft">
                         <i aria-hidden="true" class="fa fa-refresh hvr-grow"></i>
                         <h4>Track</h4>
-                        <p>With Masar hajj, Mananger can track its members easily in the mobily app.
-                            These codes are used to collect data on how users engage with your webpage and are typically
-                            appended to a URL.
+                        <p>With Masar hajj, Mananger can track its members easily in the mobily app. These codes are used to collect data on how users engage with your webpage and are typically appended to a URL.
                         </p>
                     </div>
 
@@ -157,15 +157,20 @@
                 <div class="row">
                     {{-- <div class="function col-md-6 wow fadeInDown"><img src="{{asset('frontend/image/sliders/device5.png')}}"></div> --}}
 
-                    <div class="function col-md-6 wow fadeInDown" >
+                    <div class="function col-md-6 wow fadeInDown">
                         {{-- <img src="{{ asset('assets/images/arbi.png') }}"> --}}
                         <h2 style="text-align: left; align-item:center;">Current information about<br> Masar Hajj</h2>
-                        <p style="text-align: left;align-item:center;">The Hajj Path allows to be managed and communicated with all campaign pilgrims. It provides easy access to the place.</p>
-                          <h3 style="text-align: left; align-item:center; font-size:18px; font-weight:bold;">To Make Dua</h3>
-                          <p>Making dua is a crucial aspect of Islamic worship, providing a direct means of communication with Allah.</p>
-                            <h3 style="text-align: left; align-item:center; font-size:18px; font-weight:bold;">To See Zayarat</h3>
-                            <p>Witnessing the sacred rituals and landmarks of Hajj, known as "Ziyarat," is a profound experience for pilgrims.</p>
-                              {{-- <h3 style="text-align: left; align-item:center;">To Make </h3> --}}
+                        <p style="text-align: left;align-item:center;">The Hajj Path allows to be managed and
+                            communicated with all campaign pilgrims. It provides easy access to the place.</p>
+                        <h3 style="text-align: left; align-item:center; font-size:18px; font-weight:bold;">To Make Dua
+                        </h3>
+                        <p>Making dua is a crucial aspect of Islamic worship, providing a direct means of communication
+                            with Allah.</p>
+                        <h3 style="text-align: left; align-item:center; font-size:18px; font-weight:bold;">To See
+                            Zayarat</h3>
+                        <p>Witnessing the sacred rituals and landmarks of Hajj, known as "Ziyarat," is a profound
+                            experience for pilgrims.</p>
+                        {{-- <h3 style="text-align: left; align-item:center;">To Make </h3> --}}
 
                     </div>
 
@@ -200,8 +205,11 @@
         <div class="container">
             <div class="row text-center">
                 <h2>Download App</h2>
-                <p style="text-align: center">Please ask us for a fully functional demo <a href="#">here</a>. Get to know the power of the
-                    Masar Hajj tool.</p><a class="btn btn-primary wow fadeInLeft" href="#"><i
+                <p style="text-align: center">Please ask us for a fully functional demo <a href="#">here</a>.
+                    Get to know the power of the
+                    Masar Hajj tool.
+                    Download our app to use exciting feature our MassarHajj be part,of MassarHajj community.
+                </p><a class="btn btn-primary wow fadeInLeft" href="#"><i
                         aria-hidden="true" class="fa fa-apple"></i> App Store</a> <a
                     class="btn btn-primary wow fadeInRight" href="#"><i aria-hidden="true"
                         class="fa fa-android"></i> Play Store</a><br>
@@ -213,8 +221,10 @@
         <div class="container">
             <div class="row text-center">
                 <h2>Screenshots</h2>
-                <p>Here you can find some screenshots of the Masar Hajj App.Hajj is the fifth pillar among the five pillars of Islam. This obligation depends on the financial and physical position of the Muslim. If you are financially stable, so you must perform hajj and Umrah as soon as you could.
-                     Please ask for a fully functional demo,
+                <p>Here you can find some screenshots of the Masar Hajj App.Hajj is the fifth pillar among the five
+                    pillars of Islam. This obligation depends on the financial and physical position of the Muslim. If
+                    you are financially stable, so you must perform hajj and Umrah as soon as you could.
+                    Please ask for a fully functional demo,
                     including our web management system, using our <a href="#contact">contact form</a>.</p>
             </div>
             <div class="gallary">
@@ -231,29 +241,27 @@
     </section>
     {{-- new code for app  --}}
 
-    <section id="app"
+  <section id="app"
         style="max-width: 1100px; margin: 0 auto; display:flex; flex-wrap: wrap; justify-content: center; gap:15px;">
         {{-- <div class="box" style="max-width: 350px; margin: 0 auto;"> --}}
-        <div class="box" style="max-width: 300px; margin: 0 auto;  height: auto; ">
+        <div class="box" style="max-width: 250px; margin: 0 auto;  height: auto; ">
 
             <div
                 style="background-color: #03A99D; color: #fff; padding-top:10px; padding-right: 15px; padding-left:15px; max-width: 300px; clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%); padding-bottom:20px;">
-                <h4 style="text-align: center; color:#FFB804;">Growth</h4>
+                <h4 style="text-align: center; color:#FFB804;">Economy</h4>
                 <h5 style="text-align: center; font-weight:25px;">SAR&nbsp;<span
                         style="font-size: 30px; font-weight:bold; color:#FFB804;">44</span>/per/month</h5>
-                <p style="color: #fff; text-align:center; font-size:11px;">Growth your business with personalized
-                    service &
-                    <br>dedicated account manager for support
+                <p style="color: #fff; text-align:center; font-size:11px;">
+                    The economy encompasses the production and exchange of goods and services within a society
                 </p>
             </div>
 
-            <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">Monthly Average Revenue upto
-                $25000
-                <br>Control Statement
-                /SAF-T submissions<br>VAT Returns Filings<br>EC Sales Lists<br>On Call Support<br>Email Support
+            <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;"> Excellent for limited use,
+                won't to spend a lot? The "economy" subscription will enable up to 15
+                people participate with the server space.
             </p>
 
-            <div class="button" style="text-align: center; padding-top:110px;">
+            <div class="button" style="text-align: center; padding-top:80px;padding-bottom:15px;">
                 <a href="#frmregister">
                     <button
                         style="background-color: #03A99D; border-radius:28px;
@@ -271,25 +279,25 @@
 
         {{-- <div class="box"> --}}
         {{-- <div class="box" style="max-width: 350px; margin: 0 auto;"> --}}
-        <div class="box" style="max-width: 300px; margin: 0 auto; height: auto; ">
+        <div class="box" style="max-width: 250px; margin: 0 auto; height: auto; ">
             <div
                 style="background-color: #03A99D; color: #fff; padding-top:10px; padding-right: 15px; padding-left:15px;clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);  padding-bottom:20px;">
 
-                <h4 style="text-align: center; color:#FFB804;">Professional</h4>
+                <h4 style="text-align: center; color:#FFB804;">Standard</h4>
                 <h5 style="text-align: center; font-weight:25px;">SAR&nbsp;<span
                         style="font-size: 30px; font-weight:bold; color:#FFB804">77</span>/per/month</h5>
-                <p style="color: #fff; text-align:center; font-size:11px;">Personalized care of growing businesse. Best
-                    for<br> SMEs
-                    established businesses.</p>
+                <p style="color: #fff; text-align:center; font-size:11px;">
+                    A criterion or measure against which quality, accuracy, or achievement is assessed or judged.</p>
             </div>
 
-            <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">Monthly Average
-                Revenue:Unlimited<br>Control Statement
-                /SAF-T submissions<br>VAT Returns Filings<br>Free VAT registration<br>Free EORI registration<br>Annunal
-                Submissions<br>
-                Dedicated Account manager<br>Free on boarding call</p>
+            <p style="text-align: center; font-size:12px; margin-top:10px; padding:10px;">
+                Excellent fo medium use,With the <br>"standard" subscription will be<br> able to share up to 50
+                <br>people
+                server<br>
+                capacity.
+            </p>
 
-            <div class="button" style="text-align: center; padding-top:70px;">
+            <div class="button" style="text-align: center; padding-top:80px;padding-bottom:15px;">
                 <a href="#frmregister">
                     <button
                         style="background-color: #03A99D; border-radius:28px;
@@ -306,23 +314,56 @@
 
         </div>
 
-        <div class="box" style="max-width: 300px; margin: 0 auto; height: auto;">
+        <div class="box" style="max-width: 250px; margin: 0 auto; height: auto;">
             <div
                 style="background-color: #03A99D; color: #fff; padding-top: 10px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px; clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);">
-                <h4 style="text-align: center; color:#FFB804;">Enterprise</h4>
+                <h4 style="text-align: center; color:#FFB804;">Plus</h4>
                 <h5 style="text-align: center; font-weight: 25px;">SAR&nbsp;<span
                         style="font-size: 30px; font-weight: bold; color: #FFB804;">224</span>/per/month</h5>
-                <p style="color: #fff; text-align: center; font-size: 11px;">Complete solution for established
-                    businesses with<br> hands to guidance of a qualified CPA</p>
+                <p style="color: #fff; text-align: center; font-size: 11px;"> In addition to; moreover; used<br> to
+                    denote
+                    an increase<br> or enhancement.</p>
             </div>
-            <p style="text-align: center; font-size: 12px; margin-top: 10px; padding: 10px;">Monthly Average
-                Revenue:Unlimited<br>Control Statement
-                /SAF-T submissions<br>VAT Returns Filings<br>EC Sales Lists<br>Free VAT Registration<br>Free EORI
-                Registration<br>
-                Free OSS Registration<br>OSS Reporting<br>Corrective returns<br><span
-                    style="font-weight: bold;">Dedicated Charted Accountants Support</span><br>Annual Submissions</p>
+            <p style="text-align: center; font-size: 12px; margin-top: 10px; padding: 10px;">
+                If you want to double the
+                subscriptions<br> up to 100 people and<br> get high storage <br> capacity.
+                {{-- <span style="font-weight: bold;">Dedicated Charted Accountants Support</span><br>Annual Submissions --}}
+            </p>
 
-            <div class="button" style="text-align: center; padding-top:12px;padding-bottom:17px;">
+            <div class="button" style="text-align: center; padding-top:100px;padding-bottom:15px;">
+                <a href="#frmregister">
+                    <button
+                        style="background-color: #03A99D; border-radius:28px;
+                 color: #FFB804;
+                 padding: 10px 60px;
+                 text-decoration: none;
+                 display: inline-block;
+                 border:2px solid #03A99D;">
+
+                        Contact Us
+                    </button>
+                </a>
+            </div>
+        </div>
+        {{-- 4th div  --}}
+        <div class="box" style="max-width: 250px; margin: 0 auto; height: auto;">
+            <div
+                style="background-color: #03A99D; color: #fff; padding-top: 10px; padding-right: 15px; padding-bottom: 20px; padding-left: 15px; clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);">
+                <h4 style="text-align: center; color:#FFB804;">Business Pro Lite</h4>
+                <h5 style="text-align: center; font-weight: 25px;">SAR&nbsp;<span
+                        style="font-size: 30px; font-weight: bold; color: #FFB804;">300</span>/per/month</h5>
+                <p style="color: #fff; text-align: center; font-size: 11px;">A streamlined version of a business
+                    professional package offering essential features at a reduced cost</p>
+            </div>
+            <p style="text-align: center; font-size: 12px; margin-top: 10px; padding: 10px;">
+                Business Pro Lite for medium and<br> large companies with basic feature <br>and a low cost that
+                enables<br>
+                up to
+                200 people<br> participate.
+                {{-- <span style="font-weight: bold;">Dedicated Charted Accountants Support</span><br>Annual Submissions --}}
+            </p>
+
+            <div class="button" style="text-align: center; padding-top:80px;padding-bottom:15px;">
                 <a href="#frmregister">
                     <button
                         style="background-color: #03A99D; border-radius:28px;
@@ -365,13 +406,19 @@
 
                         {{-- <input class="form-control" placeholder="Phone*" type="tel" name="compphone"
                             id="compphone" required="required" style="width: 186%;"> --}}
-                        {{-- <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"
-                            type="tel" name="compphone" id="compphone" required="required"> --}}
-                            <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"
+                            <div>
+    <!-- Display selected country code -->
+    <span id="selected-country-code"></span>
+    <!-- Hidden input field to store selected country code -->
+    <input type="hidden" name="country_code" id="country_code">
+</div>
+<div>
+    <!-- Phone number input field -->
+<!--    <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"-->
+<!--        type="tel" name="compphone" id="compphone" required="required">-->
+<!--</div>-->
+                        <input class="form-control responsive-phone-input dropdown-container" placeholder="Phone*"
                             type="tel" name="compphone" id="compphone" required="required">
-
-                            <input type="hidden" name="country_code" id="country_code">
-
 
                         <select class="dropdown-container" name="pricing_plan" id="pricing_plan" required="required"
                             style="margin-top: 10px;">
@@ -467,8 +514,7 @@
                 <div class="icons">
                     <a href="https://twitter.com/Masar_hajj"><i class="fa fa-twitter"></i></a> <a
                         href="https://www.facebook.com/people/Masar-Hajj/pfbid02n9s5qtL53AoEHXSVjMiy96ha3NZ6T3CwqYBau4C75T4xJ9dFBeNb5pVV7GTiZSLml/"><i
-                            class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                            class="fa fa-facebook"></i></a>
                 </div>
             </div>
         </div>
@@ -481,8 +527,8 @@
         new WOW().init();
     </script>
     <script src="{{ asset('frontend/js/script.js') }}"></script>
-   <script>
-  $(document).ready(function() {
+    <script>
+       $(document).ready(function() {
     var input = document.querySelector("#compphone");
     var iti = window.intlTelInput(input, {
         initialCountry: 'sa', // Set the default country code to Saudi Arabia
@@ -497,7 +543,6 @@
         $('#country_code').val('+' + countryCode);
     });
 });
-
 
     </script>
     @include('layouts.notification')
@@ -592,6 +637,21 @@
         /* Adjust styles for smaller screens */
         .button {
             padding-bottom: 20px !important;
+        }
+    }
+      @media screen and (max-width: 767px) {
+        #app {
+            flex-direction: column;
+            /* Change flex direction to column */
+            align-items: center;
+            /* Center align items */
+        }
+
+        .box {
+            width: 100%;
+            /* Make each box take up full width */
+            max-width: 100%;
+            /* Ensure boxes don't exceed the width of the viewport */
         }
     }
 </style>

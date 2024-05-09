@@ -1127,3 +1127,9 @@ footer .address p.double {
 {
         padding: 14px;
 }
+.app-logo {
+    width: 100px;
+    height: 90px;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+}

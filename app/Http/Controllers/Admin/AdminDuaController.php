@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use File;
-use App\Models\Dua;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Helper\Helper;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use App\Models\Dua;
+use Session;
+use File;
+use Auth;
 class AdminDuaController extends Controller
 {
     /**

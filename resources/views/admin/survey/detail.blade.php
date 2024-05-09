@@ -64,7 +64,7 @@
             <script>
                 /* -- Chartistjs - Simple Pie Chart -- */
       var data = {
-        series: {{$countdata}}
+            series: {!! $countdata !!}
       };
       var sum = function(a, b) { return a + b };
       new Chartist.Pie('#chartist-simple-pie-chart', data, {
@@ -74,10 +74,11 @@
       });
         /* -- Chartistjs - Distributed Series Chart -- */
         new Chartist.Bar('#chartist-distributed-series', {
-        labels: {!! $labeldata !!},
-        series: {{$countdata}}
+                   labels: {!! $labeldata !!},
+            series: {!! $countdata !!}
+
       }, {
-        axisY: {
+            axisY: {
         onlyInteger: true
     },
         distributeSeries: true,

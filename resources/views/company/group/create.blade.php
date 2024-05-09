@@ -40,7 +40,6 @@
                                     <div class="form-group">
                                     <label>{{ trans('admin.group_name');}}</label> <span style="color: red;">*</span>
                                         @include('comman.tab')
-
                                     </div>
 
                                     <input type="hidden" name="company_id" value="{{Auth::id()}}">

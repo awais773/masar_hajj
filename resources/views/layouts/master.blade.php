@@ -33,7 +33,8 @@
     <link href="{{asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- End css -->
 </head>
 <body class="vertical-layout">
@@ -66,11 +67,12 @@
                     <div class="userbox">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item"><a href="{{ url('profileCompany') }}" class="profile-icon" ><img src="{{asset('assets/images/svg-icon/user.svg')}}"></a></li>
-                            <li class="list-inline-item">
-                                <a href="mailto:example@example.com" class="profile-icon">
-                                    <img src="{{ asset('assets/images/svg-icon/email.svg') }}" class="img-fluid" alt="email">
-                                </a>
-                            </li>                            
+                            <!--<li class="list-inline-item"><a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/email.svg')}}" class="img-fluid" alt="email"></a></li>-->
+                               <li class="list-inline-item">
+    <a href="mailto:example@example.com" class="profile-icon">
+        <img src="{{ asset('assets/images/svg-icon/email.svg') }}" class="img-fluid" alt="email">
+    </a>
+</li>
                             <li class="list-inline-item"><a href="{{ route('logout.perform') }}" class="profile-icon"><img src="{{asset('assets/images/svg-icon/logout.svg')}}" class="img-fluid" alt="logout"></a></li>
                             <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -102,11 +104,11 @@
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{__('admin.companies') }}</span>
                             </a>
                         </li>
-                        {{-- <li>
-                            <a href="{{route('admin.hajjprocedure.index')}}">
-                                <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.Information'); }}</span>
-                            </a>
-                        </li> --}}
+                        <!--<li>-->
+                        <!--    <a href="{{route('admin.hajjprocedure.index')}}">-->
+                        <!--        <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.Information'); }}</span>-->
+                        <!--    </a>-->
+                        <!--</li>-->
                         <li>
                             <a href="{{route('admin.notification')}}">
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.Notification'); }}</span>
@@ -135,7 +137,7 @@
                        @elseif(Auth::check() && Auth::user()->type==0)
                        <li>
                             <a href="{{route('company.home')}}">
-                              <img src="{{asset('assets/images/svg-icon/dashboard.svg')}}" class="img-fluid" alt="dashboard"><span style="direction: rtl" >{{ trans('admin.Dashboard'); }}</span>
+                              <img src="{{asset('assets/images/svg-icon/dashboard.svg')}}" class="img-fluid" alt="dashboard"><span>{{ trans('admin.Dashboard'); }}</span>
                             </a>
                          
                         </li>
@@ -155,7 +157,7 @@
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.guides'); }}</span>
                             </a>
                         </li>
-                        <li>
+                          <li>
                             <a href="{{route('company.user')}}">
                                 <img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.users'); }}</span>
                             </a>
@@ -175,13 +177,20 @@
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.survey'); }}</span>
                             </a>
                         </li>
-                        <li>
+                        
+                           <li>
                             <a href="{{route('company.notification')}}">
                                 <img src="{{asset('assets/images/svg-icon/widgets.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.Notification'); }}</span>
                             </a>
                         </li>
-                        
-                    
+
+                      
+
+                        <!--<li>-->
+                        <!--    <a href="{{route('company.admin')}}">-->
+                        <!--        <img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="widgets"><span>{{ trans('admin.admins'); }}</span>-->
+                        <!--    </a>-->
+                        <!--</li>-->
 
                        @endif                                               
                     </ul>
@@ -258,8 +267,8 @@
                         </div>
                         <div class="infobar">
                             <ul class="list-inline mb-0">
-                                @if(Auth::check() && Auth::user()->type==0)
-                                @php
+                                   @if(Auth::check() && Auth::user()->type==0)
+                                      @php
                                 $notifications = \App\Models\Notification::where('to_id', Auth::id())
                                                                           ->where('viewed', 0) // Filter by viewed = 0
                                                                           ->latest('date_created')
@@ -282,20 +291,11 @@
                                         </a>
                                     </div>
                                 </li> -->
-                                <li class="list-inline-item">
+                            <li class="list-inline-item">
                                     <div class="languagebar">
                                         <div class="dropdown">
-                                          
-                                          {{-- <a class="dropdown-toggle" href="#" role="button" id="languagelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag flag-icon-{{ session()->get('locale') ? session()->get('locale')=='en'?'us':session()->get('locale') : 'us' }} flag-icon-squared"></i></a>
-                                          <div class="dropdown-menu dropdown-menu-right changeLang" aria-labelledby="languagelink">
-                                            @if(count(Helper::getLanguages())>0)
-                                                @foreach(Helper::getLanguages() as $language)
-                                                    <a class="dropdown-item" href="#" data-id="{{$language->code}}"><i class="flag flag-icon-{{ $language->code ? $language->code=='en'?'us':$language->code : 'us' }} flag-icon-squared"></i>{{$language->name}}</a>
-                                                @endforeach
-                                            @endif
-                                          </div> --}}
-                                          <a class="dropdown-toggle" href="#" role="button" id="languagelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="flag flag-icon-{{ session()->get('locale') ? session()->get('locale') == 'en' ? 'us' : session()->get('locale') : 'us' }} flag-icon-squared"></i>
+                                <a class="dropdown-toggle" href="#" role="button" id="languagelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="flag flag-icon-{{ session()->get('locale') ? session()->get('locale') == 'en' ? 'us' : (session()->get('locale') == 'ar' ? 'sa' : session()->get('locale')) : 'us' }} flag-icon-squared"></i>
                                         </a>
                                         
                                         <div class="dropdown-menu dropdown-menu-right changeLang" aria-labelledby="languagelink">
@@ -407,7 +407,6 @@
     <!-- <script src="{{asset('assets/js/custom/custom-chart-chartistjs.js')}}"></script> -->
     <script src="{{asset('assets/js/custom/custom-form-select.js')}}"></script>
      
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
     <script src="{{asset('assets/js/core.js')}}"></script>
     <script src="{{asset('assets/js/custom/custom-form-editor.js')}}"></script> 
@@ -461,6 +460,7 @@
            });
             
         });
+      
     </script>
     @include('layouts.notification')
     <!-- End js -->

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Company;
 
-use File;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Helper\Helper;
 use Illuminate\View\View;
 use App\Models\CompanyUser;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Rule;
+use Session;
+use File;
+use Auth;
+use Carbon\Carbon;
 class CompanyUserController extends Controller
 {
     /**
@@ -32,7 +31,7 @@ class CompanyUserController extends Controller
     public function index(): View
     {
       
-        $companyUsers=CompanyUser::where('company_id',Auth::id())->get();
+        $companyUsers=CompanyUser::where('company_id',Auth::id())->latest()->get();
         return view('company.users.index',compact('companyUsers'));
     }
 
@@ -48,10 +47,11 @@ class CompanyUserController extends Controller
     }
 
     public function store(Request $request){
-      $this->validate($request, [
+          $this->validate($request, [
         'email' => 'required|email|max:255|unique:company_users'
     ]);
-      try {  
+      try {
+       
         $firstname = Helper::encode_localizedInput('firstname',$request->all());
         $lastname = Helper::encode_localizedInput('lastname',$request->all());
         $user = new CompanyUser();
@@ -61,7 +61,8 @@ class CompanyUserController extends Controller
         $user->username=$request->username;
         $user->password=$request->password;
         $user->company_id=Auth::id();
-        $user->group_id = $request->has('selectedgroups') ? json_encode($request->selectedgroups) : null; // Check if selectedgroups exists
+        // $user->group_id=json_encode($request->selectedgroups);
+         $user->group_id = $request->has('selectedgroups') ? json_encode($request->selectedgroups) : null; // Check if selectedgroups exists
         $user->phone=$request->phone;
         $user->passport_num=$request->passport_num;
         $user->passport_date=$request->passport_date;

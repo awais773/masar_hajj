@@ -1,15 +1,15 @@
 <?php
 namespace App\Helper;
-use App;
-use Session;
+use App\Models\Language;
+use App\Models\Notification;
+use App\Models\CompanyUser;
 use App\Models\User;
 use App\Models\Group;
-use App\Models\Language;
-use App\Models\CompanyUser;
-use Illuminate\Support\Arr;
-use App\Models\Notification;
+use App;
+use Auth;
+use Session;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 class Helper
 {
     public static function getLanguages(){
@@ -110,8 +110,8 @@ class Helper
     //     $users = CompanyUser::whereIn('group_id', $groups)->get();
     //     return $users;
     // }
-
-    public static function get_users_in_groups($groups, $all = false) {
+    
+      public static function get_users_in_groups($groups, $all = false) {
         // Check if $groups is not null before using it
         if ($groups !== null && is_array($groups) && count($groups) > 0) {
             $users = CompanyUser::whereIn('group_id', $groups)->get();

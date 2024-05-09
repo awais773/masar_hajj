@@ -48,6 +48,7 @@ class AdminCompanyController extends Controller
     public function store(Request $request){
       try {
         $name = Helper::encode_localizedInput('name', $request->all());
+        
         $user = new User();
         $user->name=$name;
         $user->email=$request->email;

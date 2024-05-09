@@ -69,7 +69,7 @@
                                     
                                         <?php 
                                             $NameExt = "lastname_";
-                                            $stringValues = $companyUser->firstname;;
+                                            $stringValues = $companyUser->lastname;;
                                         ?>
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.guide_lastname');}}</label>

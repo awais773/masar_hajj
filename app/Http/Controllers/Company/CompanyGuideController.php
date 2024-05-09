@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Company;
 
-use File;
-use Carbon\Carbon;
-use App\Models\Guide;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Helper\Helper;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use App\Models\Guide;
+use Session;
+use File;
+use Auth;
+use Carbon\Carbon;
 class CompanyGuideController extends Controller
 {
     /**
@@ -31,7 +31,7 @@ class CompanyGuideController extends Controller
     public function index(): View
     {
       
-        $guides=Guide::where('company_id',Auth::id())->get();
+        $guides=Guide::where('company_id',Auth::id())->latest()->get();
         return view('company.guide.index',compact('guides'));
     }
 

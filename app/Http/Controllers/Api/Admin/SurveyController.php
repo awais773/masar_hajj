@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use Session;
-use App\Models\Dua;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Dua;
+use App\Models\CompanyUser;
+use App\Models\CustomerLocation;
+use Illuminate\View\View;
+use App\Models\Survey;
+use App\Models\Notification;
 use App\Models\Group;
 use App\Models\Guide;
-use App\Helper\Helper;
-use App\Models\Survey;
-use Illuminate\View\View;
-use App\Models\CompanyUser;
-use Illuminate\Http\Request;
-use App\Models\CustomerLocation;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
-use App\Models\Notification;
+use App\Helper\Helper;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class SurveyController extends Controller
 {
@@ -66,55 +66,6 @@ class SurveyController extends Controller
             'data' => $surveys,
         ]);
     }
-    
-    
-
-//     public function survey(Request $request, $id)
-// {
-//     // Get the user ID from the request
-//     $user_id = $request->input('user_id');
-
-//     // Get the surveys for the specified company
-//     $surveys = Survey::where('company_id', $id)->get();
-
-//     // Get the language from the request or default to English
-//     $language = $request->lang ?? 'en';
-
-//     // Get the IDs of surveys already submitted by the user
-//     $submitted_survey_ids = DB::table('survey_submit')
-//         ->where('user_id', $user_id)
-//         ->pluck('survey_id')
-//         ->toArray();
-
-//     // Filter out the surveys that the user has already submitted
-//     $filtered_surveys = $surveys->reject(function ($survey) use ($submitted_survey_ids) {
-//         return in_array($survey->id, $submitted_survey_ids);
-//     });
-
-//     // Localize fields for the remaining surveys
-//     foreach ($filtered_surveys as $survey) {
-//         $survey->question = $this->getLocalizedField($survey->question, $language);
-//         $survey->choices = $this->getLocalizedField($survey->choices, $language);
-//     }
-
-//     // Extract only the values of the associative array
-//     $filtered_surveys_values = $filtered_surveys->values();
-
-//     // If there are surveys left after filtering, return them
-//     if ($filtered_surveys_values->count() > 0) {
-//         return response()->json([
-//             'message' => 'Surveys successfully retrieved!',
-//             'success' => true,
-//             'data' => $filtered_surveys_values,
-//         ]);
-//     } else {
-//         return response()->json([
-//             'message' => 'No surveys available for the user.',
-//             'success' => false,
-//         ]);
-//     }
-// }
-
 
     private function getLocalizedField($field, $language)
     {
@@ -127,20 +78,20 @@ class SurveyController extends Controller
     }
 
 
-    // Company User PAssword
+// Company User PAssword
     public function  user_update_password(Request $request, $id)
     {
         try {
             $company_users = CompanyUser::find($id);
             $company_users->password = $request->password;
             $company_users->save();
-            return response()->json(['message' => 'Password updated successfully !', 'success' => true, 'data' => $company_users,]);
+            return response()->json(['message' => 'Password updated successfully !', 'success'=>true, 'data' => $company_users,]);
         } catch (\Throwable $th) {
-            return response()->json(['message' => ' Password ID is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
+            return response()->json(['message' => ' Password ID is not found','success'=>false, 'status' => 'error', 'code' => 501]);
         }
     }
 
-    //  Guide User Password
+//  Guide User Password
     public function guide_update_password(Request $request, $id)
     {
         try {
@@ -158,7 +109,7 @@ class SurveyController extends Controller
     public function guide_get(Request $request, $id)
     {
         try {
-            $guides = Guide::where('id', $id)->first();
+            $guides = Guide::where('id',$id)->first();
             return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $guides,]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'Object is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
@@ -195,6 +146,7 @@ class SurveyController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['message' => ' Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
+
     }
     //  Company Update Image
     public function user_update_image(Request $request, $id)
@@ -216,8 +168,8 @@ class SurveyController extends Controller
             return response()->json(['message' => 'Image is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
-
-    //Company User Group ID
+    
+      //Company User Group ID
     public function guide_id_user(Request $request, $groupId)
     {
         try {
@@ -227,17 +179,21 @@ class SurveyController extends Controller
             foreach ($company_users as $company_user) {
                 $company_user->firstname = $this->getLocalizedField($company_user->firstname, $language);
                 $company_user->lastname = $this->getLocalizedField($company_user->lastname, $language);
+
             }
 
             return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $company_users,]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'Object is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
+
     }
     //Group Member
     public function group_member(Request $request)
     {
         try {
+
+
             $group_id = request('group_id');
             $user_id = request('user_id');
             $company_users = CompanyUser::whereJsonContains('group_id', $group_id[0])->where('id', '!=', $user_id)->get();
@@ -253,44 +209,25 @@ class SurveyController extends Controller
             $guide->firstname = $this->getLocalizedField($guide->firstname, $language);
             $guide->lastname = $this->getLocalizedField($guide->lastname, $language);
 
-            return response()->json([
-                'message' => 'Data found successfully !', 'success' => true, 'data' => $company_users,
-                'guide' => $guide
-            ]);
+            return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $company_users,
+                'guide'=> $guide
+        ]);
         } catch (\Throwable $th) {
-            return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
+            return response()->json(['message' =>$th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
-    //Survey Submit
-    // public function survey_submit(Request $request, $id)
-    // {
-    //     try {
-    //         $survey_submit
-    //             = Survey::where('user_id', $id)->first();
-
-
-    //         return response()->json([
-    //             'message' => 'Data found successfully !', 'success' => true, 'data' =>
-    //             $survey_submit
-
-    //         ]);
-    //     } catch (\Throwable $th) {
-    //         return response()->json(['message' => $th->getMessage(), 'success' => false, 'status' => 'error', 'code' => 501]);
-    //     }
-    // }
-
-    //  Guide User According Company id
+      //  Guide User According Company id
     public function guide_user(Request $request, $id)
     {
         try {
-            $guides = Guide::where('company_id', $id)->first();
+            $guides = Guide::where('company_id',$id)->first();
 
             return response()->json(['message' => 'Comapny Id found successfully !', 'success' => true, 'data' => $guides,]);
         } catch (\Throwable $th) {
             return response()->json(['message' => ' Company ID is not found', 'success' => false, 'status' => 'error', 'code' => 501]);
         }
     }
-
+    
     //    Customer Location Delete Api
     public function custom_location_del($id)
     {
@@ -307,8 +244,7 @@ class SurveyController extends Controller
                 'message' => 'Customer Delete Successfully',
                 'success' => true,
             ]);
-        }
-        else {
+        } else {
             return response()->json([
                 'message' => 'Operation Failed !',
                 'success' => false,
@@ -318,9 +254,9 @@ class SurveyController extends Controller
             ]);
         }
     }
-
-
-    public function surveySubmit(Request $request)
+    
+    
+     public function surveySubmit(Request $request)
     {
         $isAPI = ($request->segment(1) == 'api');
 
@@ -374,7 +310,7 @@ class SurveyController extends Controller
         }
     }
 
-    // Search Api
+ // Search Api
 
     function search_user(Request $request ,$id)
     {
@@ -382,15 +318,16 @@ class SurveyController extends Controller
 
         $users = CompanyUser::select('username','phone', 'latitude', 'longitude')->where("username", "like", "%" . $name . "%")->where("company_id", $id)
         ->get();
+
         if ($users->isEmpty()) {
             return response()->json(['message' => 'No users found',  'success' => false, 'data' => $users,], 404);
         } else {
             return response()->json(['message' => 'Data found successfully !', 'success' => true, 'data' => $users,], 200);
         }
     }
-
-
-    public function duaGet(Request $request, $id)
+    
+    
+      public function duaGet(Request $request, $id)
     {
         $duas = Dua::where('company_id', $id)->paginate(10);
         $language = $request->lang ?? 'en'; // Default to English if language is not specified
@@ -401,8 +338,8 @@ class SurveyController extends Controller
     
         return response()->json( $duas, 200);
     }
-
-
+    
+    
     public function NotificationGet (Request $request, $id)
     { 
         $surveys = Notification::where('to_id', $id)->latest('date_created')->get();
@@ -421,11 +358,9 @@ class SurveyController extends Controller
             'data' => $surveys,
         ]);
     }
-
-
-
-
-    public function UnviewedNotification(Request $request, $id)
+    
+    
+        public function UnviewedNotification(Request $request, $id)
 { 
     // Count the number of notifications where 'viewed' is 0
     $unviewedCount = Notification::where('to_id', $id)->where('viewed', 0)->count();
@@ -437,6 +372,5 @@ class SurveyController extends Controller
         'data' => ['unviewed_count' => $unviewedCount],
     ]);
 }
-
 
 }

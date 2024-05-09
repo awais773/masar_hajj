@@ -55,9 +55,9 @@
                                                 <td>{{$registrationRequest->comp_email}}</td>
                                                 <td>{{$registrationRequest->comp_phone}}</td>
                                                 <td>{{$registrationRequest->registration_date}}</td>
-                                                <td>{{$registrationRequest->comp_description}}</td>
+                                               <td>{{$registrationRequest->comp_description}}</td>
                                                 <td>{{$registrationRequest->pricing_plan}}</td>
-                                                <td>
+                                                <td style="white-space: nowrap; width: 15%;">
                                                  <button class="btn btn-success btnDeleteApproved" data-url="{{route('admin.registrationRequest.update',[$registrationRequest->id,1])}}" >Approved</button>
                                                  <button class="btn btn-danger btnDelete" data-url="{{route('admin.registrationRequest.update',[$registrationRequest->id,3])}}" >Reject</button>
                                                     <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
@@ -134,6 +134,5 @@ $('table').on('click', '.btnDelete', function(e) {
         });
     }
 });
-
 </script>
 @endsection

@@ -2,7 +2,7 @@
 @section('title') Company | Company @endsection
 @section('content')
             <!-- Start Breadcrumbbar -->                    
-            <div class="breadcrumbbar">
+            <<div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">

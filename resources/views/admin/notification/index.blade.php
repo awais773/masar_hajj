@@ -46,8 +46,7 @@
                                     </div>
                                    
                                     <div class="form-guide">
-                                    <label>{{ trans('admin.notification_guides');}}
-                                    </label>
+                                    <label>{{ trans('admin.notification_guides');}}</label>
                                     <?php $selectedUsersString = '';
                                     $crtlName='selectedguides[]';
                                     $crtlId='selectedguides';
@@ -61,8 +60,7 @@
                                 </div> 
 
                                     <div class="form-group">
-                                    <label>{{ trans('admin.notification_groups');}}
-                                    </label>
+                                    <label>{{ trans('admin.notification_groups');}} </label>
                                     <?php $selectedGroupsString = '';
                                         $crtlName='selectedgroups[]';
                                         $crtlId='selectedgroups';
@@ -82,7 +80,9 @@
                                         ?>
 
                                         @include('comman.get-group-users')
+                                        
                                     </div> 
+                                    
                                     <div class="form-companies">
                                         <label>{{ trans('admin.notification_companies');}}
                                         </label>
@@ -98,7 +98,6 @@
                                         </div>
                                     </div> 
                                     <br>
-
                                     <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
                                 </form>
                             </div>

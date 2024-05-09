@@ -93,7 +93,7 @@ return array(
     'user_firstname' => 'First Name',
     'user_lastname' => 'Last Name',
     'user_group' => 'Group',
-    'user_passport_num' => 'Passport Number',
+      'user_passport_num' => 'Passport Number',
     'passport_date' => 'Passport Expire',
     'visa_num' => 'visa Number',
     'visa_date' => 'Visa Expire Date',
@@ -132,7 +132,7 @@ return array(
     'notification_selectguides' => 'Select Guide(s)',
     'notification_selectgroups' => 'Select Group(s)',
     'notification_selectusers' => 'Select User(s)',
-    'notification_selectCompanies' => 'Select Company(s)',
+        'notification_selectCompanies' => 'Select Company(s)',
 
     'notification_action' => 'actions',
     'notification_edit' => 'Edit Notification',

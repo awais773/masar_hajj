@@ -32,11 +32,14 @@ class CompanyHomeController extends Controller
         $guides=Guide::where('company_id',Auth::id())->count();
         $companyUsers=CompanyUser::where('company_id',Auth::id())->count();
         $allMonths = range(1, 12);
+
+        // Retrieve user counts for each month, including zero counts
         $usersByMonth = CompanyUser::where('company_id',Auth::id())->selectRaw('MONTH(created_at) as month, COUNT(*) as total')
             ->groupByRaw('MONTH(created_at)')
             ->orderByRaw('MONTH(created_at)')
             ->pluck('total', 'month')
             ->toArray();
+
         // Fill in zero counts for months without user creations
         $userCounts = array_map(function ($month) use ($usersByMonth) {
             return $usersByMonth[$month] ?? 0;
@@ -53,6 +56,8 @@ class CompanyHomeController extends Controller
         }, $allMonths);
 
         $values = array_values($userCounts);
+
+
         return view('company.dashboard',compact('labels', 'values','groups','guides','companyUsers'));
     } 
 

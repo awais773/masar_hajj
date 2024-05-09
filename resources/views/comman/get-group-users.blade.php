@@ -8,6 +8,8 @@ $isMuliple = (!empty($isMuliple) && $isMuliple != null && $isMuliple) ? $isMulip
 ?>   
 
 <?php
+
+// $groups = \App\Models\Group::with('users')->get();
 $user = auth()->user(); // Retrieve the authenticated user
 $user_id = null;
 
@@ -19,8 +21,8 @@ if ($user_id) {
 } else {
     $groups = \App\Models\Group::with('users')->get();
 }
-?>
 
+?>  
 
 <select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" multiple="multiple" >
     @foreach($groups as $group)

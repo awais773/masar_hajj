@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyUser extends Model
 {
     use HasFactory;
+    protected  $guarded = [];
+    
+    public function group() {
 
-    protected  $guarded =
-    [];
-    public function group()
-    {
-
-        return $this->hasOne(Group::class, 'company_id', 'company_id','id');
+        return $this->hasOne(Group::class,'company_id','company_id');
     }
 }

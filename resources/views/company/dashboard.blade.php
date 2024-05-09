@@ -4,7 +4,7 @@
  <!-- Start Breadcrumbbar -->                    
  <div class="breadcrumbbar">
                 <div class="row align-items-center">
-                    <div class="col-md-8 col-lg-8" >
+                    <div class="col-md-8 col-lg-8">
                         <h4 class="page-title"  style="text-align: center; padding-left: 300px" >{{__('admin.company_dashboard')}}</h4>
                     </div>
                 </div>          
@@ -15,9 +15,9 @@
                 <!-- Start row -->
                 <div class="row">
                     <!-- Start col -->
-                    <div class="col-md-12 col-lg-6 col-xl-4"> 
+                    <div class="col-md-12 col-lg-6 col-xl-4">
                         <div class="card m-b-30 card1">
-                            <div class="card-header"  style="text-align: right;
+                            <div class="card-header" style="text-align: right;
                             padding-left: 50px ">                                
                                 <div class="row align-items-center">
                                     <div class="col-7">
@@ -37,7 +37,7 @@
                     <!-- Start col -->
                     <div class="col-md-12 col-lg-6 col-xl-4">
                         <div class="card m-b-30 card2">
-                            <div class="card-header"  style="text-align: right;
+                            <div class="card-header" style="text-align: right;
                             padding-left: 50px ">                                
                                 <div class="row align-items-center">
                                     <div class="col-7">
@@ -74,14 +74,14 @@
                         </div>
                     </div>
                     <!-- End col -->
+                 
                 </div>
-                <div>
+                   <div>
                     <canvas id="myChart"></canvas>
                 </div>
-            
                 <!-- End row -->
             </div>
-
+            
             <script>
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var myChart = new Chart(ctx, {

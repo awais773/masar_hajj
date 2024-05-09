@@ -43,7 +43,6 @@
                                                 <th>{{ trans('admin.user_email');}}</th>
                                                 <th>{{ trans('admin.user_phone');}}</th>
                                                 <th>{{ trans('admin.user_passport_num');}}</th>
-                                                <th>{{ trans('admin.passport_date');}}</th>
                                                 <th>{{ trans('admin.visa_num');}}</th>
                                                 <th>{{ trans('admin.user_group');}}</th> 
                                                 <th>{{ trans('admin.user_action');}}</th> 
@@ -61,7 +60,6 @@
                                                 <td>{{ $companyUser->email}}</td>
                                                 <td>{{ $companyUser->phone}}</td>
                                                 <td>{{ $companyUser->passport_num}}</td>
-                                                <td>{{ $companyUser->passport_date}}</td>
                                                 <td>{{ $companyUser->visa_num}}</td>
                                                 @php
                                                

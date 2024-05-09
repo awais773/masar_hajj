@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Company;
 
-use File;
-use Session;
-use Carbon\Carbon;
-use App\Helper\Helper;
-use App\Models\Location;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Helper\Helper;
+use Illuminate\View\View;
+use App\Models\Location;
+use Session;
+use File;
+use Auth;
+use Carbon\Carbon;
 class CompanyResidenceController extends Controller
 {
     /**
@@ -31,7 +31,8 @@ class CompanyResidenceController extends Controller
     public function index(): View
     {
       
-        $locations=Location::where('company_id',Auth::id())->paginate(3);
+        // $locations=Location::where('company_id',Auth::id())->paginate(3);
+        $locations=Location::where('company_id',Auth::id())->get();
         return view('company.residence.index',compact('locations'));
     }
 

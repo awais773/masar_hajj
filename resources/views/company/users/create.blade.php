@@ -98,7 +98,7 @@
                                             <input type="text" class="form-control" id="passport_num" name="passport_num" required>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.passport_date');}} </label>
                                             <input type="date" class="form-control" id="passport_date" name="passport_date">

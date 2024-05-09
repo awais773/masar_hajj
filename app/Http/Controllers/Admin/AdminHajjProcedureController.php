@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use File;
-use Session;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Helper\Helper;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Models\HajjProcedure;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
+use Session;
+use File;
 class AdminHajjProcedureController extends Controller
 {
     /**
@@ -30,8 +29,8 @@ class AdminHajjProcedureController extends Controller
      */
     public function index(): View
     {
-
-        $hajjprocedures=HajjProcedure::where('company_id',Auth::id())->get();
+      
+        $hajjprocedures=HajjProcedure::where('company_id',Auth::id())->latest()->get();
         return view('admin.hajjProcedure.index',compact('hajjprocedures'));
     }
 
