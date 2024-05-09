@@ -34,7 +34,8 @@ Route::get('/', function () {
     return view('website.index');
 });
   
-Route::get('/profileCompany', function () {
+  
+  Route::get('/profileCompany', function () {
   return view('company.admin.companyProfile');
 });
 /*------------------------------------------
@@ -56,7 +57,7 @@ Route::middleware(['auth:web','admin-access'])->group(function () {
     Route::get('admin/company/user/{id}', [AdminCompanyController::class, 'companyUser'])->name('admin.company.user');
     Route::get('admin/company/user/delete/{id}', [AdminCompanyController::class, 'companyUserdelete'])->name('admin.company.user.delete');
 
-    // // hajj procedure
+    // hajj procedure
     // Route::get('admin/hajjprocedure', [AdminHajjProcedureController::class, 'index'])->name('admin.hajjprocedure.index');
     // Route::get('admin/hajjprocedure/add', [AdminHajjProcedureController::class, 'add'])->name('admin.hajjprocedure.add');
     // Route::post('admin/hajjprocedure/store', [AdminHajjProcedureController::class, 'store'])->name('admin.hajjprocedure.store');
@@ -131,7 +132,8 @@ Route::middleware(['auth:web','company-access'])->group(function () {
          Route::get('company/admin/delete/{id}', [CompanyAdminController::class, 'delete'])->name('company.admin.delete');
          Route::get('company/admin/edit/{id}', [CompanyAdminController::class, 'edit'])->name('company.admin.edit');
          Route::post('company/admin/update/{id}', [CompanyAdminController::class, 'update'])->name('company.admin.update');
-
+         
+         
           // hajj procedure
     Route::get('company/hajjprocedure', [AdminHajjProcedureController::class, 'index'])->name('admin.hajjprocedure.index');
     Route::get('company/hajjprocedure/add', [AdminHajjProcedureController::class, 'add'])->name('admin.hajjprocedure.add');
