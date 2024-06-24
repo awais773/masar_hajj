@@ -61,7 +61,7 @@
 ----------------------------
 */
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
-/* 
+/*
 --------------------------------
     : Custom - General css :
 --------------------------------
@@ -267,7 +267,7 @@ code {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Helper css :
 -------------------------------
@@ -997,7 +997,7 @@ code {
   background-color: rgba(45, 54, 70, 0.1);
 }
 
-/* 
+/*
 --------------------------------
     : Custom - Example css :
 --------------------------------
@@ -1375,14 +1375,14 @@ code {
   background-color: #2d3646;
 }
 
-/* 
+/*
 ----------------------------------
     : Custom - Bootstrap css :
 ----------------------------------
 */
 /* -- Borders -- */
 .border {
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border: 2px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 .border-top {
@@ -1698,7 +1698,7 @@ mark {
   color: #282828;
 }
 
-/* 
+/*
 ------------------------------
     : Custom - Icons css :
 ------------------------------
@@ -26495,7 +26495,7 @@ mark {
   content: "";
 }
 
-/* 
+/*
 -----------------------------
     : Custom - Menu css :
 -----------------------------
@@ -26532,15 +26532,15 @@ mark {
   vertical-align: middle;
 }
 .vertical-menu > li:hover > a {
-  background-color: transparent;
+  background-color: #e9e9e9;
   color: #6e81dc;
 }
 .vertical-menu > li:hover > a > img {
   filter: invert(0.62) sepia(1) saturate(4.5) hue-rotate(199deg);
 }
 .vertical-menu > li.active > a {
-  background-color: transparent;
-  color: #6e81dc;
+  background-color: #e9e9e9;
+  color: #e9e9e9;
 }
 .vertical-menu > li.active > a > img {
   filter: invert(0.62) sepia(1) saturate(4.5) hue-rotate(199deg);
@@ -26741,7 +26741,7 @@ mark {
   color: #6e81dc;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Topbar css :
 -------------------------------
@@ -26794,11 +26794,11 @@ mark {
 .topbar {
   background-color: #ffffff;
   padding: 15px 30px;
-  position: fixed;
   z-index: 1;
   left: 250px;
   right: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 0 2rem;
 }
 .topbar .dropdown-toggle::after {
   display: none;
@@ -26903,7 +26903,7 @@ mark {
 
 .breadcrumbbar {
   padding: 30px 30px 0 30px;
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }
 .breadcrumbbar .page-title {
   font-size: 20px;
@@ -27186,7 +27186,7 @@ mark {
   color: #ffffff;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Alerts css :
 -------------------------------
@@ -27297,7 +27297,7 @@ mark {
   border-top-color: #2d3646;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Badges css :
 -------------------------------
@@ -27328,10 +27328,10 @@ mark {
 }
 
 .badge-secondary {
-  background-color: #718093;
+  background-color: #ffffff;
 }
 .badge-secondary[href]:hover {
-  background-color: #657385;
+  background-color: #5c626b;
 }
 .badge-secondary[href]:focus {
   background-color: #657385;
@@ -27514,7 +27514,7 @@ mark {
   color: #ffffff;
 }
 
-/* 
+/*
 --------------------------------
     : Custom - Buttons css :
 --------------------------------
@@ -27577,9 +27577,10 @@ mark {
 
 /* -- Primary Button -- */
 .btn-primary {
+  border-radius: 7px;
   color: #ffffff;
-  background-color: #6e81dc;
-  border-color: #6e81dc;
+  background-color: #007bff;
+  border-color: #007bff;
   box-shadow: none;
 }
 .btn-primary .disabled {
@@ -27598,7 +27599,7 @@ mark {
 }
 .btn-primary:hover {
   background-color: #596fd7;
-  border-color: #596fd7;
+  border-color: #ffffff;
 }
 .btn-primary.focus {
   color: #ffffff;
@@ -27613,8 +27614,8 @@ mark {
   box-shadow: 0 0 0 0.2rem #c0c8f0;
 }
 .btn-primary:visited {
-  background-color: #596fd7;
-  border-color: #596fd7;
+  background-color: #007bff;
+  border-color: #ffffff;
 }
 .btn-primary:not(:disabled):not(.disabled).active {
   background-color: #596fd7;
@@ -27693,8 +27694,8 @@ mark {
 /* -- Secondary Button -- */
 .btn-secondary {
   color: #ffffff;
-  background-color: #718093;
-  border-color: #718093;
+  background-color: #007bff;
+  border-color: #007bff;
   box-shadow: none;
 }
 .btn-secondary .disabled {
@@ -27712,8 +27713,10 @@ mark {
   border-color: #657385;
 }
 .btn-secondary:hover {
-  background-color: #657385;
-  border-color: #657385;
+  color:#000000;
+  background: linear-gradient(45deg, #cdd1d4, #a1a0a1);
+  border-color: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 .btn-secondary.focus {
   color: #ffffff;
@@ -28775,7 +28778,7 @@ mark {
   box-shadow: 0 0 0 0.2rem #556684;
 }
 
-/* 
+/*
 ---------------------------------
     : Custom - Calender css :
 ---------------------------------
@@ -28882,7 +28885,7 @@ mark {
   cursor: move;
 }
 
-/* 
+/*
 ------------------------------
     : Custom - Cards css :
 ------------------------------
@@ -29059,7 +29062,7 @@ mark {
   float: right;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Charts css :
 -------------------------------
@@ -29705,7 +29708,7 @@ canvas {
   text-align: center !important;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Chat css :
 -------------------------------
@@ -29856,7 +29859,7 @@ canvas {
   margin: 0 5px;
 }
 
-/* 
+/*
 ---------------------------------
     : Custom - Collapse css :
 ---------------------------------
@@ -29976,7 +29979,7 @@ canvas {
   border-bottom: none;
 }
 
-/* 
+/*
 ----------------------------------
     : Custom - Dashboard css :
 ----------------------------------
@@ -30073,7 +30076,7 @@ canvas {
   display: none !important;
 }
 
-/* 
+/*
 -----------------------------------
     : Custom - eCommerce css :
 -----------------------------------
@@ -30296,7 +30299,7 @@ canvas {
     left: -80px;
   }
 }
-/* 
+/*
 -------------------------------
     : Custom - Emails css :
 -------------------------------
@@ -30363,7 +30366,7 @@ canvas {
   color: #6e81dc;
 }
 
-/* 
+/*
 -----------------------------------------
     : Custom - Form Colorpicker css :
 -----------------------------------------
@@ -30420,7 +30423,7 @@ canvas {
   box-shadow: none;
 }
 
-/* 
+/*
 -----------------------------------------
     : Custom - Form Date Picker css :
 -----------------------------------------
@@ -30636,7 +30639,7 @@ canvas {
   font-size: 16px;
 }
 
-/* 
+/*
 -------------------------------------
     : Custom - Form Editors css :
 -------------------------------------
@@ -30739,7 +30742,7 @@ canvas {
   background: #6e81dc !important;
 }
 
-/* 
+/*
 --------------------------------------
     : Custom - Form Elements css :
 --------------------------------------
@@ -30783,7 +30786,10 @@ input:-internal-autofill-selected {
 .form-control-plaintext {
   color: #8A98AC;
 }
-
+.guide-input {
+    width: 450px;
+    max-width: 100%;
+}
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #6e81dc;
 }
@@ -31120,7 +31126,7 @@ input[type=range]:focus {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* 
+/*
 -------------------------------------
     : Custom - Form Selects css :
 -------------------------------------
@@ -31133,7 +31139,9 @@ input[type=range]:focus {
   line-height: 38px;
   margin-top: 0;
   line-height: 38px;
+  border-color:#5e81dc !important;
   color: #282828;
+
 }
 .select2-container .select2-selection--single {
   border: none;
@@ -31142,6 +31150,7 @@ input[type=range]:focus {
 .select2-container .select2-selection--single .select2-selection__rendered {
   line-height: 38px;
   padding-left: 15px;
+  border-color:#5e81dc !important;
   color: #8A98AC;
 }
 .select2-container .select2-selection--multiple {
@@ -31181,12 +31190,13 @@ input[type=range]:focus {
   margin-right: 5px;
 }
 .select2-container--default .select2-selection--single {
-  background-color: #ffffff;
-  font-size: 16px;
-  color: #8A98AC;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
-}
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #8A98AC;
+    border: 1px solid #5e81dc; /* Updated border color */
+    border-radius: 3px;
+  }
+
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 38px;
   width: 30px;
@@ -31271,7 +31281,7 @@ input[type=range]:focus {
   background-color: #6e81dc;
 }
 
-/* 
+/*
 -----------------------------------------
     : Custom - Form File Upload css :
 -----------------------------------------
@@ -31287,7 +31297,7 @@ input[type=range]:focus {
   font-size: 30px;
 }
 
-/* 
+/*
 ----------------------------------------
     : Custom - Form Validation css :
 ----------------------------------------
@@ -31316,7 +31326,7 @@ input[type=range]:focus {
   display: block;
 }
 
-/* 
+/*
 ------------------------------------
     : Custom - Form Wizard css :
 ------------------------------------
@@ -31536,7 +31546,7 @@ input[type=range]:focus {
     width: 100%;
   }
 }
-/* 
+/*
 -------------------------------
     : Custom - Gallery css :
 -------------------------------
@@ -31633,7 +31643,7 @@ input[type=range]:focus {
   opacity: 1;
 }
 
-/* 
+/*
 --------------------------------
     : Custom - Invoice css :
 --------------------------------
@@ -31695,7 +31705,7 @@ input[type=range]:focus {
     margin-top: 30px;
   }
 }
-/* 
+/*
 ---------------------------------------
     : Custom - jQuery Confirm css :
 ---------------------------------------
@@ -31778,7 +31788,7 @@ input[type=range]:focus {
   border-top: none;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - jsTree css :
 -------------------------------
@@ -31813,7 +31823,7 @@ input[type=range]:focus {
   line-height: 26px;
 }
 
-/* 
+/*
 --------------------------------------
     : Custom - Kanban Board css :
 --------------------------------------
@@ -31852,7 +31862,7 @@ input[type=range]:focus {
   transform: scale(1.1);
 }
 
-/* 
+/*
 -----------------------------
     : Custom - Maps css :
 -----------------------------
@@ -31919,7 +31929,7 @@ input[type=range]:focus {
     height: 200px;
   }
 }
-/* 
+/*
 ------------------------------
     : Custom - Modal css :
 ------------------------------
@@ -31967,7 +31977,7 @@ input[type=range]:focus {
   display: block;
 }
 
-/* 
+/*
 ---------------------------------
     : Custom - Nestable css :
 ---------------------------------
@@ -32085,7 +32095,7 @@ input[type=range]:focus {
   border-radius: 3px;
 }
 
-/* 
+/*
 -------------------------------------------
     : Custom - Onboarding Screens css :
 -------------------------------------------
@@ -32137,7 +32147,7 @@ input[type=range]:focus {
   content: none;
 }
 
-/* 
+/*
 -----------------------------------
     : Custom - Pagination css :
 -----------------------------------
@@ -32146,21 +32156,29 @@ input[type=range]:focus {
   color: #6e81dc;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.3s ease-in-out;
 }
 .page-item .page-link:focus {
   background-color: #dcdde1;
   border-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 0 0.2rem #e9ecfa;
+  outline: none;
 }
 .page-item .page-link:hover {
-  color: #2d3646;
-  background-color: #dcdde1;
-  border-color: rgba(0, 0, 0, 0.05);
+  color: #e9ecfa;
+  background-color: #7f8d9e;
+  border-color:#ffffff rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 .page-item.active .page-link {
   color: #ffffff;
-  background-color: #6e81dc;
-  border-color: #6e81dc;
+  background-color: #007bff;
+  border-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 .page-item.disabled .page-link {
   color: #8A98AC;
@@ -32168,9 +32186,24 @@ input[type=range]:focus {
   cursor: auto;
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.05);
+  opacity: 0.6;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.pagination .page-item {
+  margin: 0 0.25rem;
+}
+@media (max-width: 576px) {
+.page-item .page-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+ }
 }
 
-/* 
+/*
 --------------------------------
     : Custom - Pnotify css :
 --------------------------------
@@ -32226,7 +32259,7 @@ input[type=range]:focus {
   font-size: 20px;
 }
 
-/* 
+/*
 --------------------------------------------
     : Custom - Popovers & Tooltips css :
 --------------------------------------------
@@ -32295,7 +32328,7 @@ input[type=range]:focus {
   padding: 4px 10px;
 }
 
-/* 
+/*
 --------------------------------
     : Custom - Pricing css :
 --------------------------------
@@ -32337,7 +32370,7 @@ input[type=range]:focus {
   padding-bottom: 30px;
 }
 
-/* 
+/*
 ------------------------------
     : Custom - Print css :
 ------------------------------
@@ -32363,7 +32396,7 @@ input[type=range]:focus {
     margin-left: 0;
   }
 }
-/* 
+/*
 ------------------------------------
     : Custom - Progressbar css :
 ------------------------------------
@@ -32376,7 +32409,7 @@ input[type=range]:focus {
   background-color: #6e81dc;
 }
 
-/* 
+/*
 -------------------------------------
     : Custom - Range Slider css :
 -------------------------------------
@@ -32591,7 +32624,7 @@ input[type=range]:focus {
   color: #8A98AC;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Rating css :
 -------------------------------
@@ -32764,11 +32797,11 @@ input[type=range]:focus {
   cursor: default;
 }
 .br-theme-bars-square .br-readonly a.br-active {
-  border: 2px solid #primary;
+  border: 2px solid;
   color: #6e81dc;
 }
 .br-theme-bars-square .br-readonly a.br-selected {
-  border: 2px solid #primary;
+  border: 2px solid ;
   color: #6e81dc;
 }
 
@@ -33134,7 +33167,7 @@ input[type=range]:focus {
     color: #6e81dc;
   }
 }
-/* 
+/*
 ---------------------------------------
     : Custom - Security Pages css :
 ---------------------------------------
@@ -33286,7 +33319,7 @@ input[type=range]:focus {
     text-align: left;
   }
 }
-/* 
+/*
 -----------------------------------
     : Custom - Summernote css :
 -----------------------------------
@@ -33382,7 +33415,7 @@ input[type=range]:focus {
   padding: 5px 0 10px 5px;
 }
 
-/* 
+/*
 ------------------------------------
     : Custom - Sweet Alert css :
 ------------------------------------
@@ -33495,7 +33528,7 @@ input[type=range]:focus {
   background-color: #f44455;
 }
 
-/* 
+/*
 ----------------------------------
     : Custom - Switchery css :
 ----------------------------------
@@ -33533,7 +33566,7 @@ input[type=range]:focus {
   width: 40px;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Tables css :
 -------------------------------
@@ -33901,7 +33934,7 @@ table.focus-on tfoot tr.focused td {
   font-family: "feather" !important;
 }
 
-/* 
+/*
 -----------------------------
     : Custom - Tabs css :
 -----------------------------
@@ -33947,7 +33980,12 @@ table.focus-on tfoot tr.focused td {
   color: #ffffff;
   background-color: #6e81dc;
 }
-
+.nav-item.active a {
+    color: blue; /* Change this to the desired color */
+}
+.nav-pills li a:hover{
+    background-color: blue;
+}
 /* -- Custom Tabs -- */
 .nav-tabs.custom-tab-line .nav-item {
   margin-right: 20px;
@@ -33988,7 +34026,7 @@ table.focus-on tfoot tr.focused td {
   display: block;
 }
 
-/* 
+/*
 ---------------------------------
     : Custom - Timeline css :
 ---------------------------------
@@ -33997,7 +34035,7 @@ table.focus-on tfoot tr.focused td {
   padding: 2.5em 0;
 }
 
-/* 
+/*
 --------------------------------
     : Custom - Toolbar css :
 --------------------------------
@@ -34217,7 +34255,7 @@ table.focus-on tfoot tr.focused td {
   background: #232a36;
 }
 
-/* 
+/*
 -------------------------------
     : Custom - Tour css :
 -------------------------------
@@ -34348,7 +34386,7 @@ table.focus-on tfoot tr.focused td {
     color: #718093;
   }
 }
-/* 
+/*
 --------------------------------
     : Custom - Widgets css :
 --------------------------------
@@ -34489,7 +34527,7 @@ table.focus-on tfoot tr.focused td {
     margin-top: 15px;
   }
 }
-/* 
+/*
 -----------------------------------
     : Custom - Responsive css :
 -----------------------------------
@@ -34685,7 +34723,7 @@ table.focus-on tfoot tr.focused td {
   }
 
   .breadcrumbbar {
-    padding: 30px 0 0 0;
+    /* padding: 30px 0 0 0; */
   }
   .breadcrumbbar .page-title {
     text-align: center;
@@ -34720,5 +34758,18 @@ table.focus-on tfoot tr.focused td {
     width: 100%;
   }
 }
+.btn-sm.rounded-circle {
+    width: 24px; /* Adjust width for smaller circle */
+    height: 24px; /* Adjust height for smaller circle */
+    padding: 2px; /* 2px padding */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Adjust font size for the icon */
+    line-height: 1;
+}
 
-/*# sourceMappingURL=style.css.map */
+.btn-sm.rounded-circle .fa-minus {
+    font-size: 12px; /* Smaller font size for the icon */
+}

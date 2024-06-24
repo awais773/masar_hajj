@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Company | Survey Edit @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -15,17 +15,17 @@
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
                             <a href="{{route('company.survey')}}" class="btn btn-primary">{{ __('admin.survey') }}</a>
-                        </div>                        
+                        </div>
                     </div>
-                    
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
@@ -35,16 +35,17 @@
                             <div class="card-body">
                                 <form action="{{route('company.survey.update',$survey->id)}}" method="POST"  enctype="multipart/form-data">
                                 @csrf
-                                    <?php 
+                                    <?php
                                         $NameExt = "question_";
                                         $stringValues = $survey->question;
                                     ?>
+                                    <div class="row">
                                     <div class="form-group">
                                     <label>{{ trans('admin.question');}}</label>
                                         @include('comman.tab')
                                     </div>
-                                    
-                                    <?php 
+
+                                    <?php
                                         $NameExt = "choose_";
                                         $stringValues = $survey->choices;
                                     ?>
@@ -52,7 +53,8 @@
                                     <label>{{ trans('admin.choose');}}</label>
                                         @include('comman.tab')
                                     </div>
-                                   
+                                </div>
+                                <div class="row">
                                     <div class="form-group">
                                     <label>{{ trans('admin.notification_groups');}}</label>
                                     <?php $selectedGroupsString = $survey->group_id;
@@ -63,8 +65,11 @@
                                     ?>
                                         @include('comman.get-comapny-groups')
                                     </div>
-                                
-                                    <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
+                                </div>
+                                <div class="form-container" style="text-align: right;">
+                                    <button type="submit" class="beautiful-button">Submit</button>
+                                </div>
+                                <!-- <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button> -->
                                 </form>
                             </div>
                         </div>

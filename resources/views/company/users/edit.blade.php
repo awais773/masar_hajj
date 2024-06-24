@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Company | Edit User @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -15,17 +15,17 @@
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
                             <a href="{{route('company.user')}}" class="btn btn-primary">{{ __('admin.users') }}</a>
-                        </div>                        
+                        </div>
                     </div>
-                    
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
@@ -35,6 +35,25 @@
                             <div class="card-body">
                                 <form action="{{route('company.user.update',$companyUser->id)}}" method="POST"  enctype="multipart/form-data">
                                 @csrf
+                                <div class="row">
+                                    <?php
+                                        $NameExt = "firstname_";
+                                        $stringValues = $companyUser->firstname;
+                                    ?>
+                                    <div class="form-group col-6">
+                                        <label>{{ trans('admin.guide_firstname');}}</label>
+                                        @include('comman.tab')
+                                    </div>
+
+                                    <?php
+                                        $NameExt = "lastname_";
+                                        $stringValues = $companyUser->lastname;;
+                                    ?>
+                                    <div class="form-group col-6">
+                                        <label>{{ trans('admin.guide_lastname');}}</label>
+                                        @include('comman.tab')
+                                    </div>
+                                </div>
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label>{{ trans('admin.user_username')}}</label>
@@ -56,26 +75,6 @@
                                             <input type="text" class="form-control" id="phone" name="phone" required value="{{$companyUser->phone}}">
                                         </div>
                                     </div>
-                                    
-                                    <?php
-                                        $NameExt = "firstname_";
-                                        $stringValues = $companyUser->firstname;
-                                    ?>
-                                    <div class="row">
-                                        <div class="form-group col-6">
-                                            <label>{{ trans('admin.guide_firstname');}}</label>
-                                            @include('comman.tab')
-                                        </div>
-                                    
-                                        <?php 
-                                            $NameExt = "lastname_";
-                                            $stringValues = $companyUser->lastname;;
-                                        ?>
-                                        <div class="form-group col-6">
-                                            <label>{{ trans('admin.guide_lastname');}}</label>
-                                            @include('comman.tab')
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="form-group col-6">
                                         <label>{{ trans('admin.notification_groups');}}</label>
@@ -84,9 +83,9 @@
                                             $crtlId='selectedgroups';
                                             $placeHolder=trans('admin.notification_selectgroups');
                                             $isMuliple = true;
-                                        
+
                                         ?>
-                                    
+
                                             @include('comman.get-company-group-byid')
                                         </div>
 
@@ -121,8 +120,11 @@
                                         <input class="form-check-input" type="checkbox" name="active" id="active" value="1" {{ $companyUser->active==1 ?'checked' : ''}}>
                                         <label class="form-check-label" for="active">{{ trans('admin.user_active');}}</label>
                                     </div>
-                                
-                                    <button type="submit" class="btn btn-success btn-lg btn-block font-18">{{ trans('admin.user_save');}}</button>
+
+                                  <!--  <button type="submit" class="btn btn-success btn-lg btn-block font-18">{{ trans('admin.user_save');}}</button> -->
+                                <div class="form-container" style="text-align: right;">
+                                    <button type="submit" class="beautiful-button">Submit</button>
+                                </div>
                                 </form>
                             </div>
                         </div>

@@ -5,7 +5,7 @@ $crtlId = (!empty($crtlId) && $crtlId != null && $crtlId) ? $crtlId : "guides";
 $placeHolder = (!empty($placeHolder) && $placeHolder != null && $placeHolder) ? $placeHolder : "Select Guide(s)";
 $selectedGuidesString = (!empty($selectedGuidesString) && $selectedGuidesString != null && $selectedGuidesString) ? $selectedGuidesString : "";
 $isMuliple = (!empty($isMuliple) && $isMuliple != null && $isMuliple) ? $isMuliple : false;
-?>   
+?>
 
 <?php
 
@@ -22,17 +22,17 @@ if ($user_id) {
     $groups = \App\Models\Group::with('users')->get();
 }
 
-?>  
+?>
 
 <select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" multiple="multiple" >
     @foreach($groups as $group)
         <optgroup label="{{Helper::get_localizedDefault($group->name)}}">
             @foreach ($group->users as $user)
-                <option value="{{$user->id}}">{{Helper::get_localizedDefault($user->firstname).''.Helper::get_localizedDefault($user->lastname)}}</option> 
+                <option value="{{$user->id}}">{{Helper::get_localizedDefault($user->firstname).''.Helper::get_localizedDefault($user->lastname)}}</option>
             @endforeach
         </optgroup>
     @endforeach
-    
+
 </select>
 <style type="text/css">
     .select2-input

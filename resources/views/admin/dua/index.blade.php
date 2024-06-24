@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Company | Dua @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -15,17 +15,17 @@
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
                             <a href="{{route('company.dua.add')}}" class="btn btn-primary">{{ trans('admin.new_dua');}}</a>
-                        </div>                        
+                        </div>
                     </div>
-                    
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
@@ -59,11 +59,13 @@
                                                 <td style="white-space: nowrap; width: 15%;">
                                                     <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                                     <div class="btn-group btn-group-sm" style="float: none;">
-                                                                <a href="{{route('company.dua.edit',$dua->id)}}" class="rounded tabledit-edit-button btn btn-sm btn-info mr-2 px-3" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
-                                                                <a href="{{route('company.dua.delete',$dua->id)}}" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>
+                                                                {{--  <a href="{{route('company.dua.edit',$dua->id)}}" class="rounded tabledit-edit-button btn btn-sm btn-info mr-2 px-3" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
+                                                                <a href="{{route('company.dua.delete',$dua->id)}}" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>  --}}
+                                                                <a href="{{route('company.dua.edit',$dua->id)}}" class="amazing-edit-btn" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
+                                                                <a href="{{route('company.dua.delete',$dua->id)}}" class="amazing-delete-btn" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>
                                                                 <!-- <button type="button" class="tabledit-delete-button btn btn-sm btn-danger deleteDataBtn" data-href="{{route('admin.dua.delete',$dua->id)}}" data-toggle="modal" data-target="#deleteData"> <span class="ti-trash align-middle"></span></button> -->
                                                     </div>
-                                            
+
                                                 </div>
                                                 </td>
                                             </tr>

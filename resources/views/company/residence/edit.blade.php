@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Company | Edit Residence @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -15,85 +15,93 @@
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
                             <a href="{{route('company.residence')}}" class="btn btn-primary">{{ __('admin.location') }}</a>
-                        </div>                        
+                        </div>
                     </div>
-                    
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
-                           
+
                             <div class="card-body">
                                 <form action="{{route('company.residence.update',$location->id)}}" method="POST"  enctype="multipart/form-data">
                                 @csrf
-                                    <div class="form-group">
-                                        <label>{{ trans('admin.location');}}</label>
-                                        <select class="form-control input-lg chosen" data-placeholder="Choose" tabindex="1" id="type" name="type">
-                                            <option value="">{{trans('admin.choose')}}</option>  
-                                            <option value="Mecca" {{$location->type=='Mecca'?'selected':''}}>{{trans('admin.mecca')}}</option>
-                                            <option value="City" {{$location->type=='City'?'selected':''}}>{{trans('admin.city')}}</option>
-                                            <option value="Mina" {{$location->type=='Mina'?'selected':''}}>{{trans('admin.mina')}}</option>
-                                            <option value="Arafat" {{$location->type=='Arafat'?'selected':''}}>{{trans('admin.arafat')}}</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>{{ trans('admin.hotel_name');}}</label>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-sm-6">
+                                        <label style="margin-left: 1.2rem">{{ trans('admin.hotel_name');}}</label>
                                         <?php
                                             $NameExt = "name_";
                                             $stringValues = $location->name;
                                         ?>
                                         @include('comman.tab')
-                                      
+
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>{{ trans('admin.hotel_address');}}</label>
+                                    <div class="form-group col-md-6 col-sm-6">
+                                        <label style="margin-left: 1.2rem">{{ trans('admin.hotel_address');}}</label>
                                         <?php
                                             $NameExt = "address_";
                                             $stringValues = $location->address;
                                         ?>
                                         @include('comman.tab')
                                     </div>
+                                </div>
+                                <div class="row col-sm-12">
+                                    <div class="form-group col-md-6 col-sm-6" style="margin-right: 8px;">
+                                        <div class="card  m-b-3">
+                                        <label class="d-block">{{ trans('admin.location');}}</label>
+                                        <select class="form-control input-lg chosen" data-placeholder="Choose" tabindex="1" id="type" name="type">
+                                            <option value="">{{trans('admin.choose')}}</option>
+                                            <option value="Mecca" {{$location->type=='Mecca'?'selected':''}}>{{trans('admin.mecca')}}</option>
+                                            <option value="City" {{$location->type=='City'?'selected':''}}>{{trans('admin.city')}}</option>
+                                            <option value="Mina" {{$location->type=='Mina'?'selected':''}}>{{trans('admin.mina')}}</option>
+                                            <option value="Arafat" {{$location->type=='Arafat'?'selected':''}}>{{trans('admin.arafat')}}</option>
+                                        </select>
+                                    </div>
+                                    </div>
+
                                     <input type="hidden" name="company_id" value="{{Auth::id()}}">
-                                  
-                                    <div class="form-group">
-                                    <label for="mobile">{{ trans('admin.hotel_mobile');}}</label> 
-                                        <input type="text" class="form-control" name="mobile" value="{{$location->mobile}}" id="mobile" >  
+
+                                    <div class="form-group col-md-5 col-sm-6" style="margin-left: 30px;">
+                                        <div class="card  m-b-3">
+                                        <label for="mobile">{{ trans('admin.hotel_mobile');}}</label>
+                                        <input type="text" class="form-control" name="mobile" value="{{$location->mobile}}" id="mobile" style="width: 120%;">
 
                                     </div>
-                                    
+                                </div>
+                            </div>
                                     <div class="form-group">
-                                        <label>{{ trans('admin.location');}}</label><br>
-                                        <input type="text" class="form-control" name="my_address" id="my-address" placeholder="{{ trans('admin.Please_enter_address') }}" style="width:40%;float:left;margin-right:20px;">
-                                        <input type="button" id="getCords" class="btn btn-success" style="float:center;" value="{{ trans('admin.Find_Location') }} " onClick="codeAddress(1);">
+                                        <label class="d-block" style="margin-left:20px;">{{ trans('admin.location');}}</label><br>
+                                        <input type="text" class="form-control" name="my_address" id="my-address" placeholder="{{ trans('admin.Please_enter_address') }}" style="width:30%;float:left;margin-right:25px;margin-left:15px;">
+                                        <input type="button" id="getCords" class="btn btn-success" style="float:left; margin-right:10px;" value="{{ trans('admin.Find_Location') }} " onClick="codeAddress(1);">
+                                        <input type="text" class="form-control" placeholder="Google Map Link" name="googlemapurl" style="width:30%;float:left;margin-right:25px; margin-left:60px;">
+                                        <input type="button" id="Extractbtn" class="btn btn-success" style="float:left;" value="{{ trans('admin.Find_Location') }} ">
                                         <br>
-                                        <br>
-
-                                        <input type="text" class="form-control" placeholder="Google Map Link" name="googlemapurl" style="width:40%;float:left;margin-right:20px;">
-                                        <input type="button" id="Extractbtn" class="btn btn-success" style="float:center;" value="{{ trans('admin.Find_Location') }} ">
                                         <br>
                                         <!-- <label>Latitude</label>  -->
-                                        <input type="hidden" class="form-control1" name="latitude" id="latitude"  value="{{$location->latitude}}" > <br>  
+                                        <input type="hidden" class="form-control1" name="latitude" id="latitude"  value="{{$location->latitude}}" > <br>
                                         <!-- <label>Longitude</label>  -->
-                                        <input type="hidden" class="form-control1" name="longitude"  id="longitude"  value="{{$location->longitude}}">  
+                                        <input type="hidden" class="form-control1" name="longitude"  id="longitude"  value="{{$location->longitude}}">
 
-                                    <br>
-                                    
-                                    <div id="map-canvas" style="width:100%;"></div> 
+                                        <br>
+
+                                    <div id="map-canvas" style="width:100%;"></div>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="active" id="active" value="1" {{ $location->active==1 ?'checked' : ''}}>
                                         <label class="form-check-label" for="active">{{ trans('admin.user_active');}}</label>
                                     </div>
-                                    <button type="submit" class="btn btn-success btn-lg btn-block font-18">{{ trans('admin.user_save');}}</button>
+                                  <!--  <button type="submit" class="btn btn-success btn-lg btn-block font-18">{{ trans('admin.user_save');}}</button> -->
+                                  <div class="form-container" style="text-align: right;">
+                                            <button type="submit" class="beautiful-button">Submit</button>
+                                        </div>
                                 </form>
                             </div>
                         </div>
@@ -104,7 +112,7 @@
             </div>
             <!-- End Contentbar -->
 
-          
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ Config::get('app.googlemap_key'); }}&v=3.exp&sensor=false&libraries=places"></script>
 <style>
@@ -147,7 +155,7 @@
             document.getElementById('latitude').value = results[0].geometry.location.lat();
             document.getElementById('longitude').value = results[0].geometry.location.lng();
             initialize_map(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-            } 
+            }
             else {
                 initialize_map(29.44747825425,31.241468254547);
             }
@@ -158,7 +166,7 @@
 function codeAddressBy_latlng() {
         geocoder = new google.maps.Geocoder();
             debugger;
-             
+
              var latlng = {lat: parseFloat(document.getElementById('latitude').value), lng: parseFloat(document.getElementById('longitude').value)};
             geocoder.geocode( { 'location': latlng    }, function(results, status) {
                 debugger;
@@ -167,22 +175,22 @@ function codeAddressBy_latlng() {
             document.getElementById('latitude').value = results[0].geometry.location.lat();
             document.getElementById('longitude').value = results[0].geometry.location.lng();
             initialize_map(results[0].geometry.location.lat(),results[0].geometry.location.lng());
-            } 
+            }
 
             else {
                 initialize_map(29.44747825425,31.241468254547);
             }
             });
-         
+
       }
     google.maps.event.addDomListener(window, 'load', initialize);
 
           $( document ).ready(function() {
-   
+
         $( "#form-group #latitude,#form-group  #longitude" ).on('change',function(e){
             codeAddressBy_latlng();
         });
-   
+
          var latitude= document.getElementById('latitude').value;
          var longitude= document.getElementById('longitude').value;
           if (longitude=="" || latitude=="" || longitude=="0" || latitude=="0"){
@@ -194,7 +202,7 @@ function codeAddressBy_latlng() {
         }else
         {
             initialize_map(latitude,longitude);
-            
+
         }
         });
 
@@ -221,7 +229,7 @@ function codeAddressBy_latlng() {
 <script>
  // source map script
      var gmarkers = [];
-      
+
       function initialize_map(lat,lng,z=16) {
         latitude = parseFloat(lat);
         longitude = parseFloat(lng);
@@ -249,7 +257,7 @@ function codeAddressBy_latlng() {
             var geocoder= new google.maps.Geocoder();
             document.getElementById("latitude").value =latLng.lat();
             document.getElementById("longitude").value =latLng.lng();
-            
+
 
             var latlngplace = new google.maps.LatLng(latLng.lat(), latLng.lng());
               geocoder.geocode({'latLng': latlngplace}, function(results, status){
@@ -257,7 +265,7 @@ function codeAddressBy_latlng() {
                     if (results[1]) {
                         $("input[name=latitude]").val(latLng.lat());
                         $("input[name=longitude]").val(latLng.lng());
-            document.getElementById("my-address").value =results[1].formatted_address;                          
+            document.getElementById("my-address").value =results[1].formatted_address;
                         } else {
                           alert('No Address Found');
                         }
@@ -267,7 +275,7 @@ function codeAddressBy_latlng() {
             });
 
           });
-       
+
       }
 
     </script>

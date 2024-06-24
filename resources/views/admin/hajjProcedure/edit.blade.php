@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Admin | Hajj Procedure @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -15,17 +15,17 @@
                     <div class="col-md-4 col-lg-4">
                         <div class="widgetbar">
                             <a href="{{route('admin.hajjprocedure.index')}}" class="btn btn-primary">{{ __('admin.Information') }}</a>
-                        </div>                        
+                        </div>
                     </div>
-                    
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
@@ -35,15 +35,18 @@
                             <div class="card-body">
                                 <form action="{{route('admin.hajjprocedure.update',$hajjProcedure->id)}}" method="POST"  enctype="multipart/form-data">
                                     @csrf
-                                     <?php 
+                                     <?php
                                         $NameExt = "title_";
                                         $stringValues = $hajjProcedure->title;
                                     ?>
+                                    <div class="row">
+                                    <div class="col-md-6">
                                     <div class="form-group">
-                                    <label>{{ trans('admin.info_title');}}</label>
+                                   <!-- <label>{{ trans('admin.info_title');}}</label> -->
                                         @include('comman.tab')
                                     </div>
-                                    
+                                    </div>
+                                    <div class="col-md-6">
                                     <div class="form-group">
                                     <label>{{ trans('admin.info_iconfile');}}</label>
                                         <input type="file" class="form-control" name="icon" id="icon">
@@ -52,8 +55,10 @@
                                             <input type="hidden" class="form-control" name="icon_old" value="{{$hajjProcedure->icon}}">
                                         @endif
                                     </div>
-                                    
-                                    <?php 
+                                    </div>
+                                </div>
+
+                                    <?php
                                         $NameExt = "description_";
                                         $stringValues = $hajjProcedure->content;
                                         $isTextarea = true;
@@ -61,7 +66,7 @@
                                     <div class="form-group">
                                     <label>{{ trans('admin.info_description');}}</label>
                                         @include('comman.tab')
-                                    </div>                      
+                                    </div>
                                     <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
                                 </form>
                             </div>

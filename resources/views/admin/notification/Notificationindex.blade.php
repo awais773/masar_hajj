@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Admin | Notification @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -12,22 +12,22 @@
                             </ol>
                         </div>
                     </div>
-                  
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
-                          
+
                             <div class="card-body">
                                 <form action="{{route('admin.notification.store')}}" method="POST" enctype="multipart/form-data">
                                      @csrf
-                                    <?php 
+                                    <?php
                                         $NameExt = "title_";
                                         $stringValues = '';
                                     ?>
@@ -35,8 +35,8 @@
                                     <label>{{ trans('admin.notification_title');}}</label>
                                         @include('comman.tab')
                                     </div>
-                                    
-                                    <?php 
+
+                                    <?php
                                         $NameExt = "message_";
                                         $stringValues = '';
                                     ?>
@@ -50,14 +50,14 @@
                                     <?php $selectedUsersString = '';
                                     $crtlName='selectedguides[]';
                                     $crtlId='selectedguides';
-                                    $placeHolder= trans('admin.notification_selectguides'); 
+                                    $placeHolder= trans('admin.notification_selectguides');
                                     $isMuliple = true;
                                     ?>
-                        
+
                                     <div>
                                     @include('comman.get-guides')
                                     </div>
-                                </div> 
+                                </div>
 
                                     <div class="form-group">
                                     <label>{{ trans('admin.notification_groups');}}
@@ -81,7 +81,7 @@
                                         ?>
 
                                         @include('comman.get-group-users')
-                                    </div> 
+                                    </div>
                                     <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
                                 </form>
                             </div>
