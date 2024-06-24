@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Admin | Requests @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -12,15 +12,15 @@
                             </ol>
                         </div>
                     </div>
-                 
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
@@ -64,7 +64,7 @@
                                                     <div class="btn-group btn-group-sm" style="float: none;">
                                                         <a href="{{route('admin.registrationRequest.delete',$registrationRequest->id)}}" class="tabledit-delete-button btn btn-sm btn-danger" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>
                                                     </div>
-                                            
+
                                                 </div>
                                                 </td>
                                             </tr>
@@ -87,7 +87,7 @@
             <!-- End Contentbar -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-             
+
 <script type="text/javascript">
 
 $('table').on('click', '.btnDeleteApproved', function(e) {

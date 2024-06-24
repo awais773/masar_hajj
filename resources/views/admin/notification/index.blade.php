@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Admin | Notification @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -12,54 +12,55 @@
                             </ol>
                         </div>
                     </div>
-                  
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
                     <!-- Start col -->
                     <div class="col-lg-12">
-                        <div class="card m-b-30">
-                          
-                            <div class="card-body">
+                        <div class="card m-b-30 mx-auto">
+
+                             <div class="card-body col-sm-12 col-md-18 col-xl-30">
                                 <form action="{{route('admin.notification.store')}}" method="POST" enctype="multipart/form-data">
                                      @csrf
-                                    <?php 
+                                    <?php
                                         $NameExt = "title_";
                                         $stringValues = '';
                                     ?>
-                                    <div class="form-group">
-                                    <label>{{ trans('admin.notification_title');}}</label>
-                                        @include('comman.tab')
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-sm-6">
+                                        <label>{{ trans('admin.notification_title');}}</label>
+                                            @include('comman.tab')
+                                        </div>
+
+                                        <?php
+                                            $NameExt = "message_";
+                                            $stringValues = '';
+                                        ?>
+                                        <div class="form-group col-md-6 col-sm-6">
+                                        <label>{{ trans('admin.notification_message');}}</label>
+                                            @include('comman.tab')
+                                        </div>
                                     </div>
-                                    
-                                    <?php 
-                                        $NameExt = "message_";
-                                        $stringValues = '';
-                                    ?>
-                                    <div class="form-group">
-                                    <label>{{ trans('admin.notification_message');}}</label>
-                                        @include('comman.tab')
-                                    </div>
-                                   
-                                    <div class="form-guide">
+                                <div class="row">
+                                    <div class="form-guide col-md-6 col-sm-6" style="margin-left: 20px;">
                                     <label>{{ trans('admin.notification_guides');}}</label>
                                     <?php $selectedUsersString = '';
                                     $crtlName='selectedguides[]';
                                     $crtlId='selectedguides';
-                                    $placeHolder= trans('admin.notification_selectguides'); 
+                                    $placeHolder= trans('admin.notification_selectguides');
                                     $isMuliple = true;
                                     ?>
-                        
-                                    <div>
+                                    <div class="nice-select default_sel mb_30 w-100">
                                     @include('comman.get-guides')
                                     </div>
-                                </div> 
+                                </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group col-md-5 col-sm-6"  >
                                     <label>{{ trans('admin.notification_groups');}} </label>
                                     <?php $selectedGroupsString = '';
                                         $crtlName='selectedgroups[]';
@@ -69,8 +70,9 @@
                                     ?>
                                         @include('comman.get-comapny-groups')
                                     </div>
-
-                                    <div class="form-group">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-sm-6" style="margin-left: 20px;">
                                         <label>{{ trans('admin.notification_users');}}</label>
                                         <?php $selectedUsersString ='';
                                         $crtlName='selectedusers[]';
@@ -80,25 +82,29 @@
                                         ?>
 
                                         @include('comman.get-group-users')
-                                        
-                                    </div> 
-                                    
-                                    <div class="form-companies">
+
+                                    </div>
+
+                                    <div class="form-companies col-md-5 col-sm-6"  >
                                         <label>{{ trans('admin.notification_companies');}}
                                         </label>
                                         <?php $selectedUsersString = '';
                                         $crtlName='selectedcompany[]';
                                         $crtlId='selectedcompany';
-                                        $placeHolder= trans('admin.notification_selectCompanies'); 
+                                        $placeHolder= trans('admin.notification_selectCompanies');
                                         $isMuliple = true;
                                         ?>
-                            
+
                                         <div>
                                         @include('comman.get-company')
                                         </div>
-                                    </div> 
+                                    </div>
+                                </div>
                                     <br>
-                                    <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button>
+                                    <!-- <button type="submit" class="btn btn-success btn-lg btn-block font-18">Submit</button> -->
+                                    <div class="form-container" style="text-align: right;">
+                                        <button type="submit" class="beautiful-button">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

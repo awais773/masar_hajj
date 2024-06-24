@@ -5,7 +5,7 @@ $crtlId = (!empty($crtlId) && $crtlId != null && $crtlId) ? $crtlId : "guides";
 $placeHolder = (!empty($placeHolder) && $placeHolder != null && $placeHolder) ? $placeHolder : "Select Guide(s)";
 $selectedGuidesString = (!empty($selectedGuidesString) && $selectedGuidesString != null && $selectedGuidesString) ? $selectedGuidesString : "";
 $isMuliple = (!empty($isMuliple) && $isMuliple != null && $isMuliple) ? $isMuliple : false;
-?>   
+?>
 
 <?php
 
@@ -22,7 +22,7 @@ if ($user_id) {
     $guides = \App\Models\Guide::select('id', 'firstname', 'lastname')->get();
 }
 
-?>  
+?>
 
 <select class="select2-multi-select form-control" name="{{$crtlName}}" id="{{$crtlId}}" @if($isMuliple) multiple="multiple" @endif >
     <optgroup label="Giude">
@@ -31,11 +31,11 @@ if ($user_id) {
             for ($i = 0; $i < count($guides); $i++) {
                 $g = $guides[$i];
                 ?>
-        <option  
-            value="<?php echo $g["id"]; ?>"><?php echo Helper::get_localizedDefault($g["firstname"]) . " " . Helper::get_localizedDefault($g["lastname"]); ?></option> 
+        <option
+            value="<?php echo $g["id"]; ?>"><?php echo Helper::get_localizedDefault($g["firstname"]) . " " . Helper::get_localizedDefault($g["lastname"]); ?></option>
 
 
-    <?php } ?> 
+    <?php } ?>
     </optgroup>
 </select>
 <style type="text/css">

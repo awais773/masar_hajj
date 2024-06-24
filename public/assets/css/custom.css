@@ -1,11 +1,11 @@
 .navigationbar {
-    background:#6e81dc !important;
+    background:#fff !important;
 }
 .vertical-header{
     color: #fff !important;
 }
 .vertical-menu > li > a{
-    color: #fff !important;
+    color: #000000 !important;
 }
 .vertical-menu > li > a > img{
     filter: unset !important;
@@ -26,7 +26,7 @@
     color: #fff !important;
 }
 .card .card-header .row .card-title ,.card .card-body .row h3{
-    color: #fff !important;
+    color: #000000 !important;
 }
 #defaultTab{
     background: #d3d3d375 !important;
@@ -39,4 +39,319 @@
 }
 .companyLogo{
     width: 100px !important;
+}
+.custom-circle {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: black;
+    border-radius: 50%;
+}
+.autocomplete-suggestions-container {
+    position: relative;
+}
+
+.autocomplete-suggestions {
+    position: absolute;
+    background: white;
+    border-radius: 4px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 520px;
+}
+
+.autocomplete-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #f0f0f0;
+}
+.amazing-edit-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .amazing-edit-btn:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .amazing-edit-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+.amazing-edit-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .amazing-edit-btn:hover {
+    background: linear-gradient(45deg, #2575fc, #51495a);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .amazing-edit-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .amazing-delete-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #d81f4a, #e72402);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .amazing-delete-btn:hover {
+    background: linear-gradient(45deg, #b82d15, #bebcbd);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .amazing-delete-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+.amazing-edit-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .amazing-edit-btn:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .amazing-edit-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .amazing-delete-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .amazing-delete-btn:hover {
+    background: linear-gradient(45deg, #ff4b2b, #8b4e5c);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .amazing-delete-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .amazing-success-btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #00c851, #007e33);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .amazing-success-btn:hover {
+    background: linear-gradient(45deg, #007e33, #00c851);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .amazing-success-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+.beautiful-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.beautiful-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.beautiful-button:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+/* rtl.css */
+
+/* Basic text alignment and direction */
+body.rtl {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Layout adjustments for common elements */
+.rtl .container {
+    direction: rtl;
+}
+
+.rtl .navbar {
+    direction: rtl;
+}
+
+.rtl .footer {
+    direction: rtl;
+}
+
+/* Float adjustments */
+.rtl .float-left {
+    float: right !important;
+}
+
+.rtl .float-right {
+    float: left !important;
+}
+
+/* Text alignment */
+.rtl .text-left {
+    text-align: right !important;
+}
+
+.rtl .text-right {
+    text-align: left !important;
+}
+
+/* Margin and padding adjustments */
+.rtl .ml-auto, .rtl .mx-auto {
+    margin-left: auto !important;
+    margin-right: unset !important;
+}
+
+.rtl .mr-auto, .rtl .mx-auto {
+    margin-right: auto !important;
+    margin-left: unset !important;
+}
+
+.rtl .pl-3, .rtl .px-3 {
+    padding-left: 1rem !important;
+    padding-right: unset !important;
+}
+
+.rtl .pr-3, .rtl .px-3 {
+    padding-right: 1rem !important;
+    padding-left: unset !important;
+}
+
+/* Adjustments for forms */
+.rtl .form-control {
+    text-align: right;
+}
+
+.rtl .input-group-text {
+    direction: rtl;
+}
+
+/* Adjustments for Bootstrap if used */
+.rtl .bootstrap .navbar {
+    direction: rtl;
+}
+
+.rtl .bootstrap .dropdown-menu {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Lists adjustments */
+.rtl ul,
+.rtl ol {
+    text-align: right;
+}
+
+.rtl ul ul,
+.rtl ul ol,
+.rtl ol ul,
+.rtl ol ol {
+    margin-right: 1.5rem;
+    margin-left: 0;
+}
+
+
+/* Additional utility classes */
+.rtl .left {
+    float: right !important;
+}
+
+.rtl .right {
+    float: left !important;
+}
+
+.infobar {
+    align-self: left;
+}
+
+/* Adjust main content to account for infobar */
+body.with-infobar .container {
+    padding-top: 50px; /* Adjust based on the height of your infobar */
+}
+.rtl .breadcrumbbar .widgetbar {
+     text-align: left;
+}
+.rtl .breadcrumb {
+    display: flex;
+    background-color: transparent;
+    margin: 0;
+    padding: 10px 0 0;
+}
+.rtl div.dataTables_wrapper div.dataTables_filter {
+    text-align: left;
 }

@@ -1,4 +1,4 @@
-/* 
+/*
 --------------------------------
     : Custom - Buttons css :
 --------------------------------
@@ -20,7 +20,7 @@
   }
 }
 .btn {
-  border-radius: 3px;
+  border-radius: 10px;
   font-size: 16px;
   padding: 6px 12px;
 }
@@ -31,7 +31,7 @@
   width: 40px;
   height: 40px;
   padding: 6px 11px;
-  border-radius: 50%;  
+  border-radius: 50%;
 }
 .btn-sm {
     padding: 4px 18px;
@@ -78,7 +78,8 @@
   }
   &:hover {
     background-color: darken($primary, 5%);
-    border-color: darken($primary, 5%);
+    // border-color: darken($primary, 5%);
+    border-color: #ffffff;
   }
   &.focus {
     color: $white;
@@ -93,8 +94,10 @@
     box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
   }
   &:visited {
-    background-color: darken($primary, 5%);
-    border-color: darken($primary, 5%);
+    // background-color: darken($primary, 5%);
+    // border-color: darken($primary, 5%);
+    background-color: #007bff;
+    border-color: #007bff;
   }
   &:not(:disabled) {
     &:not(.disabled).active {
@@ -112,13 +115,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-        }        
+        }
       }
     }
   }
@@ -162,13 +165,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-        }        
+        }
       }
     }
   }
@@ -251,13 +254,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($secondary, 5%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($secondary, 5%);
-        }        
+        }
       }
     }
   }
@@ -301,13 +304,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($secondary, 5%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($secondary, 5%);
-        }        
+        }
       }
     }
   }
@@ -390,13 +393,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($success, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($success, 20%);
-        }        
+        }
       }
     }
   }
@@ -440,13 +443,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($success, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($success, 20%);
-        }        
+        }
       }
     }
   }
@@ -529,13 +532,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($danger, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($danger, 20%);
-        }        
+        }
       }
     }
   }
@@ -579,13 +582,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($danger, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($danger, 20%);
-        }        
+        }
       }
     }
   }
@@ -673,13 +676,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($warning, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($warning, 20%);
-        }        
+        }
       }
     }
   }
@@ -725,13 +728,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($warning, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($warning, 20%);
-        }        
+        }
       }
     }
   }
@@ -763,7 +766,7 @@
   color: $white;
   background-color: $info;
   border-color:$info;
-  box-shadow: none;  
+  box-shadow: none;
   .disabled {
     color: $white;
     background-color: $info;
@@ -814,13 +817,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($info, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($info, 20%);
-        }        
+        }
       }
     }
   }
@@ -864,13 +867,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($info, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($info, 20%);
-        }        
+        }
       }
     }
   }
@@ -953,13 +956,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($light, 1%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($light, 1%);
-        }        
+        }
       }
     }
   }
@@ -1005,13 +1008,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($light, 1%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($light, 1%);
-        }        
+        }
       }
     }
   }
@@ -1094,13 +1097,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($dark, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($dark, 20%);
-        }        
+        }
       }
     }
   }
@@ -1146,13 +1149,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($dark, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($dark, 20%);
-        }        
+        }
       }
     }
   }
@@ -1236,13 +1239,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-        }        
+        }
       }
     }
   }
@@ -1269,7 +1272,7 @@
   &:visited {
     background-color: darken($primary, 5%);
     border-color: darken($primary, 5%);
-  }  
+  }
   &:not(:disabled) {
     &:not(.disabled).active {
       background-color: darken($primary, 5%);
@@ -1286,13 +1289,13 @@
     &:not(.disabled).active {
       &:focus {
         box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-      }      
+      }
     }
     &:not(.disabled) {
       &:active {
         &:focus {
           box-shadow: 0 0 0 0.2rem lighten($primary, 20%);
-        }        
+        }
       }
     }
   }

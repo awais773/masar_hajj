@@ -31,13 +31,13 @@ class AdminSurveyControlller extends Controller
      */
     public function index(): View
     {
-      
+
         $surveys=Survey::with('company')->where('company_id',Auth::id())->latest('id')->get();
-       
+
         return view('admin.survey.index',compact('surveys'));
     }
 
-      
+
     /**
      * Show the application dashboard.
      *
@@ -48,13 +48,32 @@ class AdminSurveyControlller extends Controller
         return view('admin.survey.create');
     }
 
+    // public function store(Request $request){
+    //   try {
+    //     $question = Helper::encode_localizedInput('question',$request->all());
+    //     $choose = Helper::encode_localizedInput('choose',$request->all());
+    //     dd($choose);
+    //     $surveyNew = new Survey();
+    //     $surveyNew->question=$question;
+    //     $surveyNew->choices=$choose;
+    //     $surveyNew->company_id=Auth::id();
+    //     $surveyNew->group_id=json_encode($request->selectedgroups);
+    //     $surveyNew->save();
+    //     Session::put('success', 'Survey created successfully !');
+    //     return redirect()->route('company.survey');
+    //   } catch (\Throwable $th) {
+    //     Session::put('error', 'Operation Failed !');
+    //     return redirect()->back();
+    //   }
+    // }
     public function store(Request $request){
       try {
         $question = Helper::encode_localizedInput('question',$request->all());
-        $choose = Helper::encode_localizedInput('choose',$request->all());
+        $choicesInput = $request->input('choose', []);
+        $choices = $this->formatChoices($choicesInput);
         $surveyNew = new Survey();
         $surveyNew->question=$question;
-        $surveyNew->choices=$choose;
+        $surveyNew->choices=json_encode($choices); // Store as JSON string
         $surveyNew->company_id=Auth::id();
         $surveyNew->group_id=json_encode($request->selectedgroups);
         $surveyNew->save();
@@ -64,6 +83,35 @@ class AdminSurveyControlller extends Controller
         Session::put('error', 'Operation Failed !');
         return redirect()->back();
       }
+    }
+
+    /**
+     * Format choices from array format to {"en":"a;b;c","ar":null}
+     *
+     * @param array $choicesInput
+     * @return array
+     */
+    private function formatChoices(array $choicesInput)
+    {
+        $formattedChoices = [];
+
+        foreach ($choicesInput as $index => $choiceSet) {
+            foreach ($choiceSet as $lang => $value) {
+                // If the language key doesn't exist yet, initialize it
+                if (!isset($formattedChoices[$lang])) {
+                    $formattedChoices[$lang] = [];
+                }
+                $formattedChoices[$lang][] = trim($value);
+            }
+        }
+
+        // Convert arrays to "a;b;c" strings or null if empty
+        foreach ($formattedChoices as $lang => &$values) {
+            $values = array_filter($values); // Remove empty strings
+            $formattedChoices[$lang] = !empty($values) ? implode(';', $values) : null;
+        }
+
+        return $formattedChoices;
     }
 
     public function delete(Request $request,$id){
@@ -109,18 +157,18 @@ public function survayDetail($id){
         ->groupBy('choice')
         ->where('survey_id', $id)
         ->get();
-    
+
     $tempArrayLabel = [];
     $tempArrayCount = [];
-    
+
     foreach($chartdata as $chart){
         $tempArrayLabel[] = $chart->choice;
         $tempArrayCount[] = $chart->total;
     }
-    
+
     $labeldata = json_encode($tempArrayLabel);
     $countdata = json_encode($tempArrayCount);
-    
+
     return view('admin.survey.detail', compact('title', 'surveys', 'countdata', 'labeldata'));
 }
 }

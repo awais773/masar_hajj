@@ -27,7 +27,7 @@ class Helper
         return $language;
     }
     public static function get_localizedDefault($stringValues, $code = '', $showDefault = false) {
-        
+
         if ($code == null || $code == '') {
             $code = App::getLocale();
             if ($code == null || $code == '') {
@@ -68,7 +68,6 @@ class Helper
         return $res;
     }
 
-    
     public static function group_array_by($array, $key) {
         $return = array();
         foreach ($array as $val) {
@@ -77,7 +76,7 @@ class Helper
         return $return;
     }
 
-    
+
     public static function addNotification($from_id, $from_type, $to_id, $to_type, $title, $message) {
         $notification = new Notification();
         $notification->from_id = $from_id;
@@ -110,7 +109,7 @@ class Helper
     //     $users = CompanyUser::whereIn('group_id', $groups)->get();
     //     return $users;
     // }
-    
+
       public static function get_users_in_groups($groups, $all = false) {
         // Check if $groups is not null before using it
         if ($groups !== null && is_array($groups) && count($groups) > 0) {
@@ -126,7 +125,7 @@ class Helper
     public static function get_companies($all = false, $limitedToCompany = -2) {
 
         $companies = User::Query();
-        
+
         if ($limitedToCompany > 0) {
             $companies = $companies->where('id', $limitedToCompany);
         }

@@ -1,4 +1,4 @@
-/* 
+/*
 -------------------------------
     : Custom - Badges css :
 -------------------------------
@@ -11,7 +11,7 @@
   color: $white;
   &[href]:hover{
     background-color: darken($primary, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($primary, 5%);
   }
@@ -20,7 +20,7 @@
   background-color: $primary;
   &[href]:hover{
     background-color: darken($primary, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($primary, 5%);
   }
@@ -29,7 +29,7 @@
   background-color: $secondary;
   &[href]:hover{
     background-color: darken($secondary, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($secondary, 5%);
   }
@@ -38,7 +38,7 @@
   background-color: $success;
   &[href]:hover{
     background-color: darken($success, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($success, 5%);
   }
@@ -47,7 +47,7 @@
   background-color: $danger;
   &[href]:hover{
     background-color: darken($danger, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($danger, 5%);
   }
@@ -57,7 +57,7 @@
   background-color: $warning;
   &[href]:hover{
     background-color: darken($warning, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($warning, 5%);
   }
@@ -66,17 +66,17 @@
   background-color: $info;
   &[href]:hover{
     background-color: darken($info, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($info, 5%);
   }
 }
 .badge-light {
-  color: $muted;  
-  background-color: $light;  
+  color: $muted;
+  background-color: $light;
   &[href]:hover{
     background-color: darken($light, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($light, 5%);
   }
@@ -85,7 +85,7 @@
   background-color: $dark;
   &[href]:hover{
     background-color: darken($dark, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($dark, 5%);
   }
@@ -97,7 +97,7 @@
   color: $primary;
   &[href]:hover{
     background-color: darken($primary, 5%);
-  } 
+  }
   &[href]:focus {
     background-color: darken($primary, 5%);
   }
@@ -108,7 +108,7 @@
   &[href]:hover{
     background-color: darken($primary, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($primary, 5%);
     color: $white;
@@ -120,7 +120,7 @@
   &[href]:hover{
     background-color: darken($secondary, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($secondary, 5%);
     color: $white;
@@ -132,7 +132,7 @@
   &[href]:hover{
     background-color: darken($success, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($success, 5%);
     color: $white;
@@ -144,43 +144,43 @@
   &[href]:hover{
     background-color: darken($danger, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($danger, 5%);
     color: $white;
   }
 }
-.badge-warning-inverse {  
+.badge-warning-inverse {
   background-color: $warning-rgba;
   color: $warning;
   &[href]:hover{
     background-color: darken($warning, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($warning, 5%);
     color: $white;
   }
 }
-.badge-info-inverse {  
+.badge-info-inverse {
   background-color: $info-rgba;
   color: $info;
   &[href]:hover{
     background-color: darken($info, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($info, 5%);
     color: $white;
   }
 }
-.badge-light-inverse {  
+.badge-light-inverse {
   background-color: $light-rgba;
   color: $muted;
   &[href]:hover{
     background-color: darken($light, 5%);
     color: $muted;
-  } 
+  }
   &[href]:focus {
     background-color: darken($light, 5%);
     color: $muted;
@@ -192,7 +192,7 @@
   &[href]:hover{
     background-color: darken($dark, 5%);
     color: $white;
-  } 
+  }
   &[href]:focus {
     background-color: darken($dark, 5%);
     color: $white;

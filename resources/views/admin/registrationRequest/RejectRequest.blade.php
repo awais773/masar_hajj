@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title') Admin | Requests @endsection
 @section('content')
-            <!-- Start Breadcrumbbar -->                    
-            <<div class="breadcrumbbar">
+            <!-- Start Breadcrumbbar -->
+            <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="breadcrumb-list">
@@ -12,15 +12,15 @@
                             </ol>
                         </div>
                     </div>
-                    
-                </div>          
+
+                </div>
             </div>
             <!-- End Breadcrumbbar -->
-            <!-- Start Contentbar -->    
-            <div class="contentbar">                
+            <!-- Start Contentbar -->
+            <div class="contentbar">
                 <!-- Start row -->
                 <div class="row">
-                   
+
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
@@ -39,7 +39,7 @@
                                             <th>{{__('admin.comp_phone')}}</th>
                                             <th>{{__('admin.registration_date')}}</th>
                                             <th>{{__('admin.Actions')}}</th>
-                                           
+
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -54,10 +54,10 @@
                                                 <td>{{$registrationRequest->comp_email}}</td>
                                                 <td>{{$registrationRequest->comp_phone}}</td>
                                                 <td>{{$registrationRequest->registration_date}}</td>
-                                                <td> 
+                                                <td>
                                                 <button class="btn btn-success btnDeleteApproved" data-url="{{route('admin.registrationRequest.update',[$registrationRequest->id,1])}}" >Approved</button>
                                                 </td>
-                                                
+
                                             </tr>
                                             @php
                                                 $i++;
@@ -79,31 +79,31 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-             
+
             <script type="text/javascript">
-            
-            $(function() { 
-            
+
+            $(function() {
+
                 //Enable sidebar toggle
                 $(".btnDelete").click(function(e) {
                     e.preventDefault();
-            
+
                     //If window is small enough, enable sidebar push menu
                      if (confirm("Are you sure you want to reject this company"))
                      {
-                     window.location= $(this).attr("data-url");      
+                     window.location= $(this).attr("data-url");
                     }
-                     
+
                 });
                  $(".btnDeleteApproved").click(function(e) {
                     e.preventDefault();
-            
+
                     //If window is small enough, enable sidebar push menu
                      if (confirm("Are you sure you want to Approved this company"))
                      {
-                     window.location= $(this).attr("data-url");      
+                     window.location= $(this).attr("data-url");
                     }
-                     
+
                 });
              });
             </script>

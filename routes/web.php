@@ -1,7 +1,7 @@
 <?php
-  
+
 use Illuminate\Support\Facades\Route;
-  
+
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminHajjProcedureController;
@@ -29,12 +29,12 @@ use App\Http\Controllers\LogoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  
+
 Route::get('/', function () {
     return view('website.index');
 });
-  
-  
+
+
   Route::get('/profileCompany', function () {
   return view('company.admin.companyProfile');
 });
@@ -44,10 +44,10 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth:web','admin-access'])->group(function () {
-  
+
     Route::get('/admin/dashboard', [AdminHomeController::class, 'dashboard'])->name('admin.home');
     Route::get('admin/map/view', [AdminHomeController::class, 'adminMap'])->name('admin.map');
-    //company
+     //company
     Route::get('admin/company', [AdminCompanyController::class, 'index'])->name('admin.company.index');
     Route::get('admin/company/add', [AdminCompanyController::class, 'add'])->name('admin.company.add');
     Route::post('admin/company/store', [AdminCompanyController::class, 'store'])->name('admin.company.store');
@@ -132,8 +132,8 @@ Route::middleware(['auth:web','company-access'])->group(function () {
          Route::get('company/admin/delete/{id}', [CompanyAdminController::class, 'delete'])->name('company.admin.delete');
          Route::get('company/admin/edit/{id}', [CompanyAdminController::class, 'edit'])->name('company.admin.edit');
          Route::post('company/admin/update/{id}', [CompanyAdminController::class, 'update'])->name('company.admin.update');
-         
-         
+
+
           // hajj procedure
     Route::get('company/hajjprocedure', [AdminHajjProcedureController::class, 'index'])->name('admin.hajjprocedure.index');
     Route::get('company/hajjprocedure/add', [AdminHajjProcedureController::class, 'add'])->name('admin.hajjprocedure.add');
@@ -165,7 +165,7 @@ Route::post('admin/notification/store', [AdminNotificationController::class, 'st
 Route::get('company/showNotification', [AdminNotificationController::class, 'showNotification'])->name('company.showNotification');
 
 
-  
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
@@ -174,4 +174,4 @@ Route::group(['middleware' => ['auth']], function() {
   */
   Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
 });
-  
+
